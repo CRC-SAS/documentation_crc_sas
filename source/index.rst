@@ -16,19 +16,4 @@ En este sitio puede encontrarse la documentación de distintos proyectos desarro
 
 .. |CRC-SAS| raw:: html
 
-   <a href="https://www.crc-sas.org/es/" target="_blank">CRC-SAS</a>  
-
-.. toctree::
-    :maxdepth: 3
-    :caption: Contenido:
-
-    SISSA_Database
-    web_service_python
-    web_service_r
-    weather_generator
-    Preguntas_frecuentes
-    Novedades
-    Suscripcion_a_novedades
-    Contacto
-    English_version
-    
+   <a href="https://www.crc-sas.org/es/" target="_blank">CRC-SAS</a>
