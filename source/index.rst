@@ -13,7 +13,3 @@ El Centro Regional sobre el clima para el Sur de América del Sur (|CRC-SAS|) es
    <a href="https://www.crc-sas.org/es/" target="_blank">CRC-SAS</a>  
    
 En este sitio puede encontrarse la documentación de distintos proyectos desarrollados en el marco del |CRC-SAS|.
-
-.. |CRC-SAS| raw:: html
-
-   <a href="https://www.crc-sas.org/es/" target="_blank">CRC-SAS</a>
