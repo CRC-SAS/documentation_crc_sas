@@ -35,5 +35,5 @@ En esta sección vamos a revisar los siguientes items:
     :caption: Contenido:
 
     ./SISSA_database/Informacion_general
-    
+    ./SISSA_database/Estructura_de_datos
 
