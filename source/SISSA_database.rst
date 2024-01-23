@@ -3,12 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-SISSA_Database
+SISSA Database
 ==========
 
 **Base de datos retrospectiva SISSA**
 
-El |SISSA| es el Sistema de Información sobre Sequías para el sur de Sudamérica.
+El |SISSA| es el Sistema de Información sobre Sequías para el sur de Sudamérica. El SISSA provee herramientas e información sobre las sequías y sus impactos a gobiernos, instituciones no gubernamentales y privadas, e individuos.
+El SISSA es una institución virtual que funciona en el marco del Centro Regional del Clima para el sur de América del Sur (CRC-SAS).
 
 .. |SISSA| raw:: html
 
