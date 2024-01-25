@@ -36,4 +36,6 @@ En esta sección vamos a revisar los siguientes items:
 
     ./SISSA_database/Informacion_general
     ./SISSA_database/Estructura_de_datos
+    ./SISSA_database/Formato_de_datos
+
 
