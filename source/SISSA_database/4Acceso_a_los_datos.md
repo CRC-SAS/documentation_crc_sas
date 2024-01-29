@@ -1,16 +1,16 @@
 # Acceso a los datos
 
-Los datos se encuentran disponibles en el **portal de AWS**: `<a href="https://registry.opendata.aws/sissa-forecast-database-dataset/" target="_blank">`https://registry.opendata.aws/sissa-forecast-database-dataset/`</a>`.
+Los datos se encuentran disponibles en el **portal de AWS**: <a href="https://registry.opendata.aws/sissa-forecast-database-dataset/" target="_blank">https://registry.opendata.aws/sissa-forecast-database-dataset/</a>.
 
 La descarga de los datos se puede realizar de las siguientes maneras:
 
-**Vía URL** `<br />`
-Los archivos pueden ser descargados directamente accediendo al siguiente link: `<a href="https://sissa-forecast-database.s3.amazonaws.com/index.html" target="_blank">`https://sissa-forecast-database.s3.amazonaws.com/index.html `</a>`.`<br />`
-Los datos se almacenan utilizando el Amazon Simple Storage Service (S3). Para más información sobre esta herramienta visitar `<a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html" target="_blank">`https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html `</a>`.
+**Vía URL** <br />
+Los archivos pueden ser descargados directamente accediendo al siguiente link: <a href="https://sissa-forecast-database.s3.amazonaws.com/index.html" target="_blank">https://sissa-forecast-database.s3.amazonaws.com/index.html </a>.<br />
+Los datos se almacenan utilizando el Amazon Simple Storage Service (S3). Para más información sobre esta herramienta visitar <a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html" target="_blank">https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html </a>.
 
-**AWS CLI** `<br />`
+**AWS CLI** <br />
 Los datos se pueden descargar utilizando la herramienta AWS Command Line Interface (CLI). Para más información sobre su instalación visitar el siguiente
-`<a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank">`link `</a>`.`<br />`
+<a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank">link </a>.<br />
 A continuación se muestra, a modo de ejemplo, se muestran los comandos para hacer la descarga de un archivo individual y también para descargar todo un directorio (con nombre en el ejemplo: *directorio_salida*):
 
 ```bash
@@ -23,8 +23,8 @@ aws s3 cp --no-sign-request s3://sissa-forecast-database/subseasonal/GEFSv12_cor
 aws s3 cp --no-sign-request --recursive s3://sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2011/20110427/ directorio_salida
 ```
 
-**Python**`<br />`
-Para descargar los archivos se utiliza la librería `<a href="https://pypi.org/project/s3fs/" target="_blank">`s3fs`</a>`. `<br />`
+**Python**<br />
+Para descargar los archivos se utiliza la librería <a href="https://pypi.org/project/s3fs/" target="_blank">s3fs</a>. <br />
 A continuación se muestra, a modo de ejemplo, la descarga del archivo de un día:
 
 ```python
@@ -35,8 +35,8 @@ fs = s3fs.S3FileSystem(anon=True)
 data = fs.get(s3_file)
 ```
 
-**R**`<br />`
-Para descargar los archivos se utiliza la librería `<a href="https://cran.r-project.org/web/packages/aws.s3/index.html" target="_blank">`aws.s3`</a>`. `<br />`
+**R**<br />
+Para descargar los archivos se utiliza la librería <a href="https://cran.r-project.org/web/packages/aws.s3/index.html" target="_blank">aws.s3</a>. <br />
 A continuación se muestra, a modo de ejemplo, la descarga de todos los archivos de un día:
 
 ```R
