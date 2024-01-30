@@ -1,6 +1,6 @@
 # Estructura de datos
 
-La base de datos se encuentra bajo el programa de datos abiertos de Amazon Web Services (AWS) y cada dato se guarda o accede a través de un estructura denominada "*bucket*", cuyo nombre para esta base de datos es "*sissa-forecast-database*" y se puede consultar desde un navegador web utilizando el siguiente link:`<br />`
+La base de datos se encuentra bajo el programa de datos abiertos de Amazon Web Services (AWS) y cada dato se guarda o accede a través de un estructura denominada "*bucket*", cuyo nombre para esta base de datos es "*sissa-forecast-database*" y se puede consultar desde un navegador web utilizando el siguiente link:<br />
 [https://s3-us-west-2.amazonaws.com/sissa-forecast-database/index.html](https://s3-us-west-2.amazonaws.com/sissa-forecast-database/index.html)
 
 Los datos se encuentran a escala diaria para ERA5, GEFSv12 y CFSv2. El listado completo de variables, que se utiliza para todos los modelos es el siguiente:
@@ -28,9 +28,9 @@ La estructura para esta carpeta se puede resumir de la siguiente forma:
 
 /ERA5/{variable}/{año}.nc
 
-donde los campos entre llaves indican: `<br />`
-{variable} = Alguna de las variables listadas en la sección anterior `<br />`
-{año} = 4 dígitos para el año con valores entre 2000 y 2019 `<br />`
+donde los campos entre llaves indican: <br />
+{variable} = Alguna de las variables listadas en la sección anterior <br />
+{año} = 4 dígitos para el año con valores entre 2000 y 2019 <br />
 
 Ejemplos:
 
@@ -43,13 +43,13 @@ Los datos que se guardan de pronósticos históricos de GEFSv12 de acuerdo al si
 
 /subseasonal/{modelo}/{variable}/{año}/{año}{mes}{dia}/{variable}\_{año}{mes}{dia}\_{ens_mem}.nc
 
-donde los campos entre llaves indican: `<br />`
-{modelo} = Dato de pronóstico sin corregir (*GEFSv12*) o pronóstico corregido (*GEFSv12_corr*) `<br />`
-{variable} = Alguna de las variables listadas en la sección inicial (**rain**, **pvmean**, **tdmean**, etc.) `<br />`
-{año} = 4 dígitos para el año con valores entre 2000 y 2019 para *GEFSv12* y 2010 y 2019 para *GEFSv12_corr* `<br />`
-{mes} = mes en formato con dos dígitos `<br />`
-{dia} = día en formato con dos digitos. Sólo válido para dias miercoles. `<br />`
-{ens_mem} = Miembro del ensamble, que para cada fecha puede tener hasta 11 miembros (c00 y p{xx} con xx entre 01 y 10) `<br />`
+donde los campos entre llaves indican: <br />
+{modelo} = Dato de pronóstico sin corregir (*GEFSv12*) o pronóstico corregido (*GEFSv12_corr*) <br />
+{variable} = Alguna de las variables listadas en la sección inicial (**rain**, **pvmean**, **tdmean**, etc.) <br />
+{año} = 4 dígitos para el año con valores entre 2000 y 2019 para *GEFSv12* y 2010 y 2019 para *GEFSv12_corr* <br />
+{mes} = mes en formato con dos dígitos <br />
+{dia} = día en formato con dos digitos. Sólo válido para dias miercoles. <br />
+{ens_mem} = Miembro del ensamble, que para cada fecha puede tener hasta 11 miembros (c00 y p{xx} con xx entre 01 y 10) <br />
 
 Ejemplos:
 

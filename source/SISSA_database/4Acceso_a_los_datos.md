@@ -5,7 +5,7 @@ Los datos se encuentran disponibles en el **portal de AWS**: <a href="https://re
 La descarga de los datos se puede realizar de las siguientes maneras:
 
 **Vía URL** <br />
-Los archivos pueden ser descargados directamente accediendo al siguiente link: <a href="https://sissa-forecast-database.s3.amazonaws.com/index.html" target="_blank">https://sissa-forecast-database.s3.amazonaws.com/index.html </a>.<br />
+Los archivos pueden ser descargados directamente accediendo al siguiente link: <a href="https://s3-us-west-2.amazonaws.com/sissa-forecast-database/index.html" target="_blank">https://s3-us-west-2.amazonaws.com/sissa-forecast-database/index.html </a>.<br />
 Los datos se almacenan utilizando el Amazon Simple Storage Service (S3). Para más información sobre esta herramienta visitar <a href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html" target="_blank">https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html </a>.
 
 **AWS CLI** <br />
@@ -64,7 +64,7 @@ dia <- sprintf("%02d", dia)
 # Se definen los nombres de los archivos del Bucket a descargar
 sissa.names <- get_bucket_df(
     bucket = "s3://sissa-forecast-database/",
-    prefix = paste0("subseasonal/GEFSv12_corr/rain/", anual, "/", anual, mes, dia "/"),
+    prefix = paste0("subseasonal/GEFSv12_corr/rain/", anual, "/", anual, mes, dia, "/"),
     max = Inf,
     region = "us-west-2")
  

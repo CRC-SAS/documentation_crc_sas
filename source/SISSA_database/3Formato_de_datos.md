@@ -1,11 +1,11 @@
 # Formato de datos
 
-El formato de los archivos es **NetCDF** (de sus siglas en inglés Network Common Data Form) en su 4° versión (NetCDF-4). Este es un formato destinado a almacenar datos científicos multidimensionales (variables) ampliamente utilizado en el ámbito de la meteorología. La convención utilizada para escribir el dato es la Climate and Forecast Metadata Conventions (`<a href="http://cfconventions.org/" target="_blank">`CF `</a>`). Para más información sobre el formato **NetCDF** visitar el siguiente `<a href="https://docs.unidata.ucar.edu/netcdf-c/current/index.html" target="_blank">`link `</a>`.
+El formato de los archivos es **NetCDF** (de sus siglas en inglés Network Common Data Form) en su 4° versión (NetCDF-4). Este es un formato destinado a almacenar datos científicos multidimensionales (variables) ampliamente utilizado en el ámbito de la meteorología. La convención utilizada para escribir el dato es la Climate and Forecast Metadata Conventions (<a href="http://cfconventions.org/" target="_blank">CF </a>). Para más información sobre el formato **NetCDF** visitar el siguiente <a href="https://docs.unidata.ucar.edu/netcdf-c/current/index.html" target="_blank">link </a>.
 
-**Proyección de los datos** `<br />`
+**Proyección de los datos** <br />
 El tipo de proyección utilizada es una reticula regular de tipo lat/long con una resolución de 0.25° (~27km). El área que abarcan los datos es toda la zona del CRC-SAS.
 
-**Dimensiones** `<br />`
+**Dimensiones** <br />
 
 Dado que son datos diarios para todos los archivos, la única diferencia que aparece es en la cantidad de días que incluye el archivo, dependiendo de si proviene de ERA5, GEFSv12 o CFS. Las dimensiones espaciales son las mismas para todos ellos.
 
@@ -17,7 +17,7 @@ Dado que son datos diarios para todos los archivos, la única diferencia que apa
 | y          | 187     | Todos   |
 | x          | 189     | Todos   |
 
-**Variables** `<br />`
+**Variables** <br />
 Dada la cantidad de datos que se disponibilizan y puediendo haber problemas a la hora de descargarlo o trabajar en línea, se optó por que cada archivo contenga una de las variables de pronóstico o de reanálisis. Las variables que se pueden encontrar en todos los modelos son los siguientes:
 
 | Variable | Descripción                                                                   | Unidad    | Precisión |
@@ -37,9 +37,9 @@ Dada la cantidad de datos que se disponibilizan y puediendo haber problemas a la
 | ROLnet   | Radiación neta  de onda larga en superficie (0-23 UTC)                        | J m-2 d-1 | float32    |
 | mslmean  | Media diaria de presión a nivel del mar (0-23 UTC)                            | Pa        | float32    |
 
-(\*) Variables calibradas con datos ERA5.`<br />`
+(\*) Variables calibradas con datos ERA5.<br />
 
-**Variables de coordenadas:**`<br />`
+**Variables de coordenadas:**<br />
 
 Las variables de coordenas presentes en los archivos son las siguientes:
 
