@@ -12,3 +12,4 @@ Tutoriales
     :maxdepth: 2
     
     ./Tutorial_descarga_datos_python
+    ./Tutorial_online_plot
