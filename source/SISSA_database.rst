@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 SISSA Database
-==========
+====================
 
 **Base de datos retrospectiva SISSA**
 
