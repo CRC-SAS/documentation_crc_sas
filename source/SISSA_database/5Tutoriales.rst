@@ -14,3 +14,4 @@ Tutoriales
     ./Tutorial_descarga_datos_python
     ./Tutorial_online_plot
     ./Tutorial_online_lista_archivos
+    ./Tutorial_pronostico_semana2
