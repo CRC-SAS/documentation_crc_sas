@@ -48,6 +48,7 @@ source_suffix = {
     '.rst': 'restructuredtext',
     '.txt': 'markdown',
     '.md': 'markdown',
+    '.Rmd': 'markdown',
 }
 
 nbsphinx_prolog = r"""
