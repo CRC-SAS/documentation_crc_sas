@@ -11,5 +11,6 @@ Tutoriales
 .. toctree::
     :maxdepth: 2
     
-    ./Tutorial_python
-    ./Tutorial_R
+    ./tutoriales_r/Tutorial_descarga_datos_python
+    ./tutoriales_r/Tutorial_online_plot
+    ./tutoriales_r/Tutorial_online_lista_archivos
