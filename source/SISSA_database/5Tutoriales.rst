@@ -17,7 +17,7 @@ Tutoriales
     ./Tutorial_PDF_CDF_rain_daily
     ./Tutorial_PDF_CDF_temperatura_daily
     ./Tutorial_temperatura_weekly
-    ./Tutorial_ejercicio3_boxplot_climatologia
+    ./Tutorial_PDF_boxplot_climatologia_diaria
     ./Tutorial_pronostico_semana2
     ./Tutorial_pronostico_tmin
     ./Tutorial_pronostico_dias_tmax
