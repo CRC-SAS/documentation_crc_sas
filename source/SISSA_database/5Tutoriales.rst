@@ -11,5 +11,5 @@ Tutoriales
 .. toctree::
     :maxdepth: 2
     
-    ./Tutorial_python
-    ./Tutorial_R
+    ./5Tutoriales_python
+    ./5Tutoriales_R
