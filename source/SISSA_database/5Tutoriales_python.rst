@@ -18,6 +18,7 @@ Tutoriales python
     ./tutoriales_python/Tutorial_PDF_CDF_temperatura_daily
     ./tutoriales_python/Tutorial_temperatura_weekly
     ./tutoriales_python/Tutorial_PDF_boxplot_climatologia_diaria
+    ./tutoriales_python/Tutorial_verificacion
     ./tutoriales_python/Tutorial_pronostico_semana2
     ./tutoriales_python/Tutorial_pronostico_tmin
     ./tutoriales_python/Tutorial_pronostico_dias_tmax

@@ -9,6 +9,7 @@ __pycache__/
 *.npy
 *.nc
 *.nc4
+*.csv
 # C extensions
 *.so
 
