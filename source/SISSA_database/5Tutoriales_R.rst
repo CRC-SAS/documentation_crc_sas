@@ -11,6 +11,6 @@ Tutoriales R
 .. toctree::
     :maxdepth: 2
     
-    ./tutoriales_r/Tutorial_descarga_datos.nb.html
-    ./tutoriales_r/Tutorial_online_plot.nb.html
-    ./tutoriales_r/Tutorial_online_lista_archivos.nb.html
+    ./tutoriales_r/Tutorial_descarga_datos
+    ./tutoriales_r/Tutorial_online_plot.nb
+    ./tutoriales_r/Tutorial_online_lista_archivos
