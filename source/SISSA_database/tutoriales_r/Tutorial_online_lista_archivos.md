@@ -14,7 +14,7 @@ Además de la librería para conectar con AWS, vamos a necesitar para este tutor
 
 Recordar que la estructura de datos del siguiente [link](https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/).
 
-```{r}
+```r
 # Comenzamos instalando las librerías necesarias, en caso de que no lo estén: 
 if (!requireNamespace("aws.s3", quietly = TRUE)) {install.packages("aws.s3")}
 if (!requireNamespace("ncdf4", quietly = TRUE)) {install.packages("ncdf4")}
@@ -39,7 +39,7 @@ ymd <- "20100331"
 PATH <- paste0(tforecast, "/", modelo, "/", variable, "/", year, "/", ymd, "/")
 ```
 
-```{r}
+```r
 # Listamos todos los archivos dentro del bucket + PATH:
 awsfiles <- get_bucket_df(
   bucket = BUCKET_NAME,
@@ -56,7 +56,7 @@ print(paste("Cantidad de archivos =", nfiles))
 
 En el siguiente recuadro, vamos a ir trabajando en cada archivo, extrayendo el plazo asignado y finalmente calculamos las variables que necesitamos: media y desviación estándar.
 
-```{r}
+```r
 
 # Vamos a trabajar con el plazo de pronóstico al día 10:
 plazo_pron = 10
@@ -110,7 +110,7 @@ print(dim(desv_std))
 # en la dim y están las latitudes.
 
 ```
-```{r}
+```r
 rast_media <- raster(t(media), xmn = min(lon), xmx = max(lon), ymn = min(lat), ymx = max(lat), crs=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0"))
 rast_desvio_std <- raster(t(desv_std), xmn = min(lon), xmx = max(lon), ymn = min(lat), ymx = max(lat), crs=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0"))
 

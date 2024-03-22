@@ -14,7 +14,7 @@ Además de la librería para conectar con AWS, vamos a necesitar para este tutor
 
 Recordar que la estructura de datos del siguiente [link](https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/). 
 
-```{r}
+```r
 # Comenzamos instalando las librerías necesarias, en caso de que no lo estén: 
 if (!requireNamespace("aws.s3", quietly = TRUE)) {install.packages("aws.s3")}
 if (!requireNamespace("ncdf4", quietly = TRUE)) {install.packages("ncdf4")}
@@ -48,7 +48,7 @@ print(paste0(PATH, narchivo))
 ```
 
 
-```{r}
+```r
 
 # Comenzamos la conexión al archivo:
 awsfile <- paste0(PATH, narchivo)
@@ -82,7 +82,7 @@ media <- apply(var[,,1:7], MARGIN = c(1, 2), FUN = mean)
   
 nc_close(gefs)
 ```
-```{r}
+```r
 # Comenzamos con la figura:
 rast_media <- raster(t(media), xmn = min(lon), xmx = max(lon), ymn = min(lat), ymx = max(lat), crs=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0"))
 
