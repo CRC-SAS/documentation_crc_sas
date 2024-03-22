@@ -12,6 +12,6 @@ Tutoriales R
     :maxdepth: 2
     
     ./tutoriales_r/Tutorial_descarga_datos
-    ./tutoriales_r/Tutorial_online_plot.nb
+    ./tutoriales_r/Tutorial_online_plot
     ./tutoriales_r/Tutorial_online_lista_archivos
     ./tutoriales_r/Tutorial_pronostico_semana2

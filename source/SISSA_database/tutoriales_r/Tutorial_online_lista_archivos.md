@@ -2,6 +2,7 @@
 title: "¿Cómo trabajar con multiples archivos en línea usando R?"
 output: "html_notebook" 
 ---
+# ¿Cómo trabajar con multiples archivos en línea usando R?
 
 En este tutorial vamos a continuar trabajando con la librería [**aws.s3**](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf) con la que hicimos la descarga de datos. A diferencia del anterior ejemplo, en este vamos a trabajar con todos los miembros del ensamble y vamos a calcular una media del ensamble y también la desviación estándar de dicho ensamble para un plazo de pronóstico.
 

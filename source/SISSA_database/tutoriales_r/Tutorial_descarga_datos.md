@@ -3,6 +3,8 @@ title: "¿Cómo descargar datos desde la base usando R?"
 output: "html_notebook" 
 ---
 
+# ¿Cómo descargar datos desde la base usando R?
+
 Existen tres subconjuntos de datos dentro de la base: ERA5, GEFSv2 sin corrergir y GEFSv2 corregido. En R, existe la librería [**aws.s3**](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf), que permite hacer una conexión para descargar los datos. Para descargar un archivo, necesitamos el link al archivo, que se genera tal como se muestra en este [link](https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/). 
 
 
@@ -29,7 +31,7 @@ save_object_with_error_handling <- function(object, bucket, region, file, overwr
 }
 ```
 
-## ERA5
+**ERA5**
 Nombre del objeto del tipo *s3://sissa-forecast-database/ERA5/tmax/2010.nc*.
 
 ```r
@@ -58,7 +60,7 @@ save_object_with_error_handling(
   overwrite = TRUE)
 ```
 
-## GEFSv2 sin corregir o corregido
+**GEFSv2 sin corregir o corregido**
 Nombre del objeto del tipo *s3://sissa-forecast-database/subseasonal/GEFSv12/tmax/2010/20100331/tmax_20100331_p03.nc* para el caso sin corregir. 
 
 Nombre del objeto del tipo *s3://sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20100331/tmax_20100331_p03.nc* para el caso corregido. 

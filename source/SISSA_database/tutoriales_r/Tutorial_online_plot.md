@@ -3,6 +3,8 @@ title: "¿Cómo trabajar con el archivo en línea?"
 output: "html_notebook" 
 ---
 
+# ¿Cómo trabajar con el archivo en línea?
+
 En este tutorial vamos a continuar trabajando con la librería [**aws.s3**](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf) con la que hicimos la descarga de datos, pero esta vez para hacer una figura, sin necesidad de hacer la descarga del dato. Esta puede ser una opción viable en caso de no tener espacio o revisar solo una fecha.
 
 Además de la librería para conectar con AWS, vamos a necesitar para este tutorial tener instalado las siguientes librerías:

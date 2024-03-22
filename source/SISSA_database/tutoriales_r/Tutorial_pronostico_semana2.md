@@ -3,6 +3,9 @@ title: "¿Como generar un pronóstico probabilistico para la semana 2 con R?"
 output: "html_notebook" 
 ---
 
+# Pronostico probabilistico para lluvia acumulada semanal
+## ¿Como generar un pronóstico probabilistico para la semana 2 con R?
+
 En este tutorial y partir de la latitud y longitud de un lugar, la idea es:
 
 - Encontrar el punto más cercano en el dominio SISSA de los pronósticos.
