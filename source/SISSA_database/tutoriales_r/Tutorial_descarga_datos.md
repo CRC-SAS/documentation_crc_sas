@@ -6,7 +6,7 @@ output: "html_notebook"
 Existen tres subconjuntos de datos dentro de la base: ERA5, GEFSv2 sin corrergir y GEFSv2 corregido. En R, existe la librería [**aws.s3**](https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf), que permite hacer una conexión para descargar los datos. Para descargar un archivo, necesitamos el link al archivo, que se genera tal como se muestra en este [link](https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/). 
 
 
-```{r}
+```r
 # Comenzamos instalando las librerías necesarias, en caso de que no lo estén: 
 if (!requireNamespace("aws.s3", quietly = TRUE)) {install.packages("aws.s3")}
 
@@ -32,7 +32,7 @@ save_object_with_error_handling <- function(object, bucket, region, file, overwr
 ## ERA5
 Nombre del objeto del tipo *s3://sissa-forecast-database/ERA5/tmax/2010.nc*.
 
-```{r}
+```r
 # Temperatura máxima del 2010 de ERA5:
 
 # Datos necesarios para la descarga:
@@ -65,7 +65,7 @@ Nombre del objeto del tipo *s3://sissa-forecast-database/subseasonal/GEFSv12_cor
 
 Usando la misma librería, ahora vamos a descargar un dato de GEFSv12 corregido o sin corregir, para una fecha en particular. Hay que recordar que los datos de GEFSv12 históricos solo existen para los días miércoles de cada semana. En este caso, vamos a descargar para el miércoles 31 de marzo de 2010 y solo vamos a descargar el miembro 3 del ensamble. 
 
-```{r}
+```r
 # Temperatura máxima del 31/03/2010 (día miércoles) para el miembro 3 del ensamble. 
 
 # Datos necesarios para la descarga:
