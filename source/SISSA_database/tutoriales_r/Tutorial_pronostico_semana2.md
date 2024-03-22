@@ -29,7 +29,7 @@ La latitud/longitud corresponde a la localidad de Mercedes, en la provincia de C
 
 La idea es comparar los pronósticos de lluvias corregidos y sin corregir en términos de sus valores diarios y también al calcular la probabilidad para la segunda semana. Se utilizan datos del SMN de la estación correspondiente para dicho período.
 
-```{r}
+```r
 # Comenzamos instalando las librerías necesarias, en caso de que no lo estén: 
 if (!requireNamespace("aws.s3", quietly = TRUE)) {install.packages("aws.s3")}
 if (!requireNamespace("ncdf4", quietly = TRUE)) {install.packages("ncdf4")}
@@ -68,7 +68,7 @@ print(paste("Carpeta con datos corregidos:", BUCKET_NAME, "/", PATH_corr, sep = 
 print(paste("Carpeta con datos sin corregir:", BUCKET_NAME, "/", PATH, sep = ""))
 ```
 
-```{r}
+```r
 # Vamos a hacer como el caso anterior. Para la fecha dada, vamos a LISTAR los archivos CORREGIDOS y, de a uno, vamos a ir extrayendo el dato de pronóstico de cada ensamble.
 
 # Listamos todos los archivos dentro del bucket + PATH_corr:
@@ -83,7 +83,7 @@ nfiles <- length(awsfiles_corr)
 print(paste("Cantidad de archivos corregidos =", nfiles))
 ```
 
-```{r}
+```r
 # Creamos una lista para almacenar los datos:
 list_df <- list()
 
@@ -138,7 +138,7 @@ Las lineas de colores corresponden a UN miembro de ensamble y la línea negra gr
 
 Las observaciones proviene del archivo datos_mercedes.xlsx para trabajar con los datos de la estación del SMN en Mercedes, Corrientes.
 
-```{r}
+```r
 # Leemos el archivo de Excel:
 obs <- read_excel("datos_mercedes.xlsx")
 
@@ -179,7 +179,7 @@ En base a estos miembros vamos a calcular la proporción en cada semana que se s
 
 Antes tambien vamos a hacer la misma extraccion de datos, pero para los datos **SIN** corrección en la misma fecha:
 
-```{r}
+```r
 # Ahora, para la fecha dada, vamos a LISTAR los archivos SIN CORREGIR 
 # y, de a uno, vamos a ir extrayendo el dato de pronóstico de cada ensamble.
 
@@ -195,7 +195,7 @@ nfiles <- length(awsfiles_sincorr)
 print(paste("Cantidad de archivos sin corregir =", nfiles))
 ```
 
-```{r}
+```r
 # Creamos una lista para almacenar los datos:
 list_df <- list()
 
@@ -238,7 +238,7 @@ print(fechas_sincorr)
 print(head(result_sincorr))
 ```
 
-```{r}
+```r
 # Calculamos los acumulados para el pronóstico sin corregir:
 accpp_sincorr <- apply(result_sincorr, 2, cumsum)
 
@@ -267,7 +267,7 @@ Ahora vamos a calcular la probabilidad en distintos umbrales.
 
 Creamos una lista colocando el numero correspondiente a la semana para agrupar.
 
-```{r}
+```r
 # Definimos la variable de semana:
 lsemana <- rep(0, nrow(accpp_corr))
 lsemana[1:7] <- 1
