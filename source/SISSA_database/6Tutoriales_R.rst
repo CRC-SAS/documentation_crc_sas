@@ -6,7 +6,8 @@
 Tutoriales R
 ==========
 
-**ACLARACIÓN IMPORTANTE: Tener en consideración que las librerías de R necesarias para ejecutar los siguientes tutoriales pueden sufrir actualizaciones afectando la compatibilidad entre las mismas.**
+**ACLARACIÓN IMPORTANTE: Tener en consideración que las librerías de R necesarias para ejecutar 
+los siguientes tutoriales pueden sufrir actualizaciones afectando la compatibilidad entre las mismas.**
 
 .. toctree::
     :maxdepth: 2

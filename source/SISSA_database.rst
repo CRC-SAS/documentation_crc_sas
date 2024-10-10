@@ -34,10 +34,12 @@ En esta sección vamos a revisar los siguientes items:
     :maxdepth: 2
     :caption: Contenido:
 
-    ./SISSA_database/1Informacion_general
-    ./SISSA_database/2Estructura_de_datos
-    ./SISSA_database/3Formato_de_datos
-    ./SISSA_database/4Acceso_a_los_datos
-    ./SISSA_database/5Tutoriales
+    ./SISSA_database/0Informacion_general
+    ./SISSA_database/1Descripcion_modelos
+    ./SISSA_database/2Formato_de_datos
+    ./SISSA_database/3Estructura_de_datos
+    ./SISSA_database/4Metodologia_correccion
+    ./SISSA_database/5Acceso_datos
+    ./SISSA_database/6Tutoriales
 
 
