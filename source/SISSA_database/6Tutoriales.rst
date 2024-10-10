@@ -6,10 +6,11 @@
 Tutoriales
 ==========
 
-**ACLARACIÓN IMPORTANTE: Tener en consideración que las librerías de Python necesarias para ejecutar los siguientes tutoriales pueden sufrir actualizaciones afectando la compatibilidad entre las mismas.**
+
+En esta sección se muestran diversos ejemplos que trabajan con los datos de la base a partir de códigos en *python* y *R*
 
 .. toctree::
     :maxdepth: 2
     
-    ./5Tutoriales_python
-    ./5Tutoriales_R
+    ./6Tutoriales_python
+    ./6Tutoriales_R
