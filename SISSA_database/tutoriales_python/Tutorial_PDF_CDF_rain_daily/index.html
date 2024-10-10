@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analizamos cómo el modelo representa aspectos de la distribución de una variable &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Analizamos cómo el modelo representa aspectos de la distribución de una variable" href="../Tutorial_PDF_CDF_temperatura_daily/" />
+    <link rel="prev" title="¿Como trabajar con multiples archivos en línea usando python?" href="../Tutorial_online_lista_archivos/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">Analizamos cómo el modelo representa aspectos de la distribución de una variable</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_PDF_CDF_rain_daily.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_PDF_CDF_rain_daily.ipynb">link</a></div>
+</div>
+</div>
+<section id="Analizamos-cómo-el-modelo-representa-aspectos-de-la-distribución-de-una-variable">
+<h1>Analizamos cómo el modelo representa aspectos de la distribución de una variable<a class="headerlink" href="#Analizamos-cómo-el-modelo-representa-aspectos-de-la-distribución-de-una-variable" title="Enlace permanente a este encabezado"></a></h1>
+<p>En este tutorial vamos a explorar como es la distribución de probabilidades en el modelo para un punto: - Vamos a seleccionar un punto - Tomar datos diarios correspondiende a la semana 2 - Calcular la función de distribución de probabilidad y la función de distribución de probabilidad acumulada En este caso vamos a trabajar con la variable precipitación</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Partimos importando los modulos a utilizar:
+import numpy as np
+import pandas as pd
+import datetime
+from datetime import timedelta
+import matplotlib.pyplot as plt
+import xarray as xr
+import s3fs
+%matplotlib inline
+<br/></pre></div>
+</div>
+</div>
+<p>Primero definimos algunas funciones que vamos a usar</p>
+<p>Vamos a estudiar la distribucion para un punto, con la variable lluvia para las fechas alrededor del día 5/2/2018.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>variable = &#39;rain&#39;
+lat = -29.18
+lon = -58.07
+ref_date = datetime.datetime.strptime(&#39;20180502&#39;, &quot;%Y%m%d&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># funcion para acomodar xarrays antes de concatenarlos
+def preprocess_ds(ds, variable=variable):
+    ds = ds.assign_coords(S=ds.time.values[0], M=int(ds[variable].encoding[&#39;source&#39;][-6:-4]))
+    ds[&#39;time&#39;] = ds.time.values - ds.time.values[0]
+    ds = ds.rename({&#39;time&#39;: &#39;leadtime&#39;})
+    return ds
+
+# funcion para calcular la CDF de los datos
+def calcular_cdf(datos):
+    n = len(datos)
+    x_ordenados = np.sort(datos)
+    cdf = np.arange(1, n + 1) / n
+    return x_ordenados, cdf
+
+# función para obtener el segundo dato de cada grupo
+def get_second_data(group):
+    return group.isel(S=1)
+</pre></div>
+</div>
+</div>
+<p>Vamos a tomar de la base de datos de sissa los datos corregidos. Vamos a ver como se programa para seleccionar todas las fechas alrededor del 2 de mayo de cada año del período 2010-2019.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># DATOS CORREGIDOS
+fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo = &#39;GEFSv12_corr&#39;
+list_df = []
+for i in np.arange(2010, 2020, 1): #loop sobre años
+    loop_date = ref_date.replace(year=i) - timedelta(days=15) # reemplazo el año y arranco 15 días antes de la fecha
+    while loop_date &lt; (ref_date.replace(year=i) + timedelta(days=15)): # el loop es hasta 15 días despues
+        if loop_date.weekday() == 2: # los pronos están disponibles los miercoles
+            PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + loop_date.strftime(&#39;%Y&#39;) + &#39;/&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;
+            # Listamos todos los archivos dentro del bucket + PATH
+            remote_files = fs.glob(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;*.nc&#39;)
+            # Iterate through remote_files to create a fileset
+            fileset = [fs.open(file) for file in remote_files]
+            # This works
+            data = xr.open_mfdataset(fileset, combine=&#39;nested&#39;, concat_dim=&#39;M&#39;, preprocess=preprocess_ds)
+            data = data.sel(lat=lat, lon=lon, method=&#39;nearest&#39;)
+            list_df.append(data)
+
+        loop_date += timedelta(days=1)
+
+ds_corr = xr.concat(list_df, dim=&#39;S&#39;)
+print(ds_corr)
+</pre></div>
+</div>
+</div>
+<p>Repetimos para los datos sin corregir</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># DATOS SIN CORREGIR
+fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo = &#39;GEFSv12&#39;
+list_df = []
+for i in np.arange(2010, 2020, 1): #loop sobre años
+    loop_date = ref_date.replace(year=i) - timedelta(days=15) # reemplazo el año y arranco 15 días antes de la fecha
+    while loop_date &lt; (ref_date.replace(year=i) + timedelta(days=15)): # el loop es hasta 15 días despues
+        if loop_date.weekday() == 2: # los pronos están disponibles los miercoles
+            PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + loop_date.strftime(&#39;%Y&#39;) + &#39;/&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;
+            # Listamos todos los archivos dentro del bucket + PATH
+            remote_files = fs.glob(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;*.nc&#39;)
+            # Iterate through remote_files to create a fileset
+            fileset = [fs.open(file) for file in remote_files]
+            # This works
+            data = xr.open_mfdataset(fileset, combine=&#39;nested&#39;, concat_dim=&#39;M&#39;, preprocess=preprocess_ds)
+            data = data.sel(lat=lat, lon=lon, method=&#39;nearest&#39;)
+            list_df.append(data)
+
+        loop_date += timedelta(days=1)
+
+ds_uncal = xr.concat(list_df, dim=&#39;S&#39;)
+</pre></div>
+</div>
+</div>
+<p>Abrimos los datos observados y selecciono la segunda semana a patir de los miercoles alrededor de la fecha de interes para los años de estudio</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Obtenemos los datos de ERA5
+fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;ERA5&#39;
+modelo = &#39;ERA5&#39;
+list_df = []
+PATH = tforecast + &#39;/&#39; + variable
+remote_files = fs.glob(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;/&#39; + &#39;*.nc&#39;)
+# Iterate through remote_files to create a fileset
+fileset = [fs.open(file) for file in remote_files]
+data = xr.open_mfdataset(fileset, combine=&#39;nested&#39;, concat_dim=&#39;time&#39;)
+data = data.sel(latitude=lat, longitude=lon, method=&#39;nearest&#39;)
+
+for i in np.arange(2010, 2020, 1):
+    loop_date = ref_date.replace(year=i) - timedelta(days=15)
+    while loop_date &lt; (ref_date.replace(year=i) + timedelta(days=15)):
+        if loop_date.weekday() == 2:
+            era = data.sel(time= slice(loop_date + timedelta(days=8), loop_date + timedelta(days=14)))
+            era[&#39;S&#39;] = loop_date
+            era[&#39;time&#39;] = era[&#39;time&#39;] - era[&#39;S&#39;]
+            list_df.append(era)
+
+        loop_date += timedelta(days=1)
+ds_era = xr.concat(list_df, dim=&#39;S&#39;)
+ds_era = ds_era.compute()
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(ds_corr, ds_uncal, ds_era)
+</pre></div>
+</div>
+</div>
+<p>Selecciono la semana 2</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># selecciono semana 2 (8-14 dias)
+ds_corr_w2 = ds_corr.sel(leadtime=slice(np.timedelta64(8, &#39;D&#39;), np.timedelta64(14, &#39;D&#39;))).compute()
+print(ds_corr_w2)
+</pre></div>
+</div>
+</div>
+<p>Repito para los datos corregidos</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># selecciono semana 2 (8-14 dias)
+ds_uncal_w2 = ds_uncal.sel(leadtime=slice(np.timedelta64(8, &#39;D&#39;), np.timedelta64(14, &#39;D&#39;))).compute()
+print(ds_uncal_w2)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Ajuste de los datos a una distribución normal
+aux_uncal =ds_uncal_w2[variable].values.flat
+aux_corr =ds_corr_w2[variable].values.flat
+aux_era = ds_era[variable].values.flat[~np.isnan(ds_era[variable].values.flat)]
+
+bins = np.arange(0, 60, 5)
+
+plt.hist(aux_uncal, bins, density=True, histtype=&#39;step&#39;, color=&#39;r&#39;, alpha=0.5, label=&#39;GEFS No-corregida&#39;, linewidth=1.5)
+plt.hist(aux_corr, bins, density=True, histtype=&#39;step&#39;, color=&#39;b&#39;, alpha=0.5, label=&#39;GEFS Corregida&#39;, linewidth=1.5)
+plt.hist(aux_era, bins, density=True, histtype=&#39;step&#39;, color=&#39;k&#39;, alpha=0.5, label=&#39;ERA5&#39;, linewidth=1.5)
+
+
+plt.xlabel(variable)
+plt.ylabel(&#39;Densidad de probabilidad&#39;)
+plt.title(&#39;Ajuste de datos a una distribución normal&#39;)
+plt.legend()
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
+
+x_ordenados1, cdf1 = calcular_cdf(aux_corr)
+x_ordenados2, cdf2 = calcular_cdf(aux_uncal)
+x_ordenados3, cdf3 = calcular_cdf(aux_era)
+
+# Plotear la CDF
+plt.plot(x_ordenados1, cdf1, &#39;b&#39;, label=&#39;Corregidos&#39;)
+plt.plot(x_ordenados2, cdf2, &#39;r&#39;, label=&#39;Sin corregir&#39;)
+plt.plot(x_ordenados3, cdf3, &#39;k&#39;, label=&#39;ERA5&#39;)
+plt.xlabel(variable)
+plt.ylabel(&#39;Probabilidad acumulada&#39;)
+plt.title(&#39;Función de Distribución Acumulativa (CDF)&#39;)
+plt.legend()
+plt.grid(True)
+plt.show()
+<br/></pre></div>
+</div>
+</div>
+<p>Ahora miramos la evolución de la lluvia acumulada para el segundo miercoles de mayo del registro. Vamos a ver cómo seleccionar los pronosticos inicializados esa segunda semana</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#seleccionamos el me de mayo
+ds_corr_w2 = ds_corr_w2.sum(&#39;leadtime&#39;, skipna=True).isel(S= ds_uncal_w2.S.dt.month==5)
+ds_uncal_w2 = ds_uncal_w2.sum(&#39;leadtime&#39;, skipna=True).isel(S= ds_uncal_w2.S.dt.month==5)
+ds_era = ds_era.sum(&#39;time&#39;, skipna=True).isel(S= ds_era.S.dt.month==5)
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(ds_corr_w2, ds_uncal_w2, ds_era)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Selecciona el segundo miércoles de cada mes
+ds_corr_w2_smier = ds_corr_w2.groupby(&#39;S.year&#39;).apply(get_second_data)
+ds_uncal_w2_smier = ds_uncal_w2.groupby(&#39;S.year&#39;).apply(get_second_data)
+ds_era_w2_smier = ds_era.groupby(&#39;S.year&#39;).apply(get_second_data)
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure()
+ds_uncal_w2_smier[variable].plot.scatter(x=&#39;year&#39;,color=&#39;gray&#39;, alpha=0.5, label=&#39;sin corregir&#39;)
+ds_era_w2_smier[variable].plot.scatter(x=&#39;year&#39;, color=&#39;k&#39;, label=&#39;ERA 5&#39;)
+plt.axis([2009, 2020, 0, 200])
+plt.legend()
+plt.savefig(variable + &#39;_sin_corregir.jpg&#39;, dpi=200)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure()
+ds_corr_w2_smier[variable].plot.scatter(x=&#39;year&#39;, color=&#39;orange&#39;, alpha=0.5, label=&#39;corregido&#39;)
+ds_era_w2_smier[variable].plot.scatter(x=&#39;year&#39;, color=&#39;k&#39;, label=&#39;ERA 5&#39;)
+plt.axis([2009, 2020, 0, 200])
+plt.legend()
+plt.savefig(variable + &#39;_corregido.jpg&#39;, dpi=200)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_online_lista_archivos/" class="btn btn-neutral float-left" title="¿Como trabajar con multiples archivos en línea usando python?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_PDF_CDF_temperatura_daily/" class="btn btn-neutral float-right" title="Analizamos cómo el modelo representa aspectos de la distribución de una variable" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

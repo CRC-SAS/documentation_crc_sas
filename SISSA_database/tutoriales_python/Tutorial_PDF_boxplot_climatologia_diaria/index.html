@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 4: Climatologia Tmedia &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Ejercicio 5: Verificacion de pronosticos" href="../Tutorial_verificacion/" />
+    <link rel="prev" title="Analizamos cómo el modelo representa aspectos de la distribución de una variable" href="../Tutorial_temperatura_weekly/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">Ejercicio 4: Climatologia Tmedia</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_PDF_boxplot_climatologia_diaria.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_PDF_boxplot_climatologia_diaria.ipynb">link</a></div>
+</div>
+</div>
+<section id="Ejercicio-4:-Climatologia-Tmedia">
+<h1>Ejercicio 4: Climatologia Tmedia<a class="headerlink" href="#Ejercicio-4:-Climatologia-Tmedia" title="Enlace permanente a este encabezado"></a></h1>
+<section id="Analizamos-cómo-el-modelo-representa-aspectos-de-la-distribución-de-una-variable">
+<h2>Analizamos cómo el modelo representa aspectos de la distribución de una variable<a class="headerlink" href="#Analizamos-cómo-el-modelo-representa-aspectos-de-la-distribución-de-una-variable" title="Enlace permanente a este encabezado"></a></h2>
+<p>En esta sección vamos a considerar un área de trabajo, que corresponde a SESA (Sudeste de Sudámerica) y a partir de un rango de días de pronóstico y un plazo de 10 años, vamos a ver como se comporta esa climatología con los valores obtenidos para un año en particular.</p>
+<p>Al igual que venimos haciendo en otros ejercicios, vamos a intentar trabajar sin descargar los datos y guardando en una variables que nos permita posteriormente procesar y graficar la figura que necesitamos.</p>
+<p>Vamos a comenzar primero detallando algunas variables para</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Como siempre, partimos importando los modulos a utilizar:
+%matplotlib inline
+import xarray as xr
+import s3fs
+import netCDF4
+import numpy as np
+import pandas as pd
+import os
+import datetime as dt
+import matplotlib.pyplot as plt
+import glob
+
+# DATOS
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+m0 = &#39;ERA5&#39;
+m1 = &#39;GEFSv12&#39;
+m2 = &#39;GEFSv12_corr&#39;
+variable = &#39;tmax&#39;
+years = np.arange(2010, 2020)
+
+path0 = m0 + &#39;/&#39; + variable + &#39;/&#39;
+path1 = tforecast + &#39;/&#39; + m1 + &#39;/&#39; + variable + &#39;/&#39;
+path2 = tforecast + &#39;/&#39; + m2 + &#39;/&#39; + variable + &#39;/&#39;
+
+# Colocamos un área para SESA
+lat_n = -20.
+lat_s = -30.
+lon_w = -65.
+lon_e = -55.
+
+#Fecha de referencia:
+ref_date = dt.datetime(2010,12,1)
+
+def preprocess_ds(ds, variable=variable):
+    ds = ds.assign_coords(S=ds.time.values[0], M=int(ds[variable].encoding[&#39;source&#39;][-6:-4]))
+    ds[&#39;time&#39;] = ds.time.values - ds.time.values[0]
+    ds = ds.rename({&#39;time&#39;: &#39;leadtime&#39;})
+    return ds
+# función para obtener el segundo dato de cada grupo
+def get_second_data(group):
+    return group.isel(S=1)
+
+print(&#39;Carpeta con datos ERA5:&#39;, BUCKET_NAME + &#39;/&#39; + path0)
+print(&#39;Carpeta con datos GEFSv12 sin corregir:&#39;, BUCKET_NAME + &#39;/&#39; + path1)
+print(&#39;Carpeta con datos GEFSv12 corregidos:&#39;, BUCKET_NAME + &#39;/&#39; + path2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Carpeta con datos ERA5: sissa-forecast-database/ERA5/tmax/
+Carpeta con datos GEFSv12 sin corregir: sissa-forecast-database/subseasonal/GEFSv12/tmax/
+Carpeta con datos GEFSv12 corregidos: sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/
+</pre></div></div>
+</div>
+<p><strong>Descarga de datos subset</strong></p>
+<p>Los siguientes bloques corresponderan a las lineas de codigo para descargar los datos necesarios para revisar la climatologia del mes de diciembre y vamos a analizar como se ven las dos primeras semanas de pronostico.</p>
+<p>Creamos una carpeta temporal dentro de nuestra carpeta de trabajo.</p>
+<p>Partimos descargando <strong>ERA5</strong></p>
+<p>Seguimos con <strong>GEFSv12</strong></p>
+<p>y terminamos con <strong>GEFSv12_corr</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;ERA5&#39;
+modelo = &#39;ERA5&#39;
+list_df = []
+PATH = tforecast + &#39;/&#39; + variable
+remote_files = fs.glob(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;/&#39; + &#39;*.nc&#39;)
+# Iterate through remote_files to create a fileset
+fileset = [fs.open(file) for file in remote_files]
+data = xr.open_mfdataset(fileset, combine=&#39;nested&#39;, concat_dim=&#39;time&#39;)
+data = data.sel(latitude=slice(lat_n, lat_s), longitude=slice(lon_w, lon_e))
+
+for year in years:
+    fs = s3fs.S3FileSystem(anon=True)
+    awsfile = &#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + path0 + str(year) + &#39;.nc&#39;
+    print(awsfile)
+    loop_date = ref_date.replace(year=year) - dt.timedelta(days=15)
+    while loop_date &lt; (ref_date.replace(year=year) + dt.timedelta(days=15)):
+        if loop_date.weekday() == 2:
+            era = data.sel(time= slice(loop_date + dt.timedelta(days=8), loop_date + dt.timedelta(days=14)))
+            era[&#39;S&#39;] = loop_date
+            era[&#39;time&#39;] = era[&#39;time&#39;] - era[&#39;S&#39;]
+            list_df.append(era)
+
+        loop_date += dt.timedelta(days=1)
+ds_era = xr.concat(list_df, dim=&#39;S&#39;)
+ds_era = ds_era.compute()
+print(ds_era)
+&#39;&#39;&#39;
+# Codigo que sirve cuando se quiere descargar el dato
+    with fs.open(awsfile) as f:
+        ncfile = tmp + &#39;era5_&#39; + variable + &#39;_&#39; + str(year) + &#39;.nc&#39;
+        if not os.path.isfile(ncfile):
+            print(&#39;Descargando:&#39;, ncfile)
+            era = xr.open_dataset(f)
+            era = era.sel(latitude=slice(lat_n, lat_s), longitude=slice(lon_w, lon_e))
+            era.to_netcdf(ncfile)
+&#39;&#39;&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+s3://sissa-forecast-database/ERA5/tmax/2010.nc
+s3://sissa-forecast-database/ERA5/tmax/2011.nc
+s3://sissa-forecast-database/ERA5/tmax/2012.nc
+s3://sissa-forecast-database/ERA5/tmax/2013.nc
+s3://sissa-forecast-database/ERA5/tmax/2014.nc
+s3://sissa-forecast-database/ERA5/tmax/2015.nc
+s3://sissa-forecast-database/ERA5/tmax/2016.nc
+s3://sissa-forecast-database/ERA5/tmax/2017.nc
+s3://sissa-forecast-database/ERA5/tmax/2018.nc
+s3://sissa-forecast-database/ERA5/tmax/2019.nc
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\fcarrasco\Anaconda3\envs\sissa\Lib\site-packages\xarray\core\dataset.py:4744: UserWarning: No index created for dimension S because variable S is not a coordinate. To create an index for S, please first call `.set_coords(&#39;S&#39;)` on this object.
+  warnings.warn(
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;xarray.Dataset&gt; Size: 4MB
+Dimensions:    (S: 43, time: 7, latitude: 41, longitude: 41)
+Coordinates:
+  * S          (S) datetime64[ns] 344B 2010-11-17 2010-11-24 ... 2019-12-11
+  * time       (time) timedelta64[ns] 56B 8 days 9 days ... 13 days 14 days
+  * latitude   (latitude) float32 164B -20.0 -20.25 -20.5 ... -29.5 -29.75 -30.0
+  * longitude  (longitude) float32 164B -65.0 -64.75 -64.5 ... -55.25 -55.0
+Data variables:
+    tmax       (S, time, latitude, longitude) float64 4MB 17.37 18.44 ... 34.94
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;\n# Codigo que sirve cuando se quiere descargar el dato\n    with fs.open(awsfile) as f:\n        ncfile = tmp + &#39;era5_&#39; + variable + &#39;_&#39; + str(year) + &#39;.nc&#39;\n        if not os.path.isfile(ncfile):\n            print(&#39;Descargando:&#39;, ncfile)\n            era = xr.open_dataset(f)\n            era = era.sel(latitude=slice(lat_n, lat_s), longitude=slice(lon_w, lon_e))\n            era.to_netcdf(ncfile)\n&#34;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># DATOS CORREGIDOS
+fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo = &#39;GEFSv12_corr&#39;
+list_df = []
+for i in np.arange(2010, 2020, 1): #loop sobre años
+    loop_date = ref_date.replace(year=i) - dt.timedelta(days=15) # reemplazo el año y arranco 15 días antes de la fecha
+    while loop_date &lt; (ref_date.replace(year=i) + dt.timedelta(days=15)): # el loop es hasta 15 días despues
+        if loop_date.weekday() == 2: # los pronos están disponibles los miercoles
+            PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + loop_date.strftime(&#39;%Y&#39;) + &#39;/&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;
+            # Listamos todos los archivos dentro del bucket + PATH
+            remote_files = fs.glob(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;*.nc&#39;)
+            # Iterate through remote_files to create a fileset
+            fileset = [fs.open(file) for file in remote_files]
+            # This works
+            data = xr.open_mfdataset(fileset, combine=&#39;nested&#39;, concat_dim=&#39;M&#39;, preprocess=preprocess_ds)
+            data = data.sel(lat=slice(lat_n, lat_s), lon=slice(lon_w, lon_e))
+            list_df.append(data)
+
+        loop_date += dt.timedelta(days=1)
+
+ds_corr = xr.concat(list_df, dim=&#39;S&#39;)
+print(ds_corr)
+
+
+
+&#39;&#39;&#39;
+for year in years:
+    fs = s3fs.S3FileSystem(anon=True)
+    loop_date = ref_date.replace(year=year)
+    while loop_date &lt; (ref_date.replace(year=year) + dt.timedelta(days=30)):
+        if loop_date.weekday() == 2:
+            PATH = BUCKET_NAME + &#39;/&#39; + path1 + str(year) + &#39;/&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;
+            print(PATH)
+            awsfiles = fs.ls(&#39;s3://&#39; + PATH)
+            for ens, awsfile in enumerate(awsfiles):
+                if not os.path.isfile(&#39;./tmp/uncal_&#39; + variable + &#39;_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;_&#39; + str(ens) + &#39;.nc&#39;):
+                    with fs.open(awsfile) as f:
+                        gefs = xr.open_dataset(f)
+                        gefs = gefs.sel(lat=slice(lat_n, lat_s), lon=slice(lon_w, lon_e))
+                        gefs[&#39;M&#39;] = ens
+                        ds = gefs[variable]
+                        ds.to_netcdf(&#39;./tmp/uncal_&#39; + variable + &#39;_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;_&#39; + str(ens) + &#39;.nc&#39;)
+        loop_date += dt.timedelta(days=1)
+&#39;&#39;&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;xarray.Dataset&gt; Size: 217MB
+Dimensions:   (S: 43, M: 11, lat: 41, bounds2: 2, lon: 41, leadtime: 34)
+Coordinates:
+  * leadtime  (leadtime) timedelta64[ns] 272B 0 days 1 days ... 32 days 33 days
+  * lat       (lat) float64 328B -20.0 -20.25 -20.5 ... -29.5 -29.75 -30.0
+  * lon       (lon) float64 328B -65.0 -64.75 -64.5 ... -55.5 -55.25 -55.0
+  * S         (S) datetime64[ns] 344B 2010-11-17 2010-11-24 ... 2019-12-11
+  * M         (M) int32 44B 0 1 2 3 4 5 6 7 8 9 10
+Dimensions without coordinates: bounds2
+Data variables:
+    lat_bnds  (S, M, lat, bounds2) float64 310kB dask.array&lt;chunksize=(1, 1, 41, 2), meta=np.ndarray&gt;
+    lon_bnds  (S, M, lon, bounds2) float64 310kB dask.array&lt;chunksize=(1, 1, 41, 2), meta=np.ndarray&gt;
+    tmax      (S, M, leadtime, lat, lon) float64 216MB dask.array&lt;chunksize=(1, 1, 1, 41, 41), meta=np.ndarray&gt;
+Attributes:
+    Conventions:  CF-1.7
+    title:        ensemble member forecast run
+    institution:  NCEP
+    source:       GEFSv12 reforecast dataset
+    history:      Process for SISSA at 23/08/2023 19:04
+    references:
+    comment:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;\nfor year in years:\n    fs = s3fs.S3FileSystem(anon=True)\n    loop_date = ref_date.replace(year=year)\n    while loop_date &lt; (ref_date.replace(year=year) + dt.timedelta(days=30)):\n        if loop_date.weekday() == 2:\n            PATH = BUCKET_NAME + &#39;/&#39; + path1 + str(year) + &#39;/&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;\n            print(PATH)\n            awsfiles = fs.ls(&#39;s3://&#39; + PATH) \n            for ens, awsfile in enumerate(awsfiles):\n                if not os.path.isfile(&#39;./tmp/uncal_&#39; + variable + &#39;_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;_&#39; + str(ens) + &#39;.nc&#39;):\n                    with fs.open(awsfile) as f:\n                        gefs = xr.open_dataset(f)\n                        gefs = gefs.sel(lat=slice(lat_n, lat_s), lon=slice(lon_w, lon_e))\n                        gefs[&#39;M&#39;] = ens\n                        ds = gefs[variable]\n                        ds.to_netcdf(&#39;./tmp/uncal_&#39; + variable + &#39;_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;_&#39; + str(ens) + &#39;.nc&#39;)\n        loop_date += dt.timedelta(days=1)\n&#34;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for year in years:
+    fs = s3fs.S3FileSystem(anon=True)
+    loop_date = ref_date.replace(year=year)
+    while loop_date &lt; (ref_date.replace(year=year) + dt.timedelta(days=30)):
+        if loop_date.weekday() == 2:
+            PATH = BUCKET_NAME + &#39;/&#39; + path2 + str(year) + &#39;/&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;
+            print(PATH)
+            awsfiles = fs.ls(&#39;s3://&#39; + PATH)
+            for ens, awsfile in enumerate(awsfiles):
+                if not os.path.isfile(&#39;./tmp/cal_&#39; + variable + &#39;_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;_&#39; + str(ens) + &#39;.nc&#39;):
+                    with fs.open(awsfile) as f:
+                        gefs = xr.open_dataset(f)
+                        gefs = gefs.sel(lat=slice(lat_n, lat_s), lon=slice(lon_w, lon_e))
+                        gefs[&#39;M&#39;] = ens
+                        ds = gefs[variable]
+                        ds.to_netcdf(&#39;./tmp/cal_&#39; + variable + &#39;_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;_&#39; + str(ens) + &#39;.nc&#39;)
+        loop_date += dt.timedelta(days=1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20101201/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20101208/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20101215/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20101222/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20101229/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2011/20111207/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2011/20111214/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2011/20111221/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2011/20111228/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2012/20121205/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2012/20121212/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2012/20121219/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2012/20121226/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2013/20131204/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2013/20131211/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2013/20131218/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2013/20131225/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2014/20141203/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2014/20141210/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2014/20141217/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2014/20141224/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2015/20151202/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2015/20151209/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2015/20151216/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2015/20151223/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2015/20151230/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2016/20161207/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2016/20161214/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2016/20161221/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2016/20161228/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2017/20171206/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2017/20171213/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2017/20171220/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2017/20171227/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2018/20181205/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2018/20181212/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2018/20181219/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2018/20181226/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2019/20191204/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2019/20191211/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2019/20191218/
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2019/20191225/
+</pre></div></div>
+</div>
+<p><strong>Funciones extra</strong></p>
+<p>Usamos las mismas funciones creadas para trabajar con los archivos descargados, que permiten ayudar a concatenar los datos</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># funcion para acomodar xarrays antes de concatenarlos
+def preprocess_ds(ds):
+    ds[&#39;S&#39;] = ds.time.values[0]
+    ds[&#39;time&#39;] = ds.time.values - ds.time.values[0]
+    ds = ds.rename({&#39;time&#39;: &#39;leadtime&#39;})
+    return ds
+</pre></div>
+</div>
+</div>
+<p><strong>Extraccion de datos y generación de figura</strong></p>
+<p>En esta parte vamos a ir cargando los tres datos a tres variables distintas y vamos a ver como da la distribución de cada uno de ellos</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># abrimos todos los datos ERA5 y los concatenamos en la coordenada tiempo
+era5_files = glob.glob(&#39;./tmp/era5_&#39; + variable + &#39;_20*.nc&#39;)
+ds_era = xr.open_mfdataset(&#39;./tmp/era5_&#39; + variable + &#39;_20*.nc&#39;, engine=&#39;netcdf4&#39;, combine=&#39;nested&#39;, concat_dim=&#39;time&#39;)
+ds_era = ds_era.compute()
+
+for year in years: #  loops sobre los años
+    print(year)
+    loop_date = ref_date.replace(year=year) # Tomo el mes de diciembre
+    while loop_date &lt; (ref_date.replace(year=year) + dt.timedelta(days=30)): #loops sobre los dias de diciembre
+        if loop_date.weekday() == 2: # si es miercoles, coincide con la fecha del pronostico
+            if not os.path.isfile(&#39;./tmp/&#39; + variable + &#39;_era5_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;.nc&#39;):
+                print(&#39;./tmp/&#39; + variable + &#39;_era5_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;.nc&#39;)
+                era = ds_era.sel(time=slice(loop_date + dt.timedelta(days=8), loop_date + dt.timedelta(days=14))) #elijo la segunda semana
+                era[&#39;S&#39;] = loop_date #defino una fecha de comienzo equivalente a la del pronóstico
+                era[&#39;time&#39;] = era[&#39;time&#39;] - era[&#39;S&#39;] # defino las fechas de la semana dos como dias a partir de S
+                era.to_netcdf(&#39;./tmp/&#39; + variable + &#39;_era5_&#39; + loop_date.strftime(&#39;%Y%m%d&#39;) + &#39;.nc&#39;) # guardo
+        loop_date += dt.timedelta(days=1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2010
+2011
+2012
+2013
+2014
+2015
+2016
+2017
+2018
+2019
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Lectura de datos NO CALIBRADOS
+ds_uncal = xr.open_mfdataset(&#39;./tmp/uncal_&#39; + variable + &#39;*.nc&#39;, engine=&#39;netcdf4&#39;, combine=&#39;nested&#39;, concat_dim=[&#39;S&#39;], preprocess=preprocess_ds)
+# selecciono semana 2 (8-14 dias)
+ds_uncal_w2 = ds_uncal.sel(leadtime=slice(np.timedelta64(8, &#39;D&#39;), np.timedelta64(14, &#39;D&#39;)))
+print(ds_uncal_w2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;xarray.Dataset&gt;
+Dimensions:   (leadtime: 7, lat: 41, lon: 41, S: 462)
+Coordinates:
+  * leadtime  (leadtime) timedelta64[ns] 8 days 9 days ... 13 days 14 days
+  * lat       (lat) float64 -20.0 -20.25 -20.5 -20.75 ... -29.5 -29.75 -30.0
+  * lon       (lon) float64 -65.0 -64.75 -64.5 -64.25 ... -55.5 -55.25 -55.0
+  * S         (S) datetime64[ns] 2010-12-01 2010-12-01 ... 2019-12-25 2019-12-25
+Data variables:
+    tmax      (S, leadtime, lat, lon) float64 dask.array&lt;chunksize=(1, 7, 41, 41), meta=np.ndarray&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Lectura de datos CALIBRADOS
+ds_cal = xr.open_mfdataset(&#39;./tmp/cal_&#39; + variable + &#39;*.nc&#39;, engine=&#39;netcdf4&#39;, combine=&#39;nested&#39;, concat_dim=[&#39;S&#39;], preprocess=preprocess_ds)
+# selecciono semana 2 (8-14 dias)
+ds_cal_w2 = ds_cal.sel(leadtime=slice(np.timedelta64(8, &#39;D&#39;), np.timedelta64(14, &#39;D&#39;)))
+print(ds_cal_w2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;xarray.Dataset&gt;
+Dimensions:   (leadtime: 7, lat: 41, lon: 41, S: 462)
+Coordinates:
+  * leadtime  (leadtime) timedelta64[ns] 8 days 9 days ... 13 days 14 days
+  * lat       (lat) float64 -20.0 -20.25 -20.5 -20.75 ... -29.5 -29.75 -30.0
+  * lon       (lon) float64 -65.0 -64.75 -64.5 -64.25 ... -55.5 -55.25 -55.0
+  * S         (S) datetime64[ns] 2010-12-01 2010-12-01 ... 2019-12-25 2019-12-25
+Data variables:
+    tmax      (S, leadtime, lat, lon) float64 dask.array&lt;chunksize=(1, 7, 41, 41), meta=np.ndarray&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Lectura de datos ERA5
+ds_era = xr.open_mfdataset(&#39;./tmp/&#39; + variable + &#39;_era5_&#39; + &#39;*.nc&#39;, engine=&#39;netcdf4&#39;, combine=&#39;nested&#39;, concat_dim=[&#39;S&#39;])
+print(ds_era)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;xarray.Dataset&gt;
+Dimensions:    (time: 7, latitude: 41, longitude: 41, S: 42)
+Coordinates:
+  * time       (time) timedelta64[ns] 8 days 9 days 10 days ... 13 days 14 days
+  * latitude   (latitude) float32 -20.0 -20.25 -20.5 ... -29.5 -29.75 -30.0
+  * longitude  (longitude) float32 -65.0 -64.75 -64.5 ... -55.5 -55.25 -55.0
+  * S          (S) datetime64[ns] 2010-12-01 2010-12-08 ... 2019-12-25
+Data variables:
+    tmax       (S, time, latitude, longitude) float64 dask.array&lt;chunksize=(1, 1, 41, 41), meta=np.ndarray&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### Comenzamos a trabajar para hacer la figura
+
+aux_uncal = ds_uncal_w2[variable].values.flat
+aux_cal   = ds_cal_w2[variable].values.flat
+aux_era   = ds_era[variable].values.flat[~np.isnan(ds_era[variable].values.flat)]
+qc_t = [[0.1, 0.25, 0.75, 0.9], [0.1, 0.25, 0.75, 0.9], [0.1, 0.25, 0.75, 0.9]]
+data = [aux_era, aux_uncal, aux_cal]
+
+# Comenzamos la figura
+fig, ax = plt.subplots()
+parts = ax.violinplot(data, [1, 2, 3], showmeans=False, showmedians=True, quantiles=qc_t)
+ax.set_title(&#39;Boxplot para segunda semana pronóstico en diciembre (2010-2019)&#39;)
+ax.set_xticks([1, 2, 3])
+ax.set_xticklabels([&#39;ERA5&#39;, &#39;GEFSv12&#39;, &#39;GEFSv12_corr&#39;])
+#axs.set_title(&#39;notch=True,\nbootstrap=10000&#39;, fontsize=fs
+
+#for pc in parts[&#39;bodies&#39;]:
+#    pc.set_facecolor(&#39;#fa5305&#39;)
+#    pc.set_edgecolor(&#39;black&#39;)
+#    pc.set_alpha(1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Text(1, 0, &#39;ERA5&#39;), Text(2, 0, &#39;GEFSv12&#39;), Text(3, 0, &#39;GEFSv12_corr&#39;)]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_PDF_boxplot_climatologia_diaria_13_1.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_PDF_boxplot_climatologia_diaria_13_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_temperatura_weekly/" class="btn btn-neutral float-left" title="Analizamos cómo el modelo representa aspectos de la distribución de una variable" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_verificacion/" class="btn btn-neutral float-right" title="Ejercicio 5: Verificacion de pronosticos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pronostico probabilistico para lluvia acumulada semanal &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Pronósticos" href="../Tutorial_verificacion/" />
+    <link rel="prev" title="¿Cómo trabajar con multiples archivos en línea usando R?" href="../Tutorial_online_lista_archivos/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos/">¿Cómo descargar datos desde la base usando R?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Cómo trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Cómo trabajar con multiples archivos en línea usando R?</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Pronostico probabilistico para lluvia acumulada semanal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/"><strong>Pronósticos</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#era5"><strong>ERA5</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#verificacion-temporal"><strong>Verificación temporal</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#verificacion-espacial"><strong>Verificación espacial</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_R/">Tutoriales R</a></li>
+      <li class="breadcrumb-item active">Pronostico probabilistico para lluvia acumulada semanal</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_r/Tutorial_pronostico_semana2.md.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pronostico-probabilistico-para-lluvia-acumulada-semanal">
+<h1>Pronostico probabilistico para lluvia acumulada semanal<a class="headerlink" href="#pronostico-probabilistico-para-lluvia-acumulada-semanal" title="Enlace permanente a este encabezado"></a></h1>
+<section id="como-generar-un-pronostico-probabilistico-para-la-semana-2-con-r">
+<h2>¿Como generar un pronóstico probabilistico para la semana 2 con R?<a class="headerlink" href="#como-generar-un-pronostico-probabilistico-para-la-semana-2-con-r" title="Enlace permanente a este encabezado"></a></h2>
+<p>En este tutorial y partir de la latitud y longitud de un lugar, la idea es:</p>
+<ul class="simple">
+<li><p>Encontrar el punto más cercano en el dominio SISSA de los pronósticos.</p></li>
+<li><p>Extraer el dato de precipitación de dicho lugar para todos los miembros del ensamble.</p></li>
+<li><p>Calcular la probabilidad de lluvia a partir de dichos datos para la semana 2 para algunos umbrales caracteristicos.</p></li>
+</ul>
+<p>Para ello, vamos a trabajar con el dato en línea, tal como vimos <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/Tutorial_online_lista_archivos/">acá</a>.</p>
+<p>Además, vamos a necesitar las siguientes librerías:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/readxl/readxl.pdf"><strong>readxl</strong></a></p></li>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/dplyr/dplyr.pdf"><strong>dplyr</strong></a></p></li>
+</ul>
+<p>En este caso, en el próximo bloque vamos a colocar todos los datos necesarios para extraer los datos, latitud y longitud y también los umbrales para los cuales vamos a calcular la probabilidad.</p>
+<p><strong>Algunos detalles</strong></p>
+<p>Para esta sección vamos a trabajar con el 02 de mayo de 2018 y la variable lluvia.</p>
+<p>La latitud/longitud corresponde a la localidad de Mercedes, en la provincia de Corrientes, Argentina.</p>
+<p>La idea es comparar los pronósticos de lluvias corregidos y sin corregir en términos de sus valores diarios y también al calcular la probabilidad para la segunda semana. Se utilizan datos del SMN de la estación correspondiente para dicho período.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comenzamos instalando las librerías necesarias, en caso de que no lo estén: </span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;ncdf4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;ncdf4&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;readxl&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;raster&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;maps&quot;</span><span class="p">)}</span>
+
+<span class="c1"># Cargamos las librerías:</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">aws.s3</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ncdf4</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="nf">require</span><span class="p">(</span><span class="n">here</span><span class="p">)</span>
+
+<span class="n">BUCKET_NAME</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;sissa-forecast-database&quot;</span>
+<span class="n">tforecast</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;subseasonal&quot;</span>
+<span class="n">modelo_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;GEFSv12_corr&quot;</span>
+<span class="n">modelo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;GEFSv12&quot;</span>
+<span class="n">variable</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;rain&quot;</span>
+<span class="n">year</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;2018&quot;</span>
+<span class="n">ymd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;20180502&quot;</span>
+
+<span class="n">PATH_corr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">tforecast</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modelo_corr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ymd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+<span class="n">PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">tforecast</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modelo</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ymd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+
+<span class="c1"># Colocamos como dato la latitud y longitud de la localidad:</span>
+<span class="c1"># En este caso es Mercedes, Corrientes en Argentina.</span>
+<span class="c1"># En la fecha que vamos a analizar ocurrió en algún momento del pronóstico un evento de lluvia importante.</span>
+<span class="n">lat_e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-29.18</span>
+<span class="n">lon_e</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-58.07</span>
+
+<span class="c1"># Umbrales a considerar para calcular probabilidad:</span>
+<span class="n">umbrales</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+
+<span class="c1"># Imprimimos las carpetas con los datos corregidos y sin corregir:</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Carpeta con datos corregidos:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PATH_corr</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Carpeta con datos sin corregir:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PATH</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a hacer como el caso anterior. Para la fecha dada, vamos a LISTAR los archivos CORREGIDOS y, de a uno, vamos a ir extrayendo el dato de pronóstico de cada ensamble.</span>
+
+<span class="c1"># Listamos todos los archivos dentro del bucket + PATH_corr:</span>
+<span class="n">awsfiles_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get_bucket_df</span><span class="p">(</span>
+<span class="w">  </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PATH_corr</span><span class="p">,</span>
+<span class="w">  </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">Inf</span><span class="p">,</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">)</span>
+<span class="n">awsfiles_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">awsfiles_corr</span><span class="o">$</span><span class="n">Key</span><span class="w"> </span><span class="c1"># Nos quedamos sólo con la información de los nombres de los archivos.  </span>
+
+<span class="n">nfiles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">awsfiles_corr</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Cantidad de archivos corregidos =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nfiles</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una lista para almacenar los datos:</span>
+<span class="n">list_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">seq_along</span><span class="p">(</span><span class="n">awsfiles_corr</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Extrayendo datos del archivo:&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="n">awsfiles_corr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1"># Abrimos el archivo:</span>
+<span class="w">    </span><span class="n">gefs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">s3read_using</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ncdf4</span><span class="o">::</span><span class="n">nc_open</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">awsfiles_corr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span>
+<span class="w">                         </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">))</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1"># Leemos la variable y las coordenadas:</span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variable</span><span class="p">)</span>
+<span class="w">    </span><span class="n">lon</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lon&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="n">lat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lat&quot;</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nf">dim</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="w"> </span><span class="c1"># dimensiones: lon, lat, time. </span>
+
+<span class="w">    </span><span class="c1"># Tiempo:</span>
+<span class="w">    </span><span class="n">time</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">time_units</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncatt_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;units&quot;</span><span class="p">)[[</span><span class="s">&quot;value&quot;</span><span class="p">]]</span>
+<span class="w">    </span><span class="n">fecha_referencia</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.Date</span><span class="p">(</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;days since &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">time_units</span><span class="p">))</span>
+<span class="w">    </span><span class="c1"># Convertir el tiempo a formato de días desde la fecha de referencia:</span>
+<span class="w">    </span><span class="n">fechas_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fecha_referencia</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Seleccionamos el punto de retícula más cercano:</span>
+<span class="w">    </span><span class="n">df0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">var</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">lon</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lon_e</span><span class="p">)),</span><span class="w"> </span><span class="nf">which.min</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">lat</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lat_e</span><span class="p">)),</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">df0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Lo guardamos en lista generada:</span>
+<span class="w">    </span><span class="n">list_df</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span>
+<span class="p">}</span>
+
+<span class="c1"># Concatenamos los data frames por columnas:</span>
+<span class="n">result_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">do.call</span><span class="p">(</span><span class="n">cbind</span><span class="p">,</span><span class="w"> </span><span class="n">list_df</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">fechas_corr</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">result_corr</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Algunos apuntes antes de seguir:</p>
+<p>Vamos a realizar una figura mostrando la pluma de precipitación acumulada a lo largo de los plazos de pronóstico.</p>
+<p>Para ello utilizamos la función cumsum, que está cargada por defecto.</p>
+<p>En la figura vamos a remarcar en el eje X cuando hay 7 dias, de manera de tener las semanas.</p>
+<p>Las lineas de colores corresponden a UN miembro de ensamble y la línea negra gruesa, al acumulado observado.</p>
+<p>Las observaciones proviene del archivo datos_mercedes.xlsx para trabajar con los datos de la estación del SMN en Mercedes, Corrientes.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Leemos el archivo de Excel:</span>
+<span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_excel</span><span class="p">(</span><span class="s">&quot;datos_mercedes.xlsx&quot;</span><span class="p">)</span>
+
+<span class="c1"># Convertimos la columna &quot;Fecha&quot; en el índice y rellenamos los valores nulos con 0:</span>
+<span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">obs</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Fecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.Date</span><span class="p">(</span><span class="n">Fecha</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="n">Fecha</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Precipitacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ifelse</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">Precipitacion</span><span class="p">),</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">Precipitacion</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">acumulado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">cumsum</span><span class="p">(</span><span class="n">Precipitacion</span><span class="p">))</span>
+
+<span class="c1"># Calculamos los acumulados para la observación y el pronóstico corregido:</span>
+<span class="n">accobs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">obs</span><span class="o">$</span><span class="n">acumulado</span>
+<span class="n">accpp_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">result_corr</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">cumsum</span><span class="p">)</span>
+
+<span class="c1"># Asignamos nombres a las columnas de accpp y colores:</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">accpp_corr</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;c00&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p02&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p03&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p04&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p06&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p07&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p08&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p09&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p10&quot;</span><span class="p">)</span>
+<span class="n">colores</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;orange&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cyan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;magenta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;brown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pink&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gray&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;darkgreen&quot;</span><span class="p">)</span>
+
+<span class="c1"># Creamos el gráfico:</span>
+<span class="p">{</span><span class="nf">plot</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">,</span><span class="w"> </span><span class="n">accobs</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>
+<span class="w">     </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fecha&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Acumulado&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-50</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">),</span><span class="w"> </span><span class="n">xaxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">)],</span><span class="w"> </span>
+<span class="w">     </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">)],</span><span class="w"> </span><span class="s">&quot;%Y-%m-%d&quot;</span><span class="p">))</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">200</span><span class="p">,</span><span class="w"> </span><span class="m">400</span><span class="p">,</span><span class="w"> </span><span class="m">600</span><span class="p">,</span><span class="w"> </span><span class="m">800</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">),</span><span class="w"> </span>
+<span class="w">     </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;30&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;50&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;100&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;200&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;400&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;600&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;800&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="p">))</span>
+<span class="nf">grid</span><span class="p">()</span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">11</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">lines</span><span class="p">(</span><span class="n">fechas_corr</span><span class="p">,</span><span class="w"> </span><span class="n">accpp_corr</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="c1"># legend(&quot;right&quot;, legend = colnames(accpp_corr), col = colores, lwd = 0.8)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Apuntes</strong></p>
+<p>En la figura podemos ver que hay miembros del ensamble que muestran un acumulado mucho más alto que cualquiera de los otros miembros durante todo el período de pronóstico (34 días).</p>
+<p>En base a estos miembros vamos a calcular la proporción en cada semana que se supere algún umbral de acumulado. Vamos a utilizar 1mm y también 30mm como para tener dos estimaciones de probabilidad.</p>
+<p>Antes tambien vamos a hacer la misma extraccion de datos, pero para los datos <strong>SIN</strong> corrección en la misma fecha:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora, para la fecha dada, vamos a LISTAR los archivos SIN CORREGIR </span>
+<span class="c1"># y, de a uno, vamos a ir extrayendo el dato de pronóstico de cada ensamble.</span>
+
+<span class="c1"># Listamos todos los archivos dentro del bucket + PATH_corr:</span>
+<span class="n">awsfiles_sincorr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get_bucket_df</span><span class="p">(</span>
+<span class="w">  </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PATH</span><span class="p">,</span>
+<span class="w">  </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">Inf</span><span class="p">,</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">)</span>
+<span class="n">awsfiles_sincorr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">awsfiles_sincorr</span><span class="o">$</span><span class="n">Key</span><span class="w"> </span><span class="c1"># Nos quedamos sólo con la información de los nombres de los archivos.  </span>
+
+<span class="n">nfiles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">awsfiles_sincorr</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Cantidad de archivos sin corregir =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nfiles</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una lista para almacenar los datos:</span>
+<span class="n">list_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">seq_along</span><span class="p">(</span><span class="n">awsfiles_sincorr</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Extrayendo datos del archivo:&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="n">awsfiles_sincorr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1"># Abrimos el archivo</span>
+<span class="w">    </span><span class="n">gefs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">s3read_using</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ncdf4</span><span class="o">::</span><span class="n">nc_open</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">awsfiles_sincorr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span>
+<span class="w">                         </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">))</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1"># Leemos la variable y las coordenadas:</span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variable</span><span class="p">)</span>
+<span class="w">    </span><span class="n">lon</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lon&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="n">lat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lat&quot;</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nf">dim</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="w"> </span><span class="c1"># dimensiones: lon, lat, time. </span>
+
+<span class="w">    </span><span class="c1"># Tiempo:</span>
+<span class="w">    </span><span class="n">time</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">time_units</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncatt_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;units&quot;</span><span class="p">)[[</span><span class="s">&quot;value&quot;</span><span class="p">]]</span>
+<span class="w">    </span><span class="n">fecha_referencia</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.Date</span><span class="p">(</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;days since &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">time_units</span><span class="p">))</span>
+<span class="w">    </span><span class="c1"># Convertir el tiempo a formato de días desde la fecha de referencia:</span>
+<span class="w">    </span><span class="n">fechas_sincorr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fecha_referencia</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Seleccionamos el punto de retícula más cercano:</span>
+<span class="w">    </span><span class="n">df0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">var</span><span class="p">[</span><span class="nf">which.min</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">lon</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lon_e</span><span class="p">)),</span><span class="w"> </span><span class="nf">which.min</span><span class="p">(</span><span class="nf">abs</span><span class="p">(</span><span class="n">lat</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lat_e</span><span class="p">)),</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="n">df0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Lo guardamos en lista generada:</span>
+<span class="w">    </span><span class="n">list_df</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">df</span>
+<span class="p">}</span>
+
+<span class="c1"># Concatenar los data frames por columnas:</span>
+<span class="n">result_sincorr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">do.call</span><span class="p">(</span><span class="n">cbind</span><span class="p">,</span><span class="w"> </span><span class="n">list_df</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">fechas_sincorr</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">result_sincorr</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos los acumulados para el pronóstico sin corregir:</span>
+<span class="n">accpp_sincorr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">result_sincorr</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">cumsum</span><span class="p">)</span>
+
+<span class="c1"># Asignamos nombres a las columnas de accpp y colores:</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">accpp_sincorr</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;c00&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p02&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p03&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p04&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p06&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p07&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p08&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p09&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;p10&quot;</span><span class="p">)</span>
+<span class="n">colores</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;orange&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cyan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;magenta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;brown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pink&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gray&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;darkgreen&quot;</span><span class="p">)</span>
+
+<span class="c1"># Creamos el gráfico:</span>
+<span class="p">{</span><span class="nf">plot</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">,</span><span class="w"> </span><span class="n">accobs</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;l&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Fecha&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Acumulado&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-50</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">),</span><span class="w"> </span><span class="n">xaxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">)],</span><span class="w"> </span>
+<span class="w">     </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">[</span><span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">obs</span><span class="o">$</span><span class="n">Fecha</span><span class="p">),</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">)],</span><span class="w"> </span><span class="s">&quot;%Y-%m-%d&quot;</span><span class="p">))</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="m">200</span><span class="p">,</span><span class="w"> </span><span class="m">400</span><span class="p">,</span><span class="w"> </span><span class="m">600</span><span class="p">,</span><span class="w"> </span><span class="m">800</span><span class="p">,</span><span class="w"> </span><span class="m">1000</span><span class="p">),</span><span class="w"> </span>
+<span class="w">     </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;30&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;50&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;100&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;200&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;400&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;600&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;800&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="p">))</span>
+<span class="nf">grid</span><span class="p">()</span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">11</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">lines</span><span class="p">(</span><span class="n">fechas_sincorr</span><span class="p">,</span><span class="w"> </span><span class="n">accpp_sincorr</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="c1"># legend(&quot;right&quot;, legend = colnames(accpp_sincorr), col = colores, lwd = 0.8)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Cálculo de probabilidad semanal por umbral</strong></p>
+<p>Ahora vamos a calcular la probabilidad en distintos umbrales.</p>
+<p>Creamos una lista colocando el numero correspondiente a la semana para agrupar.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos la variable de semana:</span>
+<span class="n">lsemana</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">accpp_corr</span><span class="p">))</span>
+<span class="n">lsemana</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">7</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span>
+<span class="n">lsemana</span><span class="p">[</span><span class="m">8</span><span class="o">:</span><span class="m">14</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span>
+<span class="n">lsemana</span><span class="p">[</span><span class="m">15</span><span class="o">:</span><span class="m">21</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">3</span>
+<span class="n">lsemana</span><span class="p">[</span><span class="m">22</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">accpp_corr</span><span class="p">)]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">4</span>
+
+<span class="c1"># Agrega la nueva columna:</span>
+<span class="n">obs</span><span class="o">$</span><span class="n">i_semana</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lsemana</span>
+<span class="n">result_corr</span><span class="o">$</span><span class="n">i_semana</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lsemana</span>
+<span class="n">result_sincorr</span><span class="o">$</span><span class="n">i_semana</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">lsemana</span>
+
+<span class="c1"># Agrupamos por semana y sumamos (calculamos el acumulado semanal de cada miembro del ensamble):</span>
+<span class="n">acc_obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span><span class="n">obs</span><span class="p">[,</span><span class="w"> </span><span class="nf">colnames</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Precipitacion&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">semana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obs</span><span class="o">$</span><span class="n">i_semana</span><span class="p">),</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span>
+<span class="n">acc_sem_corr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span><span class="n">result_corr</span><span class="p">[,</span><span class="o">-</span><span class="nf">ncol</span><span class="p">(</span><span class="n">result_corr</span><span class="p">)],</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">semana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result_corr</span><span class="o">$</span><span class="n">i_semana</span><span class="p">),</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span>
+<span class="n">acc_sem_sincorr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span><span class="n">result_sincorr</span><span class="p">[,</span><span class="o">-</span><span class="nf">ncol</span><span class="p">(</span><span class="n">result_sincorr</span><span class="p">)],</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">semana</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result_sincorr</span><span class="o">$</span><span class="n">i_semana</span><span class="p">),</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">acc_obs</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">acc_sem_corr</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">acc_sem_sincorr</span><span class="p">)</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">semana</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39; ############ Pronóstico para la semana:&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">semana</span><span class="p">,</span><span class="w"> </span><span class="s">&#39; ############ &#39;</span><span class="p">))</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39; #### Lluvia observada: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">acc_obs</span><span class="o">$</span><span class="n">Precipitacion</span><span class="p">[</span><span class="n">semana</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;mm&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">umbral</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">umbrales</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;** Calculando probabilidad semana&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">semana</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; para umbral:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">umbral</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;mm  **&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">c0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">acc_sem_corr</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">umbral</span><span class="p">)[</span><span class="n">semana</span><span class="p">,</span><span class="w"> </span><span class="p">])</span><span class="o">/</span><span class="m">11</span>
+<span class="w">    </span><span class="n">c1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">((</span><span class="n">acc_sem_sincorr</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">umbral</span><span class="p">)[</span><span class="n">semana</span><span class="p">,</span><span class="w"> </span><span class="p">])</span><span class="o">/</span><span class="m">11</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;Probabilidad semana&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">semana</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; sin corregir:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)))</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;Probabilidad semana&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">semana</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; corregida&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">c0</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_online_lista_archivos/" class="btn btn-neutral float-left" title="¿Cómo trabajar con multiples archivos en línea usando R?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_verificacion/" class="btn btn-neutral float-right" title="Pronósticos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

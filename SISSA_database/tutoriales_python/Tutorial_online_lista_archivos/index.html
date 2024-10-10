@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Como trabajar con multiples archivos en línea usando python? &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Analizamos cómo el modelo representa aspectos de la distribución de una variable" href="../Tutorial_PDF_CDF_rain_daily/" />
+    <link rel="prev" title="¿Como trabajar con el archivo en línea?" href="../Tutorial_online_plot/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">¿Como trabajar con multiples archivos en línea usando python?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_online_lista_archivos.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_online_lista_archivos.ipynb">link</a></div>
+</div>
+</div>
+<section id="¿Como-trabajar-con-multiples-archivos-en-línea-usando-python?">
+<h1>¿Como trabajar con multiples archivos en línea usando python?<a class="headerlink" href="#¿Como-trabajar-con-multiples-archivos-en-línea-usando-python?" title="Enlace permanente a este encabezado"></a></h1>
+<p>En este tutorial vamos a continuar trabajando con una de las librerías con las que hicimos la descarga de datos (<em>s3fs</em>). A diferencia del anterior ejemplo que trabajamos, en este vamos a trabajar con todos los miembros del ensamble y vamos a calcular una media del ensamble y también la desviación estándar de dicho ensamble para un plazo de pronóstico.</p>
+<p>Además de la librería para conectar con AWS, vamos a necesitar para este tutorial tener instalado las siguientes librerías:</p>
+<p><strong>netCDF4</strong> : <a class="reference external" href="https://pypi.org/project/netCDF4/">https://pypi.org/project/netCDF4/</a> <strong>numpy</strong> : <a class="reference external" href="https://pypi.org/project/numpy/">https://pypi.org/project/numpy/</a> <strong>matplotlib</strong> : <a class="reference external" href="https://pypi.org/project/matplotlib/">https://pypi.org/project/matplotlib/</a> <strong>cartopy</strong> : <a class="reference external" href="https://pypi.org/project/Cartopy/">https://pypi.org/project/Cartopy/</a></p>
+<p>Recordar la estructura de datos de la base en el siguiente <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/">link</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Comenzamos importando las librerias
+
+# esta linea es para el notebook muestre la figura online.
+%matplotlib inline
+
+import s3fs
+import netCDF4
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+# DATOS
+
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo = &#39;GEFSv12_corr&#39;
+variable = &#39;tmean&#39;
+year = &#39;2010&#39;
+ymd = &#39;20100331&#39;
+nens = &#39;p03&#39;
+narchivo = variable + &#39;_&#39; + ymd + &#39;_&#39; + nens + &#39;.nc&#39;
+PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + year + &#39;/&#39; + ymd + &#39;/&#39;
+</pre></div>
+</div>
+</div>
+<p>En este caso, además de la opción de <em>abrir</em> o <em>conectar</em> con un archivo, la librería <strong>s3fs</strong>, permite <em>listar</em> el contenido de un bucket de AWS en una lista de python.</p>
+<p>De esta forma al igual que como hicimos con UN solo archivo, en este ejemplo vamos a ir leyendo cada variable y guardando el dato de cada miembro de ensamble para un plazo de pronóstico válido.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos los paises y estados/provincias
+countries = cfeature.NaturalEarthFeature(
+        category=&#39;cultural&#39;,
+        name=&#39;admin_0_countries&#39;,
+        scale=&#39;10m&#39;,
+        facecolor=&#39;none&#39;)
+states_provinces = cfeature.NaturalEarthFeature(
+        category=&#39;cultural&#39;,
+        name=&#39;admin_1_states_provinces_lines&#39;,
+        scale=&#39;10m&#39;,
+        facecolor=&#39;none&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Comenzamos con la conexión con el archivo
+
+# Vamos a trabajar con el plazo de pronóstico al día 10
+plazo_pron = 10
+
+fs = s3fs.S3FileSystem(anon=True)
+# Listamos todos los archivos dentro del bucket + PATH
+awsfiles = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH)
+nfile = len(awsfiles)
+print(&#39;Trabajamos con los archivos:&#39;)
+print(awsfiles)
+print(&#39;Cantidad de archivos =&#39;, nfile)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Trabajamos con los archivos:
+[&#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_c00.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p01.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p02.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p03.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p04.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p05.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p06.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p07.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p08.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p09.nc&#39;, &#39;sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p10.nc&#39;]
+Cantidad de archivos = 11
+</pre></div></div>
+</div>
+<p>En el siguiente recuadro de texto, vamos a ir trabajando en cada archivo, extrayendo el plazo asignado y finalmente calculamos las variables que necesitamos: media y desviación estándar:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos el dato a una variable en python
+
+for i, awsfile in enumerate(awsfiles):
+    print(&#39;Extrayendo datos del archivo:&#39;)
+    print(awsfile)
+    with fs.open(awsfile) as f:
+        with netCDF4.Dataset(narchivo, memory=f.read()) as gefs:
+             var = gefs[variable][:]
+             lat = gefs[&#39;lat&#39;][:]
+             lon = gefs[&#39;lon&#39;][:]
+             if i == 0:
+                 # Creamos una variable con NaN del tamaño de los archivos
+                 gvar = np.empty((nfile, len(lat), len(lon)))
+                 gvar[:] = np.nan
+             # Guardamos el valor de temperatura para el 2 día de pronostico
+             gvar[i,:,:] = var[plazo_pron,:,:]
+# Comenzamos la figura
+mean = np.mean(gvar, axis=0)
+std = np.std(gvar, axis=0)
+
+print(&#39;Imprimimos en pantalla el shape de cada matriz&#39;)
+print(mean.shape)
+print(std.shape)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_c00.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p01.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p02.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p03.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p04.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p05.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p06.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p07.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p08.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p09.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p10.nc
+Imprimimos en pantalla el shape de cada matriz
+(187, 189)
+(187, 189)
+</pre></div></div>
+</div>
+<p>Ahora que ya tenemos calculada la media y la desviación estándar, vamos a generar una figura con dichos calculos.</p>
+<p>En este caso, va a ser un mapa uno al lado del otro.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Generamos una figura con dos axis en la zona de columnas
+# La media y la desviación estándar van a tener distintos colores
+fig, ax = plt.subplots(nrows=1, ncols=2, subplot_kw={&#39;projection&#39;: ccrs.PlateCarree()})
+
+# Líneas de codigo para la figura de la Media
+cs = ax[0].pcolormesh(lon, lat, mean, transform=ccrs.PlateCarree(), vmin=0, vmax=25, cmap=&#39;jet&#39;)
+ax[0].coastlines()
+ax[0].add_feature(countries, edgecolor=&#39;black&#39;)
+ax[0].add_feature(states_provinces, edgecolor=&#39;gray&#39;)
+cb = fig.colorbar(cs, ax=ax[0], shrink=0.47, extend=&#39;both&#39;)
+ax[0].set_title(&#39;Promedio ensamble\n tmean para el dia &#39; + str(plazo_pron), fontsize=8)
+
+# Líneas de codigo para la figura de la Desviacion estándar
+cs1 = ax[1].pcolormesh(lon, lat, std, transform=ccrs.PlateCarree(), vmin=0, vmax=2, cmap=&#39;YlGnBu&#39;)
+ax[1].coastlines()
+ax[1].add_feature(countries, edgecolor=&#39;black&#39;)
+ax[1].add_feature(states_provinces, edgecolor=&#39;gray&#39;)
+cb1 = fig.colorbar(cs1, ax=ax[1], shrink=0.47, extend=&#39;both&#39;)
+ax[1].set_title(u&#39;Desviación standard ensamble\n tmean para el dia &#39; + str(plazo_pron), fontsize=8)
+
+# Guardamos la figura
+plt.savefig(&#39;test_media_ensamble.jpg&#39;, dpi=100, bbox_inches=&#39;tight&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_online_lista_archivos_8_0.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_online_lista_archivos_8_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_online_plot/" class="btn btn-neutral float-left" title="¿Como trabajar con el archivo en línea?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_PDF_CDF_rain_daily/" class="btn btn-neutral float-right" title="Analizamos cómo el modelo representa aspectos de la distribución de una variable" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

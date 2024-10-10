@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 5: Verificacion de pronosticos &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Pronostico probabilistico para lluvia acumulada semanal." href="../Tutorial_pronostico_semana2/" />
+    <link rel="prev" title="Ejercicio 4: Climatologia Tmedia" href="../Tutorial_PDF_boxplot_climatologia_diaria/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">Ejercicio 5: Verificacion de pronosticos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_verificacion.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_verificacion.ipynb">link</a></div>
+</div>
+</div>
+<section id="Ejercicio-5:-Verificacion-de-pronosticos">
+<h1>Ejercicio 5: Verificacion de pronosticos<a class="headerlink" href="#Ejercicio-5:-Verificacion-de-pronosticos" title="Enlace permanente a este encabezado"></a></h1>
+<section id="¿Cómo-verificamos-los-pronósticos-de-las-primeras-semanas?">
+<h2>¿Cómo verificamos los pronósticos de las primeras semanas?<a class="headerlink" href="#¿Cómo-verificamos-los-pronósticos-de-las-primeras-semanas?" title="Enlace permanente a este encabezado"></a></h2>
+<p>En este tutorial vamos a realizar una verificación temporal y espacial del pronóstico corregido y sin corregir de las primeras semanas del mes de marzi. Vamos a utilizar la metodología que utiliza el SMN para la verificación, pero para el dominio del sudeste de Sudamérica. Para ello, vamos a:</p>
+<ul class="simple">
+<li><p>Elegir el dominio reducido.</p></li>
+<li><p>Tomar los datos diarios de precipitación correspondientes a las semanas 1 de pronóstico del mes de marzo y calcular el acumulado.</p></li>
+<li><p>Tomar los datos diarios del ERA5 para las mismas semanas y calcular el acumulado.</p></li>
+<li><p>Elegir dos umbrales de precipitación (5 y 30 mm, usados por el SMN) y calcular los elementos de una tabla de contingencia y los ínidices <em>Bias frec</em> (Bias en la frecuencia), <em>POD</em> (Probabilidad de detección) y <em>ETS</em> (<em>Equitable Threat Score</em>):</p></li>
+<li><p>Graficar los resultados de una verificación temporal y espacial.</p></li>
+</ul>
+<p>Además de la librería para conectar con AWS, vamos a necesitar para este tutorial tener instalado las siguientes librerías:</p>
+<p>netCDF4 : <a class="reference external" href="https://pypi.org/project/netCDF4/">https://pypi.org/project/netCDF4/</a> numpy : <a class="reference external" href="https://pypi.org/project/numpy/">https://pypi.org/project/numpy/</a> matplotlib : <a class="reference external" href="https://pypi.org/project/matplotlib/">https://pypi.org/project/matplotlib/</a> cartopy : <a class="reference external" href="https://pypi.org/project/Cartopy/">https://pypi.org/project/Cartopy/</a> pandas : <a class="reference external" href="https://pypi.org/project/Pandas/">https://pypi.org/project/Pandas/</a> pathlib : <a class="reference external" href="https://pypi.org/project/Pathlib/">https://pypi.org/project/Pathlib/</a> datetime: <a class="reference external" href="https://pypi.org/project/datetime/">https://pypi.org/project/datetime/</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Importamos las librerías que vamos a necesitar:
+%matplotlib inline
+
+import s3fs
+import netCDF4
+import os
+import numpy as np
+import pandas as pd
+import pathlib
+from datetime import datetime, date, timedelta
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+
+# Definimos algunos parámetros:
+variable = &#39;rain&#39;
+mes = 3
+lat_n = -20
+lat_s = -30
+lon_w = -65
+lon_e = -55
+
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+</pre></div>
+</div>
+</div>
+<p><strong>Pronósticos</strong></p>
+<p>Como la estructura de los datos de los modelos de pronóstico (corregido y sin corregir) es igual, vamos a usar un “for” para cargarlos, sin necesidad de descargar los archivos del AWS. Vamos a generar 2 archivos “.csv” con la información de las primeras semanas de pronóstico, sólo si estos no fueron generados previamente.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tforecast = &#39;subseasonal&#39;
+modelos_gefs = [&#39;GEFSv12_corr&#39;, &#39;GEFSv12&#39;]
+
+for modelo in modelos_gefs:
+
+    archivo_gefs = f&quot;{modelo}_{variable}_2010_2019_mes{mes}_dom_{lon_e}_{lon_w}_{lat_n}_{lat_s}.csv&quot;
+    archivo_gefs = &quot;py_&quot;+archivo_gefs
+
+    # Corremos esta parte del código sólo si los archivos no fueron generados previamente:
+    if not os.path.exists(archivo_gefs):
+        df_total = pd.DataFrame()
+        for year in range(2010, 2020):
+            PATH0 = f&quot;{tforecast}/{modelo}/{variable}/{year}/&quot;
+            print(PATH0)
+            fs = s3fs.S3FileSystem(anon=True)
+            # Listamos todos las carpetas dentro del bucket + PATH0:
+            awsfolders = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH0)
+
+            # Nos quedamos solo con las carpetas que corresponden al mes:
+            awsfolders = list(filter(lambda x: (str(year) + &quot;{:02d}&quot;.format(mes)) in x, awsfolders))
+            # Hay una carpeta por fecha de inicialización.
+            # Vemos cuáles son las fechas de inicialización:
+            fechas_inic = list(set([folder[-8:] for folder in awsfolders]))
+            fechas_inic = sorted(fechas_inic)
+
+            for fecha_inic in fechas_inic:
+                print(&quot;Extrayendo datos de los archivos inicializados en:&quot;)
+                print(fecha_inic)
+
+                awsfiles = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH0 + fecha_inic + &#39;/&#39;)
+                # Nos quedamos solamente con la corrida control (por cuestiones de tiempo).
+                # Comentarear esta línea en caso de querer verificar todo el ensamble.
+                awsfiles = [file for file in awsfiles if &quot;c00&quot; in file]
+
+                for awsfile in awsfiles:
+                    print(&quot;Extrayendo datos del archivo:&quot;)
+                    print(awsfile)
+
+                    with fs.open(awsfile) as f:
+                        with netCDF4.Dataset(awsfile, memory=f.read()) as gefs:
+                            lon = gefs[&#39;lon&#39;][:]
+                            lat = gefs[&#39;lat&#39;][:]
+                            time = gefs[&#39;time&#39;][:]
+                            fecha_referencia = datetime.strptime(&#39;1900-01-01&#39;, &#39;%Y-%m-%d&#39;)
+                            fechas = [fecha_referencia + timedelta(days = int(intervalo)) for intervalo in time]
+                            fechas = pd.to_datetime(fechas, format = &#39;%Y%m%d&#39;)
+                            print(fechas)
+
+                            lon_idx = np.where((lon &gt;= lon_w) &amp; (lon &lt;= lon_e))[0]
+                            lat_idx = np.where((lat &gt;= lat_s) &amp; (lat &lt;= lat_n))[0]
+                            lon_rec = lon[lon_idx]
+                            lat_rec = lat[lat_idx]
+
+                            var = gefs[variable][:]
+                            var.shape # Dimensiones: tiempo, lat, lon.
+
+                            # Hacemos un recorte en el dominio:
+                            var_rec = var[:, lat_idx[0]:lat_idx[-1]+1, lon_idx[0]:lon_idx[-1]+1]
+                            # Hacemos el acumulado de la primer semana de pronóstico.
+                            # Calcular la media en caso de trabajar con la temperatura.
+                            suma = np.sum(var_rec[:7, :, :], axis=(0))
+
+                            if awsfiles.index(awsfile) == 0:
+                                gvar = np.empty((len(lat_rec), len(lon_rec), len(awsfiles)))
+
+                            gvar[:, :, awsfiles.index(awsfile)] = suma
+
+                # Calculamos la media del ensamble:
+                # En este caso elegimos solo la corrida control, así que la media
+                # va a ser igual a los datos originales.
+                media = np.mean(gvar, axis = 2)
+
+                # Guardamos la información en un data.frame:
+                df = pd.DataFrame({
+                    &#39;lat&#39;: np.repeat(lat_rec, len(lon_rec)),
+                    &#39;lon&#39;: np.tile(lon_rec, len(lat_rec)),
+                    &#39;acum&#39;: media.flatten()
+                })
+                df[&#39;fecha_inic&#39;] = pd.to_datetime(fecha_inic, format = &#39;%Y%m%d&#39;)
+
+                df_total = pd.concat([df_total, df], ignore_index = True)
+
+        # Guardamos la información en un archivo &#39;.csv&#39;:
+        df_total.to_csv(archivo_gefs, sep = &#39;;&#39;, index = False)
+<br/></pre></div>
+</div>
+</div>
+<p>Cargamos los archivos «.csv» generados.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_total_corr = pd.read_csv(&quot;py_&quot;+f&quot;GEFSv12_corr_{variable}_2010_2019_mes{mes}_dom_{lon_e}_{lon_w}_{lat_n}_{lat_s}.csv&quot;, sep = &#39;;&#39;)
+df_total_corr[&#39;fecha_inic&#39;] = pd.to_datetime(df_total_corr[&#39;fecha_inic&#39;])
+
+df_total_sincorr = pd.read_csv(&quot;py_&quot;+f&quot;GEFSv12_{variable}_2010_2019_mes{mes}_dom_{lon_e}_{lon_w}_{lat_n}_{lat_s}.csv&quot;, sep = &#39;;&#39;)
+df_total_sincorr[&#39;fecha_inic&#39;] = pd.to_datetime(df_total_sincorr[&#39;fecha_inic&#39;])
+</pre></div>
+</div>
+</div>
+<p><strong>ERA5</strong></p>
+<p>Vamos a hacer un procedimiento análogo para los datos de ERA5. Vamos a generar un archivo “.csv” con la información de las mismas semanas, sólo si este no fue generado previamente.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>modelo = &#39;ERA5&#39;
+archivo_obs = &quot;py_&quot;+f&quot;{modelo}_{variable}_2010_2019_mes{mes}_dom{lon_e}{lon_w}{lat_n}{lat_s}.csv&quot;
+
+# Corremos esta parte del código sólo si el archivo no fue generado previamente:
+if not os.path.exists(archivo_obs):
+    df_total = pd.DataFrame()
+    for year in range(2010, 2020):
+        PATH0 = f&quot;{modelo}/{variable}/{year}&quot;+&quot;.nc&quot;
+        print(PATH0)
+        fs = s3fs.S3FileSystem(anon=True)
+        # Listamos el archivo dentro del bucket + PATH0:
+        awsfile = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH0)
+
+        print(&quot;Extrayendo datos del archivo:&quot;)
+        print(awsfile)
+
+        with fs.open(awsfile[0]) as f:
+            with netCDF4.Dataset(awsfile[0], memory=f.read()) as era5:
+                lon = era5[&#39;longitude&#39;][:]
+                lat = era5[&#39;latitude&#39;][:]
+                time = era5[&#39;time&#39;][:]
+                fecha_referencia = datetime.strptime(&#39;1900-01-01&#39;, &#39;%Y-%m-%d&#39;)
+                fechas = [fecha_referencia + timedelta(days = int(intervalo)) for intervalo in time]
+                fechas =  pd.to_datetime(fechas, format = &#39;%Y%m%d&#39;)
+                print(fechas)
+
+                lon_idx = np.where((lon &gt;= lon_w) &amp; (lon &lt;= lon_e))[0]
+                lat_idx = np.where((lat &gt;= lat_s) &amp; (lat &lt;= lat_n))[0]
+                lon_rec = lon[lon_idx]
+                lat_rec = lat[lat_idx]
+
+                var = era5[variable][:]
+                var.shape # Dimensiones: time, lat, lon.
+
+                # Hacemos un recorte en el dominio:
+                var_rec = var[:, lat_idx[0]:lat_idx[-1]+1, lon_idx[0]:lon_idx[-1]+1]
+
+                # Vemos las fechas de inicialización de &quot;df_total_corr&quot; para ese año y mes.
+                # A partir de ellas, vamos a calcular el acumulado observado a una semana:
+                fechas_inic = df_total_corr[df_total_corr[&#39;fecha_inic&#39;].dt.year == year][&#39;fecha_inic&#39;].unique()
+                fechas_inic = pd.to_datetime(fechas_inic, format = &#39;%Y%m%d&#39;)
+
+                for fecha_inic in fechas_inic:
+                    aux_inic = np.where(fechas == fecha_inic)[0][0]
+
+                    # Hacemos el recorte desde la fecha de inicialización hasta la primer semana,
+                    # solo si el día final de la primer semana está incluido en el archivo
+                    # (esto puede no pasar para el mes de diciembre):
+                    # Por ejemplo, puede pasar que la fecha de inicialización del
+                    # pronóstico sea el 31-12-2010, por lo que no se va a poder
+                    # caluclar el acumulado semanal de la primer semana asociada a dicha
+                    # fecha de inicialización.
+                    if (aux_inic + 6) &gt;= var_rec.shape[0]:
+                        continue
+                    # Hacemos el recorte de la primer semana que empieza con la fecha de inicialización:
+                    var_rec2 = var_rec[aux_inic:(aux_inic + 6),:,:]
+
+                    # Hacemos el acumulado de la primer semana que empieza con la fecha de inicialización:
+                    # Calcular la media en caso de trabajar con la temperatura.
+                    suma = np.sum(var_rec2, axis=(0))
+
+                    # Guardamos la información en un data.frame:
+                    df = pd.DataFrame({
+                        &#39;lat&#39;: np.repeat(lat_rec, len(lon_rec)),
+                        &#39;lon&#39;: np.tile(lon_rec, len(lat_rec)),
+                        &#39;acum&#39;: suma.flatten()
+                        })
+                    df[&#39;fecha_inic&#39;] = pd.to_datetime(fecha_inic, format = &#39;%Y%m%d&#39;)
+
+                    df_total = pd.concat([df_total, df], ignore_index = True)
+
+    # Guardamos la información en un archivo &#39;.csv&#39;:
+    df_total.to_csv(archivo_obs, sep = &#39;;&#39;, index = False)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos el archivo &quot;.csv&quot; generado:
+df_total_obs = pd.read_csv(&quot;py_&quot;+f&quot;ERA5_{variable}_2010_2019_mes{mes}_dom{lon_e}{lon_w}{lat_n}{lat_s}.csv&quot;, sep = &#39;;&#39;)
+df_total_obs[&#39;fecha_inic&#39;] = pd.to_datetime(df_total_obs[&#39;fecha_inic&#39;])
+</pre></div>
+</div>
+</div>
+<p>Juntamos en un único DataFrame la información pronosticada y del ERA5.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Hacemos un merge de df_total_corr y df_total_sincorr:
+df_total = pd.merge(df_total_corr, df_total_sincorr,
+                    on = [&quot;lon&quot;, &quot;lat&quot;, &quot;fecha_inic&quot;], suffixes=(&quot;_corr&quot;, &quot;_sincorr&quot;))
+
+# Hacemos un merge de df_total_obs y df_total:
+df_total = pd.merge(df_total_obs, df_total,
+                    on = [&quot;lon&quot;, &quot;lat&quot;, &quot;fecha_inic&quot;])
+
+# Eliminamos las filas con valores faltantes:
+# Esto va a eliminar la fila con fecha de inicialización cuya primer semana
+# no estuvo contemplada.
+df_total.dropna(inplace = True)
+
+# Eliminamos los data.frames originales para liberar memoria:
+del df_total_obs, df_total_corr, df_total_sincorr
+</pre></div>
+</div>
+</div>
+<p>Definimos una función para calcular los elementos de una tabla de contingencia:</p>
+<ul class="simple">
+<li><p><em>Hits</em>: Cantidad de casos en los cuales la observación y el pronóstico superaron el umbral.</p></li>
+<li><p><em>False Alarms</em>: Cantidad de casos en los cuales el pronóstico superó el umbral pero la observación no.</p></li>
+<li><p><em>Missed events</em>: Cantidad de casos en los cuales la observación superó el umbral pero el pronóstico no.</p></li>
+<li><p><em>Correct negatives</em>: Cantidad de casos en los cuales la observación ni el pronóstico superaron el umbral.</p></li>
+</ul>
+<p>También la función calcula los siguientes índices de verificación, a partir de estos elementos:</p>
+<ul class="simple">
+<li><p><strong>Bias en la frecuencia</strong>: Compara las frecuencias pronosticadas con las observadas.</p></li>
+<li><p><strong>Probabilidad de detección (POD)</strong>: Indica la proporción de casos observados que sí fueron pronosticados.</p></li>
+<li><p><strong>ETS o Equitable Threat Score</strong>: Mide la proporción de aciertos pero ajustado por la cantidad de aciertos que fueron aleatorios.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def funcion_tabla_cont(observacion, pronostico, umbral):
+    # Creamos vectores lógicos para los valores que superan el umbral:
+    obs_sup_umbral = observacion &gt; umbral
+    prono_sup_umbral = pronostico &gt; umbral
+
+    # Calculamos los hits, false_alarms, missed_events y correct_negatives:
+    hits = np.sum(obs_sup_umbral &amp; prono_sup_umbral)
+    false_alarms = np.sum(~obs_sup_umbral &amp; prono_sup_umbral)
+    missed_events = np.sum(obs_sup_umbral &amp; ~prono_sup_umbral)
+    correct_negatives = np.sum(~obs_sup_umbral &amp; ~prono_sup_umbral)
+
+    total_events_observed = hits + missed_events
+    total_non_events_observed = false_alarms + correct_negatives
+    total_events_forecast = hits + false_alarms
+    total_non_events_forecast = missed_events + correct_negatives
+    total = hits + false_alarms + missed_events + correct_negatives
+
+    # Calculamos los índices bias_fec, pod y ets:
+    bias_frec = total_events_forecast / total_events_observed
+    pod = hits / total_events_observed
+    far = false_alarms / total_events_forecast
+
+    random_hits = (total_events_forecast * total_events_observed) / total
+    ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+
+    return {&#39;hits&#39;: hits, &#39;false_alarm&#39;: false_alarms,
+            &#39;missed_events&#39;: missed_events, &#39;correct_negatives&#39;: correct_negatives,
+            &#39;bias_frec&#39;: bias_frec, &#39;pod&#39;: pod, &#39;far&#39;: far, &#39;ets&#39;: ets}
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Verificación-temporal">
+<h2>Verificación temporal<a class="headerlink" href="#Verificación-temporal" title="Enlace permanente a este encabezado"></a></h2>
+<p>Calculamos los índices por año, considerando todo el dominio.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Definimos umbrales:
+umbrales = [5, 30]
+
+tabla_total_corr = pd.DataFrame()
+tabla_total_sincorr = pd.DataFrame()
+
+# Iteramos sobre cada umbral y año:
+for umbral in umbrales:
+    for j in range(2010, 2020):
+        df_anio = df_total[df_total[&#39;fecha_inic&#39;].dt.year == j]
+
+        # Calculamos la tabla de contingencia para el pronóstico corregido y sin corregir:
+        tabla_corr = funcion_tabla_cont(observacion = df_anio[&#39;acum&#39;], pronostico = df_anio[&#39;acum_corr&#39;], umbral = umbral)
+        tabla_corr = pd.concat([pd.DataFrame({&#39;umbral&#39;: [umbral], &#39;anio&#39;: [j]}), pd.DataFrame(tabla_corr, index = [0])], axis = 1)
+        tabla_total_corr = pd.concat([tabla_total_corr, tabla_corr], ignore_index = True)
+
+        tabla_sincorr = funcion_tabla_cont(observacion = df_anio[&#39;acum&#39;], pronostico = df_anio[&#39;acum_sincorr&#39;], umbral = umbral)
+        tabla_sincorr = pd.concat([pd.DataFrame({&#39;umbral&#39;: [umbral], &#39;anio&#39;: [j]}), pd.DataFrame(tabla_sincorr, index = [0])], axis = 1)
+        tabla_total_sincorr = pd.concat([tabla_total_sincorr, tabla_sincorr], ignore_index = True)
+</pre></div>
+</div>
+</div>
+<p>Graficamos las series temporales, sólo para el umbral de 30 mm.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Elegimos solo un umbral:
+umbral = 30
+tabla_corr = tabla_total_corr[tabla_total_corr[&#39;umbral&#39;] == umbral]
+tabla_sincorr = tabla_total_sincorr[tabla_total_sincorr[&#39;umbral&#39;] == umbral]
+
+plt.figure(figsize = (13, 8))
+
+# Bias_frec prono corregido:
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_corr[&#39;bias_frec&#39;], &#39;ro&#39;)
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_corr[&#39;bias_frec&#39;], &#39;r-&#39;, linewidth = 1.5)
+# Bias_frec prono sin corregir:
+plt.plot(tabla_sincorr[&#39;anio&#39;], tabla_sincorr[&#39;bias_frec&#39;], &#39;ro&#39;)
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_sincorr[&#39;bias_frec&#39;], &#39;r--&#39;, linewidth = 1.5)
+# POD prono corregido:
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_corr[&#39;pod&#39;], &#39;bo&#39;)
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_corr[&#39;pod&#39;], &#39;b-&#39;, linewidth = 1.5)
+# POD prono sin corregir:
+plt.plot(tabla_sincorr[&#39;anio&#39;], tabla_sincorr[&#39;pod&#39;], &#39;bo&#39;)
+plt.plot(tabla_sincorr[&#39;anio&#39;], tabla_sincorr[&#39;pod&#39;], &#39;b--&#39;, linewidth = 1.5)
+# ETS prono corregido:
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_corr[&#39;ets&#39;], &#39;go&#39;)
+plt.plot(tabla_corr[&#39;anio&#39;], tabla_corr[&#39;ets&#39;], &#39;g-&#39;, linewidth = 1.5)
+# ETS prono sin corregir:
+plt.plot(tabla_sincorr[&#39;anio&#39;], tabla_sincorr[&#39;ets&#39;], &#39;go&#39;)
+plt.plot(tabla_sincorr[&#39;anio&#39;], tabla_sincorr[&#39;ets&#39;], &#39;g--&#39;, linewidth = 1.5)
+
+# Para crear la leyenda:
+handles, labels = plt.gca().get_legend_handles_labels()
+patch1 = Line2D([0], [0], color = &#39;red&#39;, marker = &#39;o&#39;, label = &#39;BIAS FREC&#39;)
+patch2 = Line2D([0], [0], color = &#39;blue&#39;, marker = &#39;o&#39;, label = &#39;POD&#39;)
+patch3 = Line2D([0], [0], color = &#39;green&#39;, marker = &#39;o&#39;, label = &#39;ETS&#39;)
+line1 = Line2D([0], [0], color = &#39;black&#39;, label = &#39;Corregido&#39;)
+line2 = Line2D([1], [0], color = &#39;black&#39;, label = &#39;Sin corregir&#39;, linestyle = &#39;--&#39;)
+handles.extend([patch1, patch2, patch3, line1, line2])
+plt.legend(handles = handles)
+
+plt.xlabel(&#39;Año&#39;)
+plt.ylabel(&#39;Valores de índice&#39;)
+plt.title(f&#39;Pronóstico de precipitación semanal &gt; {umbral} mm\nmes {mes}\nSemana 1. Desde 2010 hasta 2019.&#39;)
+
+# Guardamos la figura:
+plt.savefig(f&quot;serie_temporal_verif_{variable}_2010_2019_mes{mes}_dom_{lon_e}_{lon_w}_{lat_n}_{lat_s}.jpg&quot;, dpi = 130)
+
+# Mostramos el plot:
+plt.show()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_verificacion_16_0.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_verificacion_16_0.png" />
+</div>
+</div>
+</section>
+<section id="Verificación-espacial">
+<h2>Verificación espacial<a class="headerlink" href="#Verificación-espacial" title="Enlace permanente a este encabezado"></a></h2>
+<p>Calculamos los índices por punto de retícula, considerando todos los años.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>umbrales = [5, 30]
+tabla_total_corr = pd.DataFrame()
+tabla_total_sincorr = pd.DataFrame()
+
+# Iteramos sobre cada umbral y punto de retícula:
+for umbral in umbrales:
+    ptos_reticula = df_total[[&#39;lon&#39;, &#39;lat&#39;]].drop_duplicates()
+    for i in range(len(ptos_reticula)):
+        lon_pto = ptos_reticula.iloc[i][&#39;lon&#39;]
+        lat_pto = ptos_reticula.iloc[i][&#39;lat&#39;]
+
+        df_pto_reticula = df_total[(df_total[&#39;lon&#39;] == lon_pto) &amp; (df_total[&#39;lat&#39;] == lat_pto)]
+
+        tabla_corr = funcion_tabla_cont(observacion = df_pto_reticula[&#39;acum&#39;], pronostico = df_pto_reticula[&#39;acum_corr&#39;], umbral = umbral)
+        tabla_corr = pd.concat([pd.DataFrame({&#39;umbral&#39;: [umbral], &#39;lon&#39;: [lon_pto], &#39;lat&#39;: [lat_pto]}), pd.DataFrame(tabla_corr, index = [0])], axis = 1)
+        tabla_total_corr = pd.concat([tabla_total_corr, tabla_corr])
+
+        tabla_sincorr = funcion_tabla_cont(observacion = df_pto_reticula[&#39;acum&#39;], pronostico = df_pto_reticula[&#39;acum_sincorr&#39;], umbral = umbral)
+        tabla_sincorr = pd.concat([pd.DataFrame({&#39;umbral&#39;: [umbral], &#39;lon&#39;: [lon_pto], &#39;lat&#39;: [lat_pto]}), pd.DataFrame(tabla_sincorr, index = [0])], axis = 1)
+        tabla_total_sincorr = pd.concat([tabla_total_sincorr, tabla_sincorr])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+C:\Users\fcarrasco\AppData\Local\Temp\ipykernel_19648\2456609885.py:24: RuntimeWarning: invalid value encountered in scalar divide
+  ets = (hits - random_hits) / (hits + false_alarms + missed_events - random_hits)
+</pre></div></div>
+</div>
+<p>Graficamos los campos espaciales, sólo para el umbral de 30 mm.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos los paises y estados/provincias:
+countries = cfeature.NaturalEarthFeature(
+        category=&#39;cultural&#39;,
+        name=&#39;admin_0_countries&#39;,
+        scale=&#39;10m&#39;,
+        facecolor=&#39;none&#39;)
+states_provinces = cfeature.NaturalEarthFeature(
+        category=&#39;cultural&#39;,
+        name=&#39;admin_1_states_provinces_lines&#39;,
+        scale=&#39;10m&#39;,
+        facecolor=&#39;none&#39;)
+
+# Elegimos solo un umbral:
+umbral = 30
+tabla_corr = tabla_total_corr[tabla_total_corr[&#39;umbral&#39;] == umbral]
+tabla_sincorr = tabla_total_sincorr[tabla_total_sincorr[&#39;umbral&#39;] == umbral]
+
+# Usamos &#39;pivot_table&#39; para convertir &quot;tabla_corr&quot; y &quot;tabla_sincorr&quot; en matrices 2D con formato wide:
+tabla_corr = tabla_corr.pivot_table(index = &#39;lat&#39;, columns = &#39;lon&#39;, values = &#39;pod&#39;)
+tabla_sincorr = tabla_sincorr.pivot_table(index = &#39;lat&#39;, columns = &#39;lon&#39;, values = &#39;pod&#39;)
+
+plt.figure(figsize = (30, 25))
+fig, ax = plt.subplots(nrows=1, ncols=2, subplot_kw = {&#39;projection&#39;: ccrs.PlateCarree()})
+
+# Pronóstico corregido:
+cs = ax[0].pcolormesh(tabla_corr.columns, tabla_corr.index, tabla_corr, transform = ccrs.PlateCarree(), vmin = 0, vmax = 1, cmap = &#39;RdYlGn&#39;)
+ax[0].coastlines()
+ax[0].add_feature(countries, edgecolor = &#39;black&#39;)
+ax[0].add_feature(states_provinces, edgecolor = &#39;gray&#39;)
+cb = fig.colorbar(cs, ax = ax[0], shrink = 0.47, extend = &#39;both&#39;)
+ax[0].set_title(&quot;POD\nPronóstico corregido de precipitación semanal &gt; &quot; + str(umbral) + &quot; mm\n&quot; + &quot;mes &quot; + str(mes) + &quot;\n&quot; + &quot;Semana 1. Desde 2010 hasta 2019.&quot;, fontsize = 5)
+
+# Pronóstico sin corregir:
+cs = ax[1].pcolormesh(tabla_sincorr.columns, tabla_sincorr.index, tabla_sincorr, transform = ccrs.PlateCarree(), vmin = 0, vmax = 1, cmap = &#39;RdYlGn&#39;)
+ax[1].coastlines()
+ax[1].add_feature(countries, edgecolor = &#39;black&#39;)
+ax[1].add_feature(states_provinces, edgecolor = &#39;gray&#39;)
+cb = fig.colorbar(cs, ax = ax[1], shrink = 0.47, extend = &#39;both&#39;)
+ax[1].set_title(&quot;POD\nPronóstico sin corregir de precipitación semanal &gt; &quot; + str(umbral) + &quot; mm\n&quot; + &quot;mes &quot; + str(mes) + &quot;\n&quot; + &quot;Semana 1. Desde 2010 hasta 2019.&quot;, fontsize = 5)
+
+# Guardamos la figura:
+plt.savefig(f&quot;pod_{variable}_2010_2019_mes{mes}_dom_{lon_e}_{lon_w}_{lat_n}_{lat_s}.jpg&quot;, dpi = 199, bbox_inches = &#39;tight&#39;)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Figure size 3000x2500 with 0 Axes&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_verificacion_20_1.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_verificacion_20_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_PDF_boxplot_climatologia_diaria/" class="btn btn-neutral float-left" title="Ejercicio 4: Climatologia Tmedia" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_pronostico_semana2/" class="btn btn-neutral float-right" title="Pronostico probabilistico para lluvia acumulada semanal." accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

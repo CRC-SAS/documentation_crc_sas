@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cómo trabajar con multiples archivos en línea usando R? &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Pronostico probabilistico para lluvia acumulada semanal" href="../Tutorial_pronostico_semana2/" />
+    <link rel="prev" title="¿Cómo trabajar con el archivo en línea?" href="../Tutorial_online_plot/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos/">¿Cómo descargar datos desde la base usando R?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Cómo trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">¿Cómo trabajar con multiples archivos en línea usando R?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/"><strong>Pronósticos</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#era5"><strong>ERA5</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#verificacion-temporal"><strong>Verificación temporal</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#verificacion-espacial"><strong>Verificación espacial</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_R/">Tutoriales R</a></li>
+      <li class="breadcrumb-item active">¿Cómo trabajar con multiples archivos en línea usando R?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_r/Tutorial_online_lista_archivos.md.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="como-trabajar-con-multiples-archivos-en-linea-usando-r">
+<h1>¿Cómo trabajar con multiples archivos en línea usando R?<a class="headerlink" href="#como-trabajar-con-multiples-archivos-en-linea-usando-r" title="Enlace permanente a este encabezado"></a></h1>
+<p>En este tutorial vamos a continuar trabajando con la librería <a class="reference external" href="https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf"><strong>aws.s3</strong></a> con la que hicimos la descarga de datos. A diferencia del anterior ejemplo, en este vamos a trabajar con todos los miembros del ensamble y vamos a calcular una media del ensamble y también la desviación estándar de dicho ensamble para un plazo de pronóstico.</p>
+<p>Además de la librería para conectar con AWS, vamos a necesitar para este tutorial tener instalado las siguientes librerías:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/ncdf4/ncdf4.pdf"><strong>ncdf4</strong></a></p></li>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/raster/raster.pdf"><strong>raster</strong></a></p></li>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/maps/maps.pdf"><strong>maps</strong></a></p></li>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/colorRamps/colorRamps.pdf"><strong>colorRamps</strong></a></p></li>
+</ul>
+<p>Recordar que la estructura de datos del siguiente <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/">link</a>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comenzamos instalando las librerías necesarias, en caso de que no lo estén: </span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;ncdf4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;ncdf4&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;raster&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;raster&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;maps&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;maps&quot;</span><span class="p">)}</span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;colorRamps&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;colorRamps&quot;</span><span class="p">)}</span>
+
+<span class="c1"># Cargamos las librerías:</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">aws.s3</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ncdf4</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">raster</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">maps</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">colorRamps</span><span class="p">)</span>
+<span class="nf">require</span><span class="p">(</span><span class="n">here</span><span class="p">)</span>
+
+<span class="n">BUCKET_NAME</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;sissa-forecast-database&quot;</span>
+<span class="n">tforecast</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;subseasonal&quot;</span>
+<span class="n">modelo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;GEFSv12_corr&quot;</span>
+<span class="n">variable</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;tmean&quot;</span>
+<span class="n">year</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;2010&quot;</span>
+<span class="n">ymd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;20100331&quot;</span>
+<span class="n">PATH</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">tforecast</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modelo</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ymd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listamos todos los archivos dentro del bucket + PATH:</span>
+<span class="n">awsfiles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get_bucket_df</span><span class="p">(</span>
+<span class="w">  </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PATH</span><span class="p">,</span>
+<span class="w">  </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">Inf</span><span class="p">,</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">)</span>
+<span class="n">awsfiles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">awsfiles</span><span class="o">$</span><span class="n">Key</span><span class="w"> </span><span class="c1"># Nos quedamos sólo con la información de los nombres de los archivos.  </span>
+
+<span class="n">nfiles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">awsfiles</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;Trabajamos con los archivos:&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="n">awsfiles</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Cantidad de archivos =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nfiles</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>En el siguiente recuadro, vamos a ir trabajando en cada archivo, extrayendo el plazo asignado y finalmente calculamos las variables que necesitamos: media y desviación estándar.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a trabajar con el plazo de pronóstico al día 10:</span>
+<span class="n">plazo_pron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">seq_along</span><span class="p">(</span><span class="n">awsfiles</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Extrayendo datos del archivo:&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">awsfiles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">gefs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">s3read_using</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ncdf4</span><span class="o">::</span><span class="n">nc_open</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">awsfiles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span>
+<span class="w">                       </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">))</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Descomentarear si se quiere descargar el archivo: </span>
+<span class="w">  </span><span class="c1"># save_object(object = awsfiles[i],</span>
+<span class="w">  </span><span class="c1">#             bucket = BUCKET_NAME,</span>
+<span class="w">  </span><span class="c1">#             region = &quot;us-west-2&quot;,</span>
+<span class="w">  </span><span class="c1">#             file = basename(awsfiles[i]),</span>
+<span class="w">  </span><span class="c1">#             overwrite = TRUE)</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Abrimos el archivo NetCDF:</span>
+<span class="w">  </span><span class="c1"># gefs &lt;- nc_open(basename(awsfiles[i]))</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Leemos la variable y las coordenadas:</span>
+<span class="w">  </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variable</span><span class="p">)</span>
+<span class="w">  </span><span class="n">lon</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lon&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">  </span><span class="n">lat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ncvar_get</span><span class="p">(</span><span class="n">gefs</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lat&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="nf">dim</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="w"> </span><span class="c1"># dimensiones: lon, lat, time. </span>
+
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1"># Creamos una matriz con NA para guardar la info de todos los archivos:</span>
+<span class="w">    </span><span class="n">gvar</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">array</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">dim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">awsfiles</span><span class="p">)))</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Guardamos el valor de la variable para el día 10 de pronóstico:</span>
+<span class="w">  </span><span class="n">gvar</span><span class="p">[,,</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">var</span><span class="p">[,,</span><span class="n">plazo_pron</span><span class="p">]</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="c1"># Cerramos el archivo NetCDF:</span>
+<span class="w">  </span><span class="nf">nc_close</span><span class="p">(</span><span class="n">gefs</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Calculamos la media y la desviación estándar: </span>
+<span class="n">media</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">gvar</span><span class="p">,</span><span class="w"> </span><span class="n">MARGIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span>
+<span class="n">desv_std</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">gvar</span><span class="p">,</span><span class="w"> </span><span class="n">MARGIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sd</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">&quot;Imprimimos en pantalla el shape de cada matriz\n&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">media</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">dim</span><span class="p">(</span><span class="n">desv_std</span><span class="p">))</span>
+<span class="c1"># en la dim x están las longitudes.</span>
+<span class="c1"># en la dim y están las latitudes.</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rast_media</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">raster</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">media</span><span class="p">),</span><span class="w"> </span><span class="n">xmn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="n">xmx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="n">ymn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="n">ymx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="n">crs</span><span class="o">=</span><span class="nf">CRS</span><span class="p">(</span><span class="s">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0&quot;</span><span class="p">))</span>
+<span class="n">rast_desvio_std</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">raster</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">desv_std</span><span class="p">),</span><span class="w"> </span><span class="n">xmn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="n">xmx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="n">ymn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="n">ymx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="n">crs</span><span class="o">=</span><span class="nf">CRS</span><span class="p">(</span><span class="s">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs+ towgs84=0,0,0&quot;</span><span class="p">))</span>
+
+<span class="nf">jpeg</span><span class="p">(</span><span class="s">&quot;test_media_ensamble.jpg&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1300</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">800</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;px&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">130</span><span class="p">)</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+<span class="p">{</span><span class="nf">plot</span><span class="p">(</span><span class="n">rast_media</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matlab.like</span><span class="p">(</span><span class="m">25</span><span class="p">),</span>
+<span class="w">      </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">      </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)),</span>
+<span class="w">      </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Promedio ensamble\n tmean para el dia&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">plazo_pron</span><span class="p">),</span>
+<span class="w">      </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Longitud&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Latitud&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">      </span><span class="n">asp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="n">maps</span><span class="o">::</span><span class="nf">map</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">          </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">          </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">rast_desvio_std</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">blue2yellow</span><span class="p">(</span><span class="m">25</span><span class="p">),</span><span class="w"> </span>
+<span class="w">     </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">     </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)),</span>
+<span class="w">     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Desviación standard ensamble\n tmean para el dia&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">plazo_pron</span><span class="p">),</span>
+<span class="w">     </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Longitud&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Latitud&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">asp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="n">maps</span><span class="o">::</span><span class="nf">map</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">          </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">          </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">graphics.off</span><span class="p">()</span>
+
+<span class="n">knitr</span><span class="o">::</span><span class="nf">include_graphics</span><span class="p">(</span><span class="s">&quot;test_media_ensamble.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_online_plot/" class="btn btn-neutral float-left" title="¿Cómo trabajar con el archivo en línea?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_pronostico_semana2/" class="btn btn-neutral float-right" title="Pronostico probabilistico para lluvia acumulada semanal" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

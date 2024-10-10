@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejemplo: probabilidad de temperaturas frias &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Ejemplo: días con temperaturas máximas altas" href="../Tutorial_pronostico_dias_tmax/" />
+    <link rel="prev" title="Pronostico probabilistico para lluvia acumulada semanal." href="../Tutorial_pronostico_semana2/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">Ejemplo: probabilidad de temperaturas frias</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_pronostico_tmin.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_pronostico_tmin.ipynb">link</a></div>
+</div>
+</div>
+<section id="Ejemplo:-probabilidad-de-temperaturas-frias">
+<h1>Ejemplo: probabilidad de temperaturas frias<a class="headerlink" href="#Ejemplo:-probabilidad-de-temperaturas-frias" title="Enlace permanente a este encabezado"></a></h1>
+<p>En este tutorial vamos a explorar como generar una visualización de pronóstico: - Vamos a elegir un dominio reducido - Tomar datos diarios de temperatura mínima correspondiende a la semana 2 y aplicar el promedio - Elegir un umbral de temperatura minina y calcular la probabilidad de que la temperatura mínima sea menor a ese umbral - Graficar</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Como siempre, partimos importando los modulos a utilizar:
+import numpy as np
+import pandas as pd
+import datetime
+from datetime import timedelta
+import xarray as xr
+import s3fs
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import matplotlib.pyplot as plt
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+<p>Vamos a hacer este pronóstico para la semana del 28 de abril de 2016 al 4 de mayo de 2016 con dos pronósticos inicializados con una semana de diferencia. Vamos a elegir el umbral de temperatura mínima de 10 grados</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>variable = &#39;tmin&#39;
+umbral = 10
+lat_n = -25
+lat_s = -35
+lon_w = -65
+lon_e = -55
+#fechas de inicializacion del pronostico
+ref_date = [datetime.datetime.strptime(&#39;20160413&#39;, &quot;%Y%m%d&quot;), datetime.datetime.strptime(&#39;20160420&#39;, &quot;%Y%m%d&quot;)]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def preprocess_ds(ds, variable=variable):
+    ds = ds.sel(lat=slice(lat_n, lat_s), lon=slice(lon_w, lon_e))
+    ds = ds.assign_coords(M= int(ds[variable].encoding[&#39;source&#39;][-6:-4]))
+    ds = ds[variable]
+    ds = ds.assign_coords(S = ds.time.values[0])
+    ds[&#39;time&#39;] = ds.time.values - ds.time.values[0]
+    ds = ds.rename({&#39;time&#39;: &#39;leadtime&#39;})
+    return ds
+</pre></div>
+</div>
+</div>
+<p>Vamos a buscar los datos para esas fechas y regiones</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># DATOS CORREGIDOS
+fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo = &#39;GEFSv12_corr&#39;
+aux = []
+for i in ref_date:
+    PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + i.strftime(&#39;%Y&#39;) + &#39;/&#39; + i.strftime(&#39;%Y%m%d&#39;) + &#39;/&#39;
+    remote_files = fs.glob(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;*.nc&#39;)
+    # Iterate through remote_files to create a fileset
+    fileset = [fs.open(file) for file in remote_files]
+    # This works
+    data = xr.open_mfdataset(fileset, combine=&#39;nested&#39;, concat_dim=&#39;M&#39;, preprocess=preprocess_ds)
+    aux.append(data)
+
+ds = xr.concat(aux, dim=&#39;S&#39;)
+print(ds)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;xarray.DataArray &#39;tmin&#39; (S: 2, M: 11, leadtime: 34, lat: 41, lon: 41)&gt;
+dask.array&lt;concatenate, shape=(2, 11, 34, 41, 41), dtype=float64, chunksize=(1, 1, 1, 41, 41), chunktype=numpy.ndarray&gt;
+Coordinates:
+  * lat       (lat) float64 -25.0 -25.25 -25.5 -25.75 ... -34.5 -34.75 -35.0
+  * lon       (lon) float64 -65.0 -64.75 -64.5 -64.25 ... -55.5 -55.25 -55.0
+  * M         (M) int64 0 1 2 3 4 5 6 7 8 9 10
+  * S         (S) datetime64[ns] 2016-04-13 2016-04-20
+  * leadtime  (leadtime) timedelta64[ns] 0 days 1 days ... 32 days 33 days
+Attributes:
+    standard_name:  min_air_temperature
+    units:          Celsius
+    long_name:      min temperature at 2m 0-23 UTC
+</pre></div></div>
+</div>
+<p>Selecciono la semana del 28 de abril al 4 de mayo y calculo la probabilidad de que la temperatura media en esa semana sea menor al umbral para los pronósticos iniciados en las dos fechas elegidas</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>prob = []
+for i in ds.S.values:
+    aux = (ds.sel(S=i, leadtime = slice(np.datetime64(&#39;2016-04-28&#39;, &#39;[D]&#39;) - i, np.datetime64(&#39;2016-05-04&#39;, &#39;[D]&#39;) - i)).mean(&#39;leadtime&#39;, skipna=True) &lt; umbral).sum(&#39;M&#39;) / len(ds.M.values) * 100
+    prob.append(aux)
+prob = xr.concat(prob, dim=&#39;S&#39;).compute()
+</pre></div>
+</div>
+</div>
+<p>Graficamos las probabilidades</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p = prob.plot(col=&#39;S&#39;, cmap=&#39;RdBu&#39;, subplot_kws={&quot;projection&quot;: ccrs.Orthographic(-60, -30)}, transform=ccrs.PlateCarree())
+
+for ax in p.axs.flat:
+    ax.coastlines()
+    ax.add_feature(cfeature.BORDERS, linestyle=&#39;:&#39;, edgecolor=&#39;black&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_tmin_10_0.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_tmin_10_0.png" />
+</div>
+</div>
+<p>Ahora descargamos los datos para esa semana de era 5 y la graficamos</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Obtenemos los datos de ERA5
+fs = s3fs.S3FileSystem(anon=True)
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;ERA5&#39;
+modelo = &#39;ERA5&#39;
+list_df = []
+PATH = tforecast + &#39;/&#39; + variable
+awsfile = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + &#39;/2016.nc&#39;)
+with fs.open(awsfile[0]) as f:
+    era = xr.open_dataset(f)
+    era = era.sel(latitude=slice(lat_n, lat_s), longitude=slice(lon_w, lon_e), time=slice(&#39;2016-04-28&#39;, &#39;2016-05-04&#39;)).mean(&#39;time&#39;)
+    p = era[variable].plot(cmap=&#39;RdBu_r&#39;, subplot_kws={&quot;projection&quot;: ccrs.Orthographic(-60, -30)}, transform=ccrs.PlateCarree(), vmin=5, vmax=15)
+    p.axes.add_feature(cfeature.BORDERS, linestyle=&#39;:&#39;, edgecolor=&#39;black&#39;)
+    p.axes.coastlines()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_tmin_12_0.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_tmin_12_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_pronostico_semana2/" class="btn btn-neutral float-left" title="Pronostico probabilistico para lluvia acumulada semanal." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_pronostico_dias_tmax/" class="btn btn-neutral float-right" title="Ejemplo: días con temperaturas máximas altas" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

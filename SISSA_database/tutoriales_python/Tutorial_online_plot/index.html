@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Como trabajar con el archivo en línea? &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="¿Como trabajar con multiples archivos en línea usando python?" href="../Tutorial_online_lista_archivos/" />
+    <link rel="prev" title="¿Como descargar datos desde la base usando python?" href="../Tutorial_descarga_datos_python/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">¿Como trabajar con el archivo en línea?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_online_plot.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_online_plot.ipynb">link</a></div>
+</div>
+</div>
+<section id="¿Como-trabajar-con-el-archivo-en-línea?">
+<h1>¿Como trabajar con el archivo en línea?<a class="headerlink" href="#¿Como-trabajar-con-el-archivo-en-línea?" title="Enlace permanente a este encabezado"></a></h1>
+<p>En este tutorial vamos a continuar trabajando con una de las librerías con las que hicimos la descarga de datos, pero esta vez para hacer una figura, sin necesidad de hacer la descarga del dato. Esta puede ser una opción viable en caso no tener espacio o solo revisar una fecha.</p>
+<p>Además de la librería para conectar con AWS, vamos a necesitar para este tutorial tener instalado las siguientes librerías:</p>
+<p><strong>netCDF4</strong> : <a class="reference external" href="https://pypi.org/project/netCDF4/">https://pypi.org/project/netCDF4/</a> <strong>numpy</strong> : <a class="reference external" href="https://pypi.org/project/numpy/">https://pypi.org/project/numpy/</a> <strong>matplotlib</strong> : <a class="reference external" href="https://pypi.org/project/matplotlib/">https://pypi.org/project/matplotlib/</a> <strong>cartopy</strong> : <a class="reference external" href="https://pypi.org/project/Cartopy/">https://pypi.org/project/Cartopy/</a> <strong>xarray</strong> : <a class="reference external" href="https://pypi.org/project/xarray/">https://pypi.org/project/xarray/</a></p>
+<p>Recordar la estructura de datos de la base en el siguiente <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/">link</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Comenzamos importando las librerías necesarias:
+%matplotlib inline
+
+import s3fs
+import netCDF4
+import numpy as np
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+
+# Colocamos los DATOS necesarios para trabajar con un archivo
+# En este caso, decidimos trabajar con la temperatura media
+# del miercoles 31 de marzo de 2010 (pronostico corregido)
+
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo = &#39;GEFSv12_corr&#39;
+variable = &#39;tmean&#39;
+year = &#39;2010&#39;
+ymd = &#39;20100331&#39;
+nens = &#39;p03&#39;
+narchivo = variable + &#39;_&#39; + ymd + &#39;_&#39; + nens + &#39;.nc&#39;
+PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + year + &#39;/&#39; + ymd + &#39;/&#39;
+
+print(PATH + narchivo)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p03.nc
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos los paises y estados/provincias
+# Esto para el mapa final que se va a construir
+countries = cfeature.NaturalEarthFeature(
+        category=&#39;cultural&#39;,
+        name=&#39;admin_0_countries&#39;,
+        scale=&#39;10m&#39;,
+        facecolor=&#39;none&#39;)
+states_provinces = cfeature.NaturalEarthFeature(
+        category=&#39;cultural&#39;,
+        name=&#39;admin_1_states_provinces_lines&#39;,
+        scale=&#39;10m&#39;,
+        facecolor=&#39;none&#39;)
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Comenzamos la conexion de forma anonima, dado que no es necesario tener cuenta en AWS:
+
+fs = s3fs.S3FileSystem(anon=True)
+awsfile = &#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH + narchivo
+print(&#39;Trabajamos con el archivo:&#39;)
+print(awsfile)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Trabajamos con el archivo:
+s3://sissa-forecast-database/subseasonal/GEFSv12_corr/tmean/2010/20100331/tmean_20100331_p03.nc
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos el dato a una variable en python
+# Aca usamos el paquete netCDF4
+with fs.open(awsfile) as f:  # Abrimos el archivo en línea
+    with netCDF4.Dataset(f, memory=f.read()) as gefs: # Lo cargamos a una variable con la librería netcdf4
+        # cargamos los datos a variables numpy (variable = &#39;tmean&#39;)
+        var = gefs[variable][:]
+        lat = gefs[&#39;lat&#39;][:]
+        lon = gefs[&#39;lon&#39;][:]
+        ntime = gefs[&#39;time&#39;]
+        fechas = netCDF4.num2date(ntime[:], units=ntime.units, calendar=ntime.calendar,
+                                  only_use_cftime_datetimes=False, only_use_python_datetimes=True)
+        print(fechas[0].strftime(&#39;%Y%m%d&#39;))
+        print(fechas[6].strftime(&#39;%Y%m%d&#39;))
+        # Calculamos la media de la primera semana
+        mean = np.mean(var[0:7,:,:], axis=0)
+        # Comenzamos la figura
+        fig, ax = plt.subplots(nrows=1, ncols=1, subplot_kw={&#39;projection&#39;: ccrs.PlateCarree()})
+        # Hacemos la figura
+        cs = ax.pcolormesh(lon, lat, mean, transform=ccrs.PlateCarree(), vmin=0, vmax=25, cmap=&#39;jet&#39;)
+        # Agregamos detalles de la costa, paises y estados
+        ax.coastlines()
+        ax.add_feature(countries, edgecolor=&#39;black&#39;)
+        ax.add_feature(states_provinces, edgecolor=&#39;gray&#39;)
+        # Agregamos una barra de colores y titulo
+        cbar = fig.colorbar(cs, extend=&#39;both&#39;)
+        titulo = &#39;Temperatura media entre:&#39; + fechas[0].strftime(&#39;%Y%m%d&#39;) + &#39; y &#39; + fechas[6].strftime(&#39;%Y%m%d&#39;)
+        ax.set_title(titulo)
+
+        # Guarda la figura con una resolucion de 100 dpi y ajusta para que no queden bordes blancos
+        plt.savefig(&#39;test_promedio.jpg&#39;, dpi=100, bbox_inches=&#39;tight&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+20100331
+20100406
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_online_plot_4_1.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_online_plot_4_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos el dato a una variable en python
+# Aca usamos el paquete xarray
+import xarray as xr
+
+with fs.open(awsfile) as f:  # Abrimos el archivo en línea
+    with xr.open_dataset(f) as gefs: # Lo cargamos a una variable con la librería netcdf4
+        # Calculamos la media de la primera semana
+        mean = gefs[variable].sel(time=slice(ymd,&#39;20100406&#39;)).mean(dim=&#39;time&#39;)
+        # Comenzamos la figura
+        fig, ax = plt.subplots(nrows=1, ncols=1, subplot_kw={&#39;projection&#39;: ccrs.PlateCarree()})
+        # Hacemos la figura
+        mean.plot.pcolormesh(ax=ax, transform=ccrs.PlateCarree(), vmin=0, vmax=25, cmap=&#39;jet&#39;)
+        # Agregamos detalles de la costa, paises y estados
+        ax.coastlines()
+        ax.add_feature(countries, edgecolor=&#39;black&#39;)
+        ax.add_feature(states_provinces, edgecolor=&#39;gray&#39;)
+        # Agregamos una barra de colores y titulo
+        cbar = fig.colorbar(cs, extend=&#39;both&#39;)
+        titulo = &#39;Temperatura media entre:&#39; + fechas[0].strftime(&#39;%Y%m%d&#39;) + &#39; y &#39; + fechas[6].strftime(&#39;%Y%m%d&#39;)
+        ax.set_title(titulo)
+
+        # Guarda la figura con una resolucion de 100 dpi y ajusta para que no queden bordes blancos
+        plt.savefig(&#39;test_promedio_xarray.jpg&#39;, dpi=100, bbox_inches=&#39;tight&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_online_plot_5_0.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_online_plot_5_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_descarga_datos_python/" class="btn btn-neutral float-left" title="¿Como descargar datos desde la base usando python?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_online_lista_archivos/" class="btn btn-neutral float-right" title="¿Como trabajar con multiples archivos en línea usando python?" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

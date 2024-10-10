@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Cómo descargar datos desde la base usando R? &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="¿Cómo trabajar con el archivo en línea?" href="../Tutorial_online_plot/" />
+    <link rel="prev" title="Tutoriales R" href="../../6Tutoriales_R/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">¿Cómo descargar datos desde la base usando R?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Cómo trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Cómo trabajar con multiples archivos en línea usando R?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/"><strong>Pronósticos</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#era5"><strong>ERA5</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#verificacion-temporal"><strong>Verificación temporal</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/#verificacion-espacial"><strong>Verificación espacial</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_R/">Tutoriales R</a></li>
+      <li class="breadcrumb-item active">¿Cómo descargar datos desde la base usando R?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_r/Tutorial_descarga_datos.md.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="como-descargar-datos-desde-la-base-usando-r">
+<h1>¿Cómo descargar datos desde la base usando R?<a class="headerlink" href="#como-descargar-datos-desde-la-base-usando-r" title="Enlace permanente a este encabezado"></a></h1>
+<p>Existen tres subconjuntos de datos dentro de la base: ERA5, GEFSv2 sin corrergir y GEFSv2 corregido. En R, existe la librería <a class="reference external" href="https://cran.r-project.org/web/packages/aws.s3/aws.s3.pdf"><strong>aws.s3</strong></a>, que permite hacer una conexión para descargar los datos. Para descargar un archivo, necesitamos el link al archivo, que se genera tal como se muestra en este <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/">link</a>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comenzamos instalando las librerías necesarias, en caso de que no lo estén: </span>
+<span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">quietly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">)}</span>
+
+<span class="c1"># Cargamos las librerías:</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">aws.s3</span><span class="p">)</span>
+<span class="nf">require</span><span class="p">(</span><span class="n">here</span><span class="p">)</span>
+
+<span class="c1"># Creamos una función para guardar un archivo con manejo de errores:</span>
+<span class="n">save_object_with_error_handling</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="w"> </span><span class="n">bucket</span><span class="p">,</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">overwrite</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">tryCatch</span><span class="p">({</span>
+<span class="w">    </span><span class="n">aws.s3</span><span class="o">::</span><span class="nf">save_object</span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">object</span><span class="p">,</span>
+<span class="w">                </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucket</span><span class="p">,</span>
+<span class="w">                </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">region</span><span class="p">,</span>
+<span class="w">                </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">,</span>
+<span class="w">                </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">overwrite</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Descargando y guardando:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="p">))</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">stop</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Error al descargar y guardar el objeto:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="o">$</span><span class="n">message</span><span class="p">))</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>ERA5</strong>
+Nombre del objeto del tipo <em>s3://sissa-forecast-database/ERA5/tmax/2010.nc</em>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Temperatura máxima del 2010 de ERA5:</span>
+
+<span class="c1"># Datos necesarios para la descarga:</span>
+<span class="n">BUCKET_NAME</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;sissa-forecast-database&quot;</span><span class="w"> </span><span class="c1"># Nombre del bucket (va a ser el mismo para los tres subconjuntos de datos).</span>
+<span class="n">modelo0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="s">&quot;ERA5&quot;</span>
+<span class="n">variable</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;tmax&quot;</span>
+<span class="n">year</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;2010&quot;</span>
+<span class="n">PATH0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="nf">paste0</span><span class="p">(</span><span class="n">modelo0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="n">narchivo0</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># Podemos usar la función &quot;get_bucket_df&quot; si no sabemos el nombre final del objeto a descargar: </span>
+<span class="nf">get_bucket_df</span><span class="p">(</span>
+<span class="w">  </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PATH0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">Inf</span><span class="p">,</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">)</span>
+
+<span class="nf">save_object_with_error_handling</span><span class="p">(</span>
+<span class="w">  </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">PATH0</span><span class="p">,</span><span class="w"> </span><span class="n">narchivo0</span><span class="p">),</span><span class="w"> </span><span class="c1"># Nombre del objeto a descargar.</span>
+<span class="w">  </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">narchivo0</span><span class="p">,</span><span class="w"> </span><span class="c1"># Archivo de descarga.</span>
+<span class="w">  </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GEFSv2 sin corregir o corregido</strong>
+Nombre del objeto del tipo <em>s3://sissa-forecast-database/subseasonal/GEFSv12/tmax/2010/20100331/tmax_20100331_p03.nc</em> para el caso sin corregir.</p>
+<p>Nombre del objeto del tipo <em>s3://sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20100331/tmax_20100331_p03.nc</em> para el caso corregido.</p>
+<p>Usando la misma librería, ahora vamos a descargar un dato de GEFSv12 corregido o sin corregir, para una fecha en particular. Hay que recordar que los datos de GEFSv12 históricos solo existen para los días miércoles de cada semana. En este caso, vamos a descargar para el miércoles 31 de marzo de 2010 y solo vamos a descargar el miembro 3 del ensamble.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Temperatura máxima del 31/03/2010 (día miércoles) para el miembro 3 del ensamble. </span>
+
+<span class="c1"># Datos necesarios para la descarga:</span>
+<span class="n">BUCKET_NAME</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">BUCKET_NAME</span>
+<span class="n">tforecast</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;subseasonal&quot;</span>
+<span class="n">modelo1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;GEFSv12_corr&quot;</span><span class="w"> </span><span class="c1"># &quot;GEFSv12&quot; para datos sin corregir. </span>
+<span class="n">variable</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;tmax&quot;</span>
+<span class="n">year</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;2010&quot;</span>
+<span class="n">ymd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;20100331&quot;</span>
+<span class="n">nens</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;p03&quot;</span><span class="w"> </span><span class="c1"># Miembro 03 del ensamble.</span>
+<span class="n">PATH1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">tforecast</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modelo1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ymd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="n">narchivo1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ymd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">nens</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.nc&quot;</span><span class="p">)</span>
+
+<span class="nf">save_object_with_error_handling</span><span class="p">(</span>
+<span class="w">  </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">PATH1</span><span class="p">,</span><span class="w"> </span><span class="n">narchivo1</span><span class="p">),</span><span class="w"> </span><span class="c1"># Nombre del objeto a descargar.</span>
+<span class="w">  </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUCKET_NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">narchivo1</span><span class="p">,</span><span class="w"> </span><span class="c1"># Archivo de descarga.</span>
+<span class="w">  </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../../6Tutoriales_R/" class="btn btn-neutral float-left" title="Tutoriales R" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_online_plot/" class="btn btn-neutral float-right" title="¿Cómo trabajar con el archivo en línea?" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

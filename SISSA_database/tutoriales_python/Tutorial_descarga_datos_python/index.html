@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Como descargar datos desde la base usando python? &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="¿Como trabajar con el archivo en línea?" href="../Tutorial_online_plot/" />
+    <link rel="prev" title="Tutoriales python" href="../../6Tutoriales_python/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_semana2/">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">¿Como descargar datos desde la base usando python?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_descarga_datos_python.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_descarga_datos_python.ipynb">link</a></div>
+</div>
+</div>
+<section id="¿Como-descargar-datos-desde-la-base-usando-python?">
+<h1>¿Como descargar datos desde la base usando python?<a class="headerlink" href="#¿Como-descargar-datos-desde-la-base-usando-python?" title="Enlace permanente a este encabezado"></a></h1>
+<p>Existen tres subconjuntos de datos dentro de la base y aca vamos a aprender a descargar cada uno de ellos. Además en python existen 2 librerias que permiten hacer una conexión para descargar los datos que vamos a revisar acá La primera es la librería <strong>s3fs</strong>: <a class="reference external" href="https://pypi.org/project/s3fs/">https://pypi.org/project/s3fs/</a> La segunda es la libreria <strong>botocore</strong>: <a class="reference external" href="https://pypi.org/project/botocore/">https://pypi.org/project/botocore/</a></p>
+<p>Comenzamos importando la primera librería, cargando los datos para la conexión y comenzamos a escribir el link al archivo, tal como se muestra en este <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/2Estructura_de_datos/">link</a>:</p>
+<p>En el primer caso, vamos a descargar un dato de <strong>ERA5</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import s3fs
+
+# Datos necesarios para la descarga
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+modelo0 = &#39;ERA5&#39;
+variable = &#39;tmax&#39;
+year = &#39;2010&#39;
+narchivo0 = year + &#39;.nc&#39;
+PATH0 =  modelo0 + &#39;/&#39; + variable + &#39;/&#39;
+# Comenzamos la conexión anonima (No necesita cuenta en AWS)
+fs = s3fs.S3FileSystem(anon=True)
+file = &#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH0 + narchivo0
+print(file)
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+s3://sissa-forecast-database/ERA5/tmax/2010.nc
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span># Intentamos la descarga con try/except en caso algun error
+# En este caso, el archivo se descarga en la carpeta donde se encuentra el script o notebook: &#39;./&#39;
+# Se puede setear también dicha carpeta en el nombre del archivo de descarga
+try:
+    fs.download(file, &#39;./s3fs_&#39;+ narchivo0)
+    print(&#39;Descargando:&#39;, &#39;./s3fs_&#39;+ narchivo0)
+except Exception as e:
+    raise Exception(f&quot;Failed to read file {file} from S3 due to this error:\n`{str(e)}`&quot;)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Descargando: ./s3fs_2010.nc
+</pre></div></div>
+</div>
+<p>Usando la misma librería, ahora vamos a descargar un dato de <strong>GEFSv12</strong> corregido, para una fecha en particular.&lt;<span class="math">\br</span>&gt;</p>
+<p>Hay que recordar, que los datos de <strong>GEFSv12</strong> historicos solo existen para los días miercoles de cada semana. En este caso, vamos a descargar para el <em>miercoles 31 de marzo de 2010</em> y solo vamos a descargar el <em>miembro 3</em> del ensamble</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Datos necesarios para la descarga
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo1 = &#39;GEFSv12_corr&#39;
+variable = &#39;tmax&#39;
+year = &#39;2010&#39;
+ymd = &#39;20100331&#39;
+nens = &#39;p03&#39;
+narchivo1 = variable + &#39;_&#39; + ymd + &#39;_&#39; + nens + &#39;.nc&#39;
+PATH1 = tforecast + &#39;/&#39; + modelo1 + &#39;/&#39; + variable + &#39;/&#39; + year + &#39;/&#39; + ymd + &#39;/&#39;
+# Comenzamos la conexión anonima (No necesita cuenta en AWS)
+fs = s3fs.S3FileSystem(anon=True)
+file = &#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH1 + narchivo1
+print(file)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+s3://sissa-forecast-database/subseasonal/GEFSv12_corr/tmax/2010/20100331/tmax_20100331_p03.nc
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Intentamos la descarga con try/except en caso algun error
+# En este caso, el archivo se descarga en la carpeta donde se encuentra el script o notebook: &#39;./&#39;
+# Se puede setear también dicha carpeta en el nombre del archivo de descarga
+try:
+    fs.download(file, &#39;./s3fs_&#39;+ narchivo1)
+    print(&#39;Descargando:&#39;, &#39;./s3fs_&#39;+ narchivo1)
+except Exception as e:
+    raise Exception(f&quot;Failed to read file {file} from S3 due to this error:\n`{str(e)}`&quot;)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Descargando: ./s3fs_tmax_20100331_p03.nc
+</pre></div></div>
+</div>
+<p>Ahora, vamos a utilizar la segunda librería con la cual se puede trabajar los datos de la base. En ambos casos, no es necesario tener una cuenta en AWS dado que la base se encuentra bajo un programa de datos abiertos de AWS, pero igual en los comentarios, se deja establecido como sería conectarse en caso de tener credenciales en la nube de Amazon.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import boto3
+import botocore
+from botocore import UNSIGNED
+from botocore.client import Config
+
+# Con credenciales
+#s3 = boto3.resource(&#39;s3&#39;)
+# Sin credenciales
+s3 = boto3.resource(&quot;s3&quot;, config=Config(signature_version=UNSIGNED))
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Descargamos primero el dato ERA5 y seguimos usando las variables definidas más arriba
+PATH = PATH0 + narchivo0
+print(PATH)
+try:
+    s3.Bucket(BUCKET_NAME).download_file(PATH, &#39;./boto3_&#39; + narchivo0)
+    print(&#39;Descargando:&#39;, &#39;./boto3_&#39; + narchivo0)
+except botocore.exceptions.ClientError as e:
+    if e.response[&#39;Error&#39;][&#39;Code&#39;] == &quot;404&quot;:
+        print(&quot;The object does not exist.&quot;)
+    else:
+        raise
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ERA5/tmax/2010.nc
+Descargando: ./boto3_2010.nc
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>PATH = PATH1 + narchivo1
+print(PATH)
+try:
+    s3.Bucket(BUCKET_NAME).download_file(PATH, &#39;./boto3_&#39; + narchivo1)
+    print(&#39;Descargando:&#39;, &#39;./boto3_&#39; + narchivo1)
+except botocore.exceptions.ClientError as e:
+    if e.response[&#39;Error&#39;][&#39;Code&#39;] == &quot;404&quot;:
+        print(&quot;The object does not exist.&quot;)
+    else:
+        raise
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+subseasonal/GEFSv12_corr/tmax/2010/20100331/tmax_20100331_p03.nc
+Descargando: ./boto3_tmax_20100331_p03.nc
+</pre></div></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../../6Tutoriales_python/" class="btn btn-neutral float-left" title="Tutoriales python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_online_plot/" class="btn btn-neutral float-right" title="¿Como trabajar con el archivo en línea?" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

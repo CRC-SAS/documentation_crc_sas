@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso a los datos &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../search/" />
+    <link rel="next" title="Tutoriales" href="../6Tutoriales/" />
+    <link rel="prev" title="Metodología de corrección" href="../4Metodologia_correccion/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            Documentación
+              <img src="../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Acceso a los datos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#via-url">Vía URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws-cli">AWS CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#r">R</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../6Tutoriales/">Tutoriales</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../">SISSA Database</a></li>
+      <li class="breadcrumb-item active">Acceso a los datos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/SISSA_database/5Acceso_datos.md.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="acceso-a-los-datos">
+<h1>Acceso a los datos<a class="headerlink" href="#acceso-a-los-datos" title="Enlace permanente a este encabezado"></a></h1>
+<p>Los datos se encuentran disponibles en el portal de Amazon Web Service (AWS) y se puede explorar e ingresar a algunos datos básicos desde el siguiente link: <a class="reference external" href="https://registry.opendata.aws/sissa-forecast-database-dataset/">https://registry.opendata.aws/sissa-forecast-database-dataset/</a>.</p>
+<p>Esta base de datos integra un programa de datos abiertos al cual se accedió gracias al respaldo del Servicio Meteorológico Nacional de Argentina, dado que ya tenían experiencia en utilizar esta herramienta para el pronóstico operativo que realizan con el modelo WRF. Existen varias formas de descargar los datos, las cuales vamos a abordar en las siguientes secciones que también tienen su explicación desde el siguiente sitio web:</p>
+<p><a class="reference external" href="https://crc-sas.github.io/documentation_crc_sas/SISSA_database/4Acceso_a_los_datos/">https://crc-sas.github.io/documentation_crc_sas/SISSA_database/4Acceso_a_los_datos/</a></p>
+<section id="via-url">
+<h2>Vía URL<a class="headerlink" href="#via-url" title="Enlace permanente a este encabezado"></a></h2>
+<p>Los archivos pueden ser descargados directamente accediendo al siguiente link y navegando en las distintas carpetas:</p>
+<p><a class="reference external" href="https://s3-us-west-2.amazonaws.com/sissa-forecast-database/index.html">https://s3-us-west-2.amazonaws.com/sissa-forecast-database/index.html</a></p>
+<p>Los datos se almacenan utilizando el Amazon Simple Storage Service (S3). Para más información sobre esta herramienta visitar:</p>
+<p><a class="reference external" href="https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html">https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/Welcome.html</a>.</p>
+</section>
+<section id="aws-cli">
+<h2>AWS CLI<a class="headerlink" href="#aws-cli" title="Enlace permanente a este encabezado"></a></h2>
+<p>Los datos se pueden descargar utilizando la herramienta AWS Command Line Interface (CLI). Para más información sobre su instalación visitar el siguiente <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">link</a>.<br />
+A continuación se muestra, a modo de ejemplo, los comandos para hacer la descarga de un archivo individual y también para descargar todo un directorio (con nombre en el ejemplo: <em>directorio_salida</em>) y se puede consultar también en esta página:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="c1"># Se descarga el archivo del miembro control de lluvia pronosticada y corregido que inicializa el 27 de abril de 2011 al directorio_salida:</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>--no-sign-request<span class="w"> </span>s3://sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2011/20110427/rain_20110427_c00.nc<span class="w"> </span>directorio_salida
+
+<span class="c1"># Se descarga todos miembros del ensamble de pronósticos para la variable lluvia el 27 de abril de 2011 al directorio: directorio_salida:</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>--no-sign-request<span class="w"> </span>--recursive<span class="w"> </span>s3://sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2011/20110427/<span class="w"> </span>directorio_salida
+</pre></div>
+</div>
+</section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Enlace permanente a este encabezado"></a></h2>
+<p>Las descargas también se pueden realizar utilizando librerías que están en python. Se muestra a continuación un ejemplo de un script que descarga un archivo utilizando la librería <a class="reference external" href="https://pypi.org/project/s3fs/">s3fs</a>.</p>
+<p>A continuación se muestra, a modo de ejemplo, la descarga del archivo de un día:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">s3fs</span>
+<span class="c1"># Se descarga el archivo de pronóstico corregido de lluvia para el 27 de abril de 2011</span>
+<span class="n">s3_file</span> <span class="o">=</span> <span class="s1">&#39;s3://sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2011/20110427/rain_20110427_c00.nc&#39;</span> 
+<span class="n">fs</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">s3_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="r">
+<h2>R<a class="headerlink" href="#r" title="Enlace permanente a este encabezado"></a></h2>
+<p>También se pueden descargar utilizando librerías del lenguaje de programación R. Se muestra a continuación un script de ejemplo para descargar un dato utilizando la librería <a class="reference external" href="https://cran.r-project.org/web/packages/aws.s3/index.html">aws</a>.</p>
+<p>A continuación se muestra, a modo de ejemplo, la descarga de todos los archivos de un día:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;aws.s3&quot;</span><span class="p">)</span>
+<span class="w"> </span>
+<span class="c1"># Se define la función sissa.download para descarga de archivos</span>
+<span class="n">sissa.download</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">sissa.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sissa.name</span><span class="p">){</span>
+<span class="w">      </span><span class="nf">save_object</span><span class="p">(</span>
+<span class="w">      </span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">sissa.name</span><span class="p">),</span>
+<span class="w">      </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;s3://sissa-forecast-database/&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">substring</span><span class="p">(</span><span class="n">sissa.name</span><span class="p">,</span><span class="w"> </span><span class="m">28</span><span class="p">),</span>
+<span class="w">      </span><span class="n">overwrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)}</span>
+
+<span class="c1"># Se define la fecha de los datos a descargar</span>
+<span class="n">anual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2011</span>
+<span class="n">mes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span>
+<span class="n">dia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">27</span>
+
+<span class="c1"># Se convierten en formato character de año, mes, día y ciclo</span>
+<span class="n">anual</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%04d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">anual</span><span class="p">)</span>
+<span class="n">mes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%02d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mes</span><span class="p">)</span>
+<span class="n">dia</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%02d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dia</span><span class="p">)</span>
+<span class="w"> </span>
+<span class="c1"># Se definen los nombres de los archivos del Bucket a descargar</span>
+<span class="n">sissa.names</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get_bucket_df</span><span class="p">(</span>
+<span class="w">    </span><span class="n">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;s3://sissa-forecast-database/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;subseasonal/GEFSv12_corr/rain/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">anual</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">anual</span><span class="p">,</span><span class="w"> </span><span class="n">mes</span><span class="p">,</span><span class="w"> </span><span class="n">dia</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">Inf</span><span class="p">,</span>
+<span class="w">    </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span><span class="p">)</span>
+<span class="w"> </span>
+<span class="n">sissa.names.rows</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">which</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="n">sissa.names</span><span class="o">$</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">sissa.names</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sissa.names</span><span class="p">[</span><span class="n">sissa.names.rows</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
+<span class="w"> </span>
+<span class="c1"># Se ejecuta la función wrf.download </span>
+<span class="nf">lapply</span><span class="p">(</span><span class="n">sissa.names</span><span class="o">$</span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sissa.download</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../4Metodologia_correccion/" class="btn btn-neutral float-left" title="Metodología de corrección" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../6Tutoriales/" class="btn btn-neutral float-right" title="Tutoriales" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

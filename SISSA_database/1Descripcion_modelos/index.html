@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descripción de los modelos utilizados para generar la base &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../search/" />
+    <link rel="next" title="Formato de datos" href="../2Formato_de_datos/" />
+    <link rel="prev" title="Información general" href="../0Informacion_general/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            Documentación
+              <img src="../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Descripción de los modelos utilizados para generar la base</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gefsv12">GEFSv12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cfsv2">CFSv2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#era5">ERA5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables-incluidas-en-la-base-de-datos">Variables incluidas en la base de datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6Tutoriales/">Tutoriales</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../">SISSA Database</a></li>
+      <li class="breadcrumb-item active">Descripción de los modelos utilizados para generar la base</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/SISSA_database/1Descripcion_modelos.md.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="descripcion-de-los-modelos-utilizados-para-generar-la-base">
+<h1>Descripción de los modelos utilizados para generar la base<a class="headerlink" href="#descripcion-de-los-modelos-utilizados-para-generar-la-base" title="Enlace permanente a este encabezado"></a></h1>
+<p>La base fue generada a partir de los datos del modelo global GEFSv12 para escala subestacional (<a href="https://www.ncei.noaa.gov/products/weather-climate-models/global-ensemble-forecast" target="_blank">GEFSv12</a>) y modelo global CFSv2 para escala estacional  (<a href="https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00878" target="_blank">CFSv2</a>) y para calibrar se utilizan los datos de (<a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview" target="_blank">ERA5</a>). A continuación se da una caracterización de cada uno.</p>
+<section id="gefsv12">
+<h2>GEFSv12<a class="headerlink" href="#gefsv12" title="Enlace permanente a este encabezado"></a></h2>
+<p>El modelo GEFSv12 es un modelo meteorológico desarrollado por National Centers for Environmental Prediction (NCEP) que genera 31 pronósticos separados (miembros del conjunto) para abordar incertidumbres subyacentes en los datos de entrada, como cobertura limitada, sesgos de instrumentos o sistemas de observación, y las limitaciones del modelo en sí. GEFSv12 es un modelo atmosférico, que utiliza pronósticos de otros modelos para representar la influencia del océano y hielo, aunque cuenta con un modelo de suelo y también para aerosoles de forma integrada. Cada miembro del ensamble se genera a partir de perturbaciones sobre la condición inicial. Dada la gran cantidad de datos generados de forma diaria (4 pronósticos por día, inicializados a 00, 06, 12 y 18 UTC de forma operativa), se hace complejo mantener una base retrospectiva asociada, por lo que NCEP opta por mantener una cantidad reducida de miembros del ensamble. En principio se almacenan pronósticos todos los días, pero sólo para cada miércoles se aumenta la cantidad a 11 miembros de ensamble con pronósticos hasta 35 días, mientras que en los otros días solo 6 miembros y en todos los casos inicializados a las 00 UTC de cada día.</p>
+</section>
+<section id="cfsv2">
+<h2>CFSv2<a class="headerlink" href="#cfsv2" title="Enlace permanente a este encabezado"></a></h2>
+<p>El modelo climático CFSv2 (Saha et al., 2014) también fue desarrollado por NCEP y, a diferencia de GEFSv12, es un modelo totalmente acoplado que integra modelos de atmósfera, océano, superficie terrestre y hielo marino para proporcionar la mejor estimación de las variables climáticas. Para el caso de CFSv2, existen varios pronósticos retrospectivos que se almacenan, donde las diferencias radican en la fecha de inicio con un esquema definido a partir de la duración del pronóstico. Se encuentran disponibles valores pronosticados cada 6 horas hasta 45 días o hasta 6 meses (2000-abr 2011) y 9 meses (mayo 2011-2019) de plazo. Para esta base se optó por el segundo conjunto, dado que este modelo se utilizará para predicciones estacionales. Esto ocurre para algunas fechas de inicio del pronóstico y dado que los pronósticos se inician cada 6 horas, permite generar entonces un conjunto de 24 miembros considerando distintas fechas de inicio de pronóstico. A modo de ejemplo, los 24 miembros para un pronóstico que como referencia se inicia a mediados de enero, se deben considerar las siguientes fechas de inicio de pronóstico, de acuerdo al sitio web oficial de CFSv2 (tabla 1):</p>
+<p><em>Tabla 1: Pronósticos históricos para mediados de enero (24 miembros)</em></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mes</p></th>
+<th class="head"><p>Día</p></th>
+<th class="head"><p>Horas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>12</p></td>
+<td><p>0, 6, 12, 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>17</p></td>
+<td><p>0, 6, 12, 18</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>22</p></td>
+<td><p>0, 6, 12, 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>27</p></td>
+<td><p>0, 6, 12, 18</p></td>
+</tr>
+<tr class="row-even"><td><p>01</p></td>
+<td><p>01</p></td>
+<td><p>0, 6, 12, 18</p></td>
+</tr>
+<tr class="row-odd"><td><p>01</p></td>
+<td><p>06</p></td>
+<td><p>0, 6, 12, 18</p></td>
+</tr>
+</tbody>
+</table>
+<p>Los datos están disponibles cada 6 horas y se procesan para obtener valores diarios.</p>
+</section>
+<section id="era5">
+<h2>ERA5<a class="headerlink" href="#era5" title="Enlace permanente a este encabezado"></a></h2>
+<p>Para corregir los valores, se utilizaron los datos del reanálisis de ERA5 (Hersbach et al., 2023). ERA5 es el reanálisis atmosférico del clima global generado por el European Centre for Medium-Range Weather Forecasts (ECMWF) en su quinta generación y que tiene datos que abarcan el período comprendido entre enero de 1940 y el presente a partir de la combinación de datos de modelo y observaciones de todo el mundo de forma consistente. ERA5 es producido por el Servicio de Cambio Climático Copernicus (C3S) en ECMWF y proporciona estimaciones horarias de un gran número de variables climáticas atmosféricas, terrestres y oceánicas. Los datos cubren la Tierra en una cuadrícula de 31 kilómetros y resuelven la atmósfera utilizando 137 niveles desde la superficie hasta una altura de 80 kilómetros.</p>
+</section>
+<section id="variables-incluidas-en-la-base-de-datos">
+<h2>Variables incluidas en la base de datos<a class="headerlink" href="#variables-incluidas-en-la-base-de-datos" title="Enlace permanente a este encabezado"></a></h2>
+<p>Para cada uno de los modelos descritos en las secciones 1.1.1 hasta 1.1.3, se considera un conjunto de variables, de todas las disponibles. Este subconjunto fue definido a partir de entrevistas con potenciales usuarios de la base de datos y que necesitan un conjunto de variables para modelos aplicados. A priori, temperatura (máxima, mínima y media) al igual que la precipitación son la base, pero dado que muchos de estos modelos necesitan alguna estimación de la evapotranspiración, lo que implica sumar variables como radiación y viento. En consecuencia, el listado completo de variables, que se utiliza para todos los modelos es el siguiente:</p>
+<ul class="simple">
+<li><p><strong>pvmean:</strong> Media diaria de presión de vapor (hPa) [0-23 UTC].</p></li>
+<li><p><strong>rain:</strong> Acumulado diario de lluvia (mm) [0-23 UTC].</p></li>
+<li><p><strong>rh:</strong> Media de humedad relativa (%) [0-23 UTC].</p></li>
+<li><p><strong>ROCsfc:</strong> Radiación de solar o de onda corta entrante (J m-2 d-1) [0-23 UTC].</p></li>
+<li><p><strong>ROLnet:</strong> Radiación neta  de onda larga (J m-2 d-1) [0-23 UTC].</p></li>
+<li><p><strong>spmean:</strong> Media diaria de presión superficial (Pa) [0-23 UTC].</p></li>
+<li><p><strong>tdmean:</strong> Media diaria de temperatura de punto de rocío 2m (Celsius) [0-23 UTC].</p></li>
+<li><p><strong>tmax:</strong> Máxima diaria de temperatura a 2m (Celsius) [0-23 UTC].</p></li>
+<li><p><strong>tmean:</strong> Media diaria de temperatura a 2m (Celsius) [0-23 UTC].</p></li>
+<li><p><strong>tmin:</strong> Mínima diaria de temperatura a 2m (Celsius) [0-23 UTC].</p></li>
+<li><p><strong>u10:</strong> Media de velocidad del viento a 10m (m s-1) [0-23 UTC].</p></li>
+<li><p><strong>u10mean:</strong> Media componente zonal del viento a 10m (m s-1) [0-23 UTC].</p></li>
+<li><p><strong>v10mean:</strong> Media componente meridional del viento a 10m (m s-1) [0-23 UTC].</p></li>
+<li><p><strong>mslmean:</strong> Media diaria de presión a nivel del mar (Pa) [0-23 UTC] (*).</p></li>
+</ul>
+<p>(*) Sólo se obtiene para ERA5.</p>
+<p>Más detalles con respecto a los horarios y también las unidades que se consideran, se darán más adelante en conjunto con las especificaciones del archivo de salida.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../0Informacion_general/" class="btn btn-neutral float-left" title="Información general" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../2Formato_de_datos/" class="btn btn-neutral float-right" title="Formato de datos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

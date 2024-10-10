@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pronostico probabilistico para lluvia acumulada semanal. &mdash; documentación de Documentación - </title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=653e5397"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/translations.js?v=efdbd0b9"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../../genindex/" />
+    <link rel="search" title="Búsqueda" href="../../../search/" />
+    <link rel="next" title="Ejemplo: probabilidad de temperaturas frias" href="../Tutorial_pronostico_tmin/" />
+    <link rel="prev" title="Ejercicio 5: Verificacion de pronosticos" href="../Tutorial_verificacion/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            Documentación
+              <img src="../../../_static/crc_sas_logo.jpg" class="logo" alt="Logotipo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">SISSA Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../0Informacion_general/">Información general</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1Descripcion_modelos/">Descripción de los modelos utilizados para generar la base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../2Formato_de_datos/">Formato de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../3Estructura_de_datos/">Estructura general de la base de datos pronosticados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4Metodologia_correccion/">Metodología de corrección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../5Acceso_datos/">Acceso a los datos</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../6Tutoriales/">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../6Tutoriales_python/">Tutoriales python</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_descarga_datos_python/">¿Como descargar datos desde la base usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_plot/">¿Como trabajar con el archivo en línea?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_online_lista_archivos/">¿Como trabajar con multiples archivos en línea usando python?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_rain_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_CDF_temperatura_daily/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_temperatura_weekly/">Analizamos cómo el modelo representa aspectos de la distribución de una variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_PDF_boxplot_climatologia_diaria/">Ejercicio 4: Climatologia Tmedia</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_verificacion/">Ejercicio 5: Verificacion de pronosticos</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Pronostico probabilistico para lluvia acumulada semanal.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_tmin/">Ejemplo: probabilidad de temperaturas frias</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorial_pronostico_dias_tmax/">Ejemplo: días con temperaturas máximas altas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../6Tutoriales_R/">Tutoriales R</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../weather_generator/">Weather Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_python/">Web Service python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../web_service_r/">Web Service R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Preguntas_frecuentes/">Preguntas frecuentes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Novedades/">Novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Suscripcion_a_novedades/">Suscripción a novedades</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contacto/">Contacto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../English_version/">English version</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">Documentación</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../">SISSA Database</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales/">Tutoriales</a></li>
+          <li class="breadcrumb-item"><a href="../../6Tutoriales_python/">Tutoriales python</a></li>
+      <li class="breadcrumb-item active">Pronostico probabilistico para lluvia acumulada semanal.</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/SISSA_database/tutoriales_python/Tutorial_pronostico_semana2.ipynb.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="line-block">
+<div class="line">Para descargar la notebook, acceder al siguiente <a class="reference external" href="https://github.com/fmcarrasco/documentation_crc_sas/tree/master/source/SISSA_database/tutoriales_python/Tutorial_pronostico_semana2.ipynb">link</a></div>
+</div>
+</div>
+<section id="Pronostico-probabilistico-para-lluvia-acumulada-semanal.">
+<h1>Pronostico probabilistico para lluvia acumulada semanal.<a class="headerlink" href="#Pronostico-probabilistico-para-lluvia-acumulada-semanal." title="Enlace permanente a este encabezado"></a></h1>
+<section id="¿Como-generar-un-pronóstico-probabilistico-para-la-semana-2-con-python?">
+<h2>¿Como generar un pronóstico probabilistico para la semana 2 con python?<a class="headerlink" href="#¿Como-generar-un-pronóstico-probabilistico-para-la-semana-2-con-python?" title="Enlace permanente a este encabezado"></a></h2>
+<p>En este tutorial, la idea es a partir de la latitud y longitud de un lugar: * Encontrar el punto más cercano en el dominio SISSA de los pronósticos * Extraer el dato de precipitación de dicho lugar para todos los miembros del ensamble * Calcular la probabilidad de lluvia a partir de dichos datos para la semana 2 para algunos umbrales caracteristicos</p>
+<p>Para ello vamos a trabajar con el dato en línea, tal como vimos en el tutorial <a class="reference external" href="https://fmcarrasco.github.io/documentation_crc_sas/SISSA_database/Tutorial_online_lista_archivos/">acá</a></p>
+<p>Además esta vez para mayor facilidad en la extracción del dato, vamos a utilizar la librería <a class="reference external" href="https://pypi.org/project/xarray/">xarray</a> de python.</p>
+<p>En este caso en el próximo bloque vamos a colocar todos los datos necesarios para extraer los datos, latitud y longitud y también los umbrales para los cuales vamos a calcular la probabilidad.</p>
+<p><strong>Algunos detalles</strong></p>
+<p>Para esta sección vamos a trabajar con el 02 de mayo de 2018 y la variable lluvia.</p>
+<p>La latitud/longitud corresponde a la localidad de Mercedes, en la provincia de Corrientes, Argentina.</p>
+<p>La idea es comparar los pronosticos de lluvias corregidos y sin corregir en términos de sus valores diarios y también al calcular la probabilidad para la segunda semana. Se utilizan datos del SMN de la estación correspondiente para dicho periodo.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Como siempre, partimos importando los modulos a utilizar:
+%matplotlib inline
+import xarray as xr
+import s3fs
+import netCDF4
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+# DATOS
+BUCKET_NAME = &#39;sissa-forecast-database&#39;
+tforecast = &#39;subseasonal&#39;
+modelo_corr = &#39;GEFSv12_corr&#39;
+modelo = &#39;GEFSv12&#39;
+variable = &#39;rain&#39;
+year = &#39;2018&#39;
+ymd = &#39;20180502&#39;
+
+PATH_corr = tforecast + &#39;/&#39; + modelo_corr + &#39;/&#39; + variable + &#39;/&#39; + year + &#39;/&#39; + ymd + &#39;/&#39;
+PATH = tforecast + &#39;/&#39; + modelo + &#39;/&#39; + variable + &#39;/&#39; + year + &#39;/&#39; + ymd + &#39;/&#39;
+
+# Colocamos como dato la latitud y longitud de la localidad:
+# En este caso es Mercedes, Corrientes en Argentina.
+# En la fecha que vamos a analizar ocurrio en algun momento del pronostico un evento de lluvia importante.
+lat_e = -29.18
+lon_e = -58.07
+
+# Umbrales a considerar para calcular probabilidad:
+umbrales = [1., 30., 50., 100.]
+
+print(&#39;Carpeta don datos corregidos:&#39;, BUCKET_NAME + &#39;/&#39; + PATH_corr)
+print(&#39;Carpeta don datos sin corregir:&#39;, BUCKET_NAME + &#39;/&#39; + PATH)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Carpeta don datos corregidos: sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/
+Carpeta don datos sin corregir: sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Vamos a hacer como en anterior, para la fecha dada, vamos a LISTAR los archivos CORREGIDOS y
+# de a cada uno, vamos a ir extrayendo el dato de pronóstico de cada ensamble
+
+fs = s3fs.S3FileSystem(anon=True)
+# Listamos todos los archivos dentro del bucket + PATH_corr
+awsfiles_corr = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH_corr)
+nfile = len(awsfiles_corr)
+print(&#39;Cantidad de archivos corregidos =&#39;, nfile)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Cantidad de archivos corregidos = 11
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Cargamos el dato a una variable en python
+
+list_df = []
+for i, awsfile in enumerate(awsfiles_corr):
+    print(&#39;Extrayendo datos del archivo:&#39;)
+    print(awsfile)
+    with fs.open(awsfile) as f:
+        gefs = xr.open_dataset(f)
+        # seleccionamos el mas cercano
+        df0 = gefs.sel(lat=lat_e, lon=lon_e, method=&#39;nearest&#39;)
+        # Eliminamos dimensiones con UN valor (squeeze) y transformamos a Pandas DataFrame
+        df = df0[variable].squeeze().to_pandas()
+        list_df.append(df)
+
+result = pd.concat(list_df, axis=1)
+print(result.head())
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_c00.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p01.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p02.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p03.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p04.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p05.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p06.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p07.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p08.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p09.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12_corr/rain/2018/20180502/rain_20180502_p10.nc
+                   0          1          2    3         4          5   \
+time
+2018-05-02   0.000000   0.200643   0.000000  0.0  0.000000   0.000000
+2018-05-03   0.000000   0.000000   0.000000  0.0  0.000000   0.000000
+2018-05-04   0.000000   0.000000   0.000000  0.0  0.000000   0.000000
+2018-05-05  19.739082  18.259390  64.029063  0.0  0.285880  37.294971
+2018-05-06   6.524818   6.738330   1.463048  0.0  3.595909   5.488764
+
+                   6          7          8    9    10
+time
+2018-05-02   0.000000   0.000000   0.000000  0.0  0.0
+2018-05-03   0.000000   0.000000   0.000000  0.0  0.0
+2018-05-04   0.000000   0.692040   0.588695  0.0  0.0
+2018-05-05   1.737727  35.851317  69.507297  0.0  0.0
+2018-05-06  12.880064   0.194473  72.932611  0.0  0.0
+</pre></div></div>
+</div>
+<p><strong>Algunos apuntes antes de seguir</strong></p>
+<p>Vamos a realizar una figura mostrando la pluma de precipitación acumulada a lo largo de los plazos de pronóstico</p>
+<p>Para ello utilizamos la función cumsum de la libreria pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.cumsum.html">link</a></p>
+<p>En la figura vamos a remarcar en el eje X cuando hay 7 dias, de manera de tener las semanas.</p>
+<p>Las lineas de colores corresponden a UN miembro de ensamble y en línea negra gruesa, el acumulado observado.</p>
+<p>Las observaciones proviene del archivo datos_mercedes.xlsx para trabajar con los datos de la estación del SMN en Mercedes, Corrientes.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>obs = pd.read_excel(&#39;./datos_mercedes.xlsx&#39;, usecols=[&#39;Fecha&#39;,&#39;Precipitacion&#39;, &#39;Tmax&#39;, &#39;Tmin&#39;], engine=&#39;openpyxl&#39;)
+obs = obs.set_index(&#39;Fecha&#39;).fillna(0)
+
+# Calculamos los acumulados para observacion y pronostico corregido.
+accobs = obs.cumsum()
+accpp = result.cumsum()
+accpp.columns = [&#39;c00&#39;, &#39;p01&#39;, &#39;p02&#39;, &#39;p03&#39;, &#39;p04&#39;, &#39;p05&#39;, &#39;p06&#39;, &#39;p07&#39;, &#39;p08&#39;, &#39;p09&#39;, &#39;p10&#39;]
+
+
+fig, ax2 = plt.subplots()
+
+ax2.plot(accpp.index, accpp.loc[:,:].to_numpy(), zorder=0, linewidth=0.8)
+ax2.plot(accobs.index, accobs.loc[:,&#39;Precipitacion&#39;].to_numpy(), color=&#39;k&#39;, zorder=1, linewidth=3)
+ax2.set_xticks(accpp.index[0::7])
+ax2.set_yticks([0, 30, 50, 100, 200, 400, 600, 800, 1000])
+ax2.set_yticklabels([&#39;0&#39;, &#39;&#39;, &#39;50&#39;, &#39;100&#39;, &#39;200&#39;, &#39;400&#39;, &#39;600&#39;, &#39;800&#39;, &#39;1000&#39;])
+ax2.grid(axis=&#39;both&#39;)
+ax2.set_ylim([-50,1000])
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(-50.0, 1000.0)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_5_1.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_5_1.png" />
+</div>
+</div>
+<p><strong>Apuntes</strong></p>
+<p>En la figura podemos ver que hay miembros del ensamble que muestran un acumulado mucho más alto que cualquiera de los otros miembros durante todo el periodo de pronostico (34 dias).</p>
+<p>En base a estos miembros vamos a calcular la proporcion en cada semana que se supere algún umbral de acumulado. Vamos a utilizar 1mm y también 30mm como para tener dos estimaciones de probabilidad.</p>
+<p>Antes tambien vamos a hacer la misma extraccion de datos, pero para los datos <strong>SIN</strong> correccion en la misma fecha:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fs = s3fs.S3FileSystem(anon=True)
+# Listamos todos los archivos dentro del bucket + PATH
+awsfiles = fs.ls(&#39;s3://&#39; + BUCKET_NAME + &#39;/&#39; + PATH)
+nfile = len(awsfiles)
+list_df = []
+for i, awsfile in enumerate(awsfiles):
+    print(&#39;Extrayendo datos del archivo:&#39;)
+    print(awsfile)
+    with fs.open(awsfile) as f:
+        gefs = xr.open_dataset(f)
+        # seleccionamos el mas cercano
+        df0 = gefs.sel(lat=lat_e, lon=lon_e, method=&#39;nearest&#39;)
+        # Eliminamos dimensiones con UN valor (squeeze) y transformamos a Pandas DataFrame
+        df = df0[variable].squeeze().to_pandas()
+        list_df.append(df)
+
+result_sincorr = pd.concat(list_df, axis=1)
+print(result_sincorr.head())
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_c00.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p01.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p02.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p03.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p04.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p05.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p06.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p07.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p08.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p09.nc
+Extrayendo datos del archivo:
+sissa-forecast-database/subseasonal/GEFSv12/rain/2018/20180502/rain_20180502_p10.nc
+               0     1     2    3    4          5    6          7     8    9   \
+time
+2018-05-02   0.00  0.23   0.0  0.0  0.0   0.000000  0.0   0.000000   0.0  0.0
+2018-05-03   0.00  0.00   0.0  0.0  0.0   0.000000  0.0   0.000000   0.0  0.0
+2018-05-04   0.00  0.00   0.0  0.0  0.0   0.000000  0.0   0.800000   0.7  0.0
+2018-05-05  10.25  9.60  28.6  0.1  0.4  17.700001  1.5  17.100001  30.8  0.0
+2018-05-06   5.10  5.20   2.2  0.0  3.6   4.600000  7.8   0.800000  27.2  0.2
+
+             10
+time
+2018-05-02  0.0
+2018-05-03  0.0
+2018-05-04  0.0
+2018-05-05  0.1
+2018-05-06  0.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>accpp_sincorr = result_sincorr.cumsum()
+accpp_sincorr.columns = [&#39;c00&#39;, &#39;p01&#39;, &#39;p02&#39;, &#39;p03&#39;, &#39;p04&#39;, &#39;p05&#39;, &#39;p06&#39;, &#39;p07&#39;, &#39;p08&#39;, &#39;p09&#39;, &#39;p10&#39;]
+
+
+fig, ax1 = plt.subplots()
+
+ax1.plot(accpp_sincorr.index, accpp_sincorr.loc[:,:].to_numpy(), zorder=0, linewidth=0.8)
+ax1.plot(accobs.index, accobs.loc[:,&#39;Precipitacion&#39;].to_numpy(), color=&#39;k&#39;, zorder=1, linewidth=3)
+ax1.set_xticks(accpp_sincorr.index[0::7])
+ax1.set_yticks([0, 30, 50, 100, 200, 400, 600, 800, 1000])
+ax1.set_yticklabels([&#39;0&#39;, &#39;&#39;, &#39;50&#39;, &#39;100&#39;, &#39;200&#39;, &#39;400&#39;, &#39;600&#39;, &#39;800&#39;, &#39;1000&#39;])
+ax1.grid(axis=&#39;both&#39;)
+ax1.set_ylim([-50,1000])
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(-50.0, 1000.0)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_8_1.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_8_1.png" />
+</div>
+</div>
+<p><strong>Cálculo de probabilidad semanal por umbral</strong></p>
+<p>Ahora vamos a calcular la probabilidad en distintos umbrales.</p>
+<p>Creamos una lista colocando el numero correspondiente a la semana para agrupar.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lsemana = np.arange(0, len(accpp))
+lsemana[0:7] = 1
+lsemana[7:14] = 2
+lsemana[14:21] = 3
+lsemana[21:] = 4
+# La ultima semana la consideramos con todos los datos que quedan posterior a la tercera semana (21 a 34 de plazo de pronostico)
+# Agregamos la nueva columna
+result = result.assign(i_semana = lsemana)
+result_sincorr = result_sincorr.assign(i_semana = lsemana)
+obs = obs.assign(i_semana = lsemana)
+# Agrupamos por semana y sumamos ( ie calculamos el acumulado semanal de cada miembro del ensamble)
+acc_sem = result.groupby(by=&#39;i_semana&#39;).sum()
+acc_sem_sincorr = result_sincorr.groupby(by=&#39;i_semana&#39;).sum()
+acc_obs = obs.groupby(by=&#39;i_semana&#39;).sum()
+
+print(acc_sem)
+print(acc_sem_sincorr)
+print(acc_obs)
+
+
+for semana in np.arange(0,4):
+    print(&#39; ############ Pronóstico para la semana:&#39;, semana+1, &#39; ############ &#39;)
+    print(&#39; #### Lluvia observada: &#39;, acc_obs.loc[:,&#39;Precipitacion&#39;].to_numpy()[semana])
+    for umbral in umbrales:
+        print(&#39;** Calculando probabilidad semana &#39; + str(semana+1) + &#39; para umbral:&#39;, umbral, &#39;mm  **&#39;)
+        c0 = acc_sem[acc_sem &gt; umbral].count(axis=1)/11
+        c1 = acc_sem_sincorr[acc_sem_sincorr &gt; umbral].count(axis=1)/11
+        print(&#39;Probabilidad semana &#39; + str(semana+1) + &#39; sin corregir:&#39;, np.round(c1.to_numpy()[semana],2) )
+        print(&#39;Probabilidad semana &#39; + str(semana+1) + &#39; corregida&#39;, np.round(c0.to_numpy()[semana],2) )
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+                   0           1           2           3           4  \
+i_semana
+1          26.263901   25.198363   65.492110  177.124571   59.813120
+2          15.715367  190.372088  153.883944    0.000000   31.464908
+3         346.179111    0.000000  146.227337  416.947716  672.646280
+4           0.000000  112.854193    0.000000  250.485864  176.595301
+
+                   5           6           7           8           9  \
+i_semana
+1         156.810251   20.766395   52.043809  143.028603  211.645382
+2           6.916709   78.172491  315.860148  201.824792   26.811859
+3          19.355273   49.140596    0.000000  244.963303    0.000000
+4         106.176080  477.167165    0.000000  222.339360  248.958672
+
+                  10
+i_semana
+1           0.000000
+2          46.472968
+3         267.398382
+4          11.534674
+                  0          1          2          3          4          5  \
+i_semana
+1         15.450000  15.030000  30.800000  61.200001  28.300001  71.000001
+2          9.500000  42.999695  30.484277   0.150031  15.349420  14.150886
+3         49.376323   0.000000  38.028235  67.204828  98.797251  12.201772
+4          0.699817  28.751620   5.150031  37.298413  38.847771  32.449176
+
+                  6           7          8          9         10
+i_semana
+1         15.400000   29.400000  59.300000  70.000002   0.200000
+2         23.519939  106.649727  46.450092  13.351253  15.200001
+3         18.598473    0.049969  28.306189   0.000000  38.494625
+4         72.049225    1.249847  26.247893  34.502016  13.157917
+          Precipitacion   Tmax   Tmin
+i_semana
+1                 128.0  172.4  135.4
+2                 144.0  158.3  104.8
+3                   4.0  128.9   65.4
+4                  56.0  272.4  138.6
+ ############ Pronóstico para la semana: 1  ############
+ #### Lluvia observada:  128.0
+** Calculando probabilidad semana 1 para umbral: 1.0 mm  **
+Probabilidad semana 1 sin corregir: 0.91
+Probabilidad semana 1 corregida 0.91
+** Calculando probabilidad semana 1 para umbral: 30.0 mm  **
+Probabilidad semana 1 sin corregir: 0.45
+Probabilidad semana 1 corregida 0.64
+** Calculando probabilidad semana 1 para umbral: 50.0 mm  **
+Probabilidad semana 1 sin corregir: 0.36
+Probabilidad semana 1 corregida 0.64
+** Calculando probabilidad semana 1 para umbral: 100.0 mm  **
+Probabilidad semana 1 sin corregir: 0.0
+Probabilidad semana 1 corregida 0.36
+ ############ Pronóstico para la semana: 2  ############
+ #### Lluvia observada:  144.0
+** Calculando probabilidad semana 2 para umbral: 1.0 mm  **
+Probabilidad semana 2 sin corregir: 0.91
+Probabilidad semana 2 corregida 0.91
+** Calculando probabilidad semana 2 para umbral: 30.0 mm  **
+Probabilidad semana 2 sin corregir: 0.36
+Probabilidad semana 2 corregida 0.64
+** Calculando probabilidad semana 2 para umbral: 50.0 mm  **
+Probabilidad semana 2 sin corregir: 0.09
+Probabilidad semana 2 corregida 0.45
+** Calculando probabilidad semana 2 para umbral: 100.0 mm  **
+Probabilidad semana 2 sin corregir: 0.09
+Probabilidad semana 2 corregida 0.36
+ ############ Pronóstico para la semana: 3  ############
+ #### Lluvia observada:  4.0
+** Calculando probabilidad semana 3 para umbral: 1.0 mm  **
+Probabilidad semana 3 sin corregir: 0.73
+Probabilidad semana 3 corregida 0.73
+** Calculando probabilidad semana 3 para umbral: 30.0 mm  **
+Probabilidad semana 3 sin corregir: 0.45
+Probabilidad semana 3 corregida 0.64
+** Calculando probabilidad semana 3 para umbral: 50.0 mm  **
+Probabilidad semana 3 sin corregir: 0.18
+Probabilidad semana 3 corregida 0.55
+** Calculando probabilidad semana 3 para umbral: 100.0 mm  **
+Probabilidad semana 3 sin corregir: 0.0
+Probabilidad semana 3 corregida 0.55
+ ############ Pronóstico para la semana: 4  ############
+ #### Lluvia observada:  56.0
+** Calculando probabilidad semana 4 para umbral: 1.0 mm  **
+Probabilidad semana 4 sin corregir: 0.91
+Probabilidad semana 4 corregida 0.73
+** Calculando probabilidad semana 4 para umbral: 30.0 mm  **
+Probabilidad semana 4 sin corregir: 0.45
+Probabilidad semana 4 corregida 0.64
+** Calculando probabilidad semana 4 para umbral: 50.0 mm  **
+Probabilidad semana 4 sin corregir: 0.09
+Probabilidad semana 4 corregida 0.64
+** Calculando probabilidad semana 4 para umbral: 100.0 mm  **
+Probabilidad semana 4 sin corregir: 0.0
+Probabilidad semana 4 corregida 0.64
+</pre></div></div>
+</div>
+<p><strong>Graficos para presentar el pronóstico</strong></p>
+<p>Hagamos lo mismo pero con un grafico de barras con la probabilidad para cada semana.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p_sincorr = np.empty((4,len(umbrales)))
+p_sincorr[:] = np.nan
+p_corr = np.empty((4,len(umbrales)))
+p_corr[:] = np.nan
+
+for semana in np.arange(0,4):
+    for i, umbral in enumerate(umbrales):
+        c0 = acc_sem[acc_sem &gt; umbral].count(axis=1)/11
+        c1 = acc_sem_sincorr[acc_sem_sincorr &gt; umbral].count(axis=1)/11
+        p_corr[i, semana] = np.round(c0.to_numpy()[semana],2)
+        p_sincorr[i, semana] = np.round(c1.to_numpy()[semana],2)
+
+
+#### Figura para el primer umbral
+x1 = np.array([-0.2, 0.8, 1.8, 2.8])
+x2 = x1+0.4
+
+fig, ax0 = plt.subplots()
+
+ax0.bar(x1, p_sincorr[0,:]*100, width=0.36, zorder=0, label=&#39;Sin Corregir&#39;)
+ax0.bar(x2, p_corr[0,:]*100, width=0.36, zorder=0, label=&#39;Corregido&#39;)
+ax0.set_xticks(np.arange(0,4))
+ax0.set_xticklabels([&#39;Semana 1&#39;, &#39;Semana 2&#39;, &#39;Semana 3&#39;, &#39;Semana 4&#39;])
+ax0.set_ylim([0,105])
+ax0.set_yticks(np.arange(0,110,10))
+ax0.set_title(&#39;Probabilidad lluvia &gt; 1mm por semana&#39;, loc=&#39;left&#39;)
+ax0.legend()
+
+
+#### Figura para el segundo umbral
+
+fig, ax0 = plt.subplots()
+
+ax0.bar(x1, p_sincorr[1,:]*100, width=0.36, zorder=0, label=&#39;Sin Corregir&#39;)
+ax0.bar(x2, p_corr[1,:]*100, width=0.36, zorder=0, label=&#39;Corregido&#39;)
+ax0.set_xticks(np.arange(0,4))
+ax0.set_xticklabels([&#39;Semana 1&#39;, &#39;Semana 2&#39;, &#39;Semana 3&#39;, &#39;Semana 4&#39;])
+ax0.set_ylim([0,105])
+ax0.set_yticks(np.arange(0,110,10))
+ax0.set_title(&#39;Probabilidad lluvia &gt; 30mm por semana&#39;, loc=&#39;left&#39;)
+ax0.legend()
+
+#### Figura para el segundo umbral
+
+fig, ax0 = plt.subplots()
+
+ax0.bar(x1, p_sincorr[2,:]*100, width=0.36, zorder=0, label=&#39;Sin Corregir&#39;)
+ax0.bar(x2, p_corr[2,:]*100, width=0.36, zorder=0, label=&#39;Corregido&#39;)
+ax0.set_xticks(np.arange(0,4))
+ax0.set_xticklabels([&#39;Semana 1&#39;, &#39;Semana 2&#39;, &#39;Semana 3&#39;, &#39;Semana 4&#39;])
+ax0.set_ylim([0,105])
+ax0.set_yticks(np.arange(0,110,10))
+ax0.set_title(&#39;Probabilidad lluvia &gt; 50mm por semana&#39;, loc=&#39;left&#39;)
+ax0.legend()
+
+
+#### Figura para el segundo umbral
+
+fig, ax0 = plt.subplots()
+
+ax0.bar(x1, p_sincorr[3,:]*100, width=0.36, zorder=0, label=&#39;Sin Corregir&#39;)
+ax0.bar(x2, p_corr[3,:]*100, width=0.36, zorder=0, label=&#39;Corregido&#39;)
+ax0.set_xticks(np.arange(0,4))
+ax0.set_xticklabels([&#39;Semana 1&#39;, &#39;Semana 2&#39;, &#39;Semana 3&#39;, &#39;Semana 4&#39;])
+ax0.set_ylim([0,105])
+ax0.set_yticks(np.arange(0,110,10))
+ax0.set_title(&#39;Probabilidad lluvia &gt; 100mm por semana&#39;, loc=&#39;left&#39;)
+ax0.legend()
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x164c07d0850&gt;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_1.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_2.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_2.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_3.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_3.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_4.png" src="../../../_images/SISSA_database_tutoriales_python_Tutorial_pronostico_semana2_12_4.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../Tutorial_verificacion/" class="btn btn-neutral float-left" title="Ejercicio 5: Verificacion de pronosticos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../Tutorial_pronostico_tmin/" class="btn btn-neutral float-right" title="Ejemplo: probabilidad de temperaturas frias" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor Centro Regional sobre el clima para el Sur de América del Sur.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
